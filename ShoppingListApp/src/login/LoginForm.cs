@@ -34,6 +34,8 @@ namespace ShoppingListApp
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            // TODO: make sure passwords are secure enough, maybe based on their entropy?
+            //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
             string user = txtUser.Text;
             if (!LoginUtils.CreateUserFolders(user))
             {
@@ -81,7 +83,7 @@ namespace ShoppingListApp
                 return;
             }
 
-            // here we should open up a new form, this response is temporary
+            // TODO: boot up welcome form instead of changing login response
             lblLoginResponse.Text = "success";
         }
     }
