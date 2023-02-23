@@ -38,6 +38,7 @@
             btn_terms = new Button();
             btn_Login = new Button();
             btn_Register = new Button();
+            lblLoginResponse = new Label();
             SuspendLayout();
             // 
             // lbl_title
@@ -92,12 +93,12 @@
             // cbx_showPass
             // 
             cbx_showPass.AutoSize = true;
-            cbx_showPass.Location = new Point(269, 74);
+            cbx_showPass.Location = new Point(269, 75);
             cbx_showPass.Margin = new Padding(3, 2, 3, 2);
             cbx_showPass.Name = "cbx_showPass";
-            cbx_showPass.Size = new Size(113, 19);
+            cbx_showPass.Size = new Size(108, 19);
             cbx_showPass.TabIndex = 5;
-            cbx_showPass.Text = "Show Password?";
+            cbx_showPass.Text = "Show password";
             cbx_showPass.UseVisualStyleBackColor = true;
             cbx_showPass.CheckedChanged += cbx_showPass_CheckedChanged;
             // 
@@ -108,13 +109,13 @@
             btn_terms.Name = "btn_terms";
             btn_terms.Size = new Size(94, 39);
             btn_terms.TabIndex = 6;
-            btn_terms.Text = "Terms Of Service?";
+            btn_terms.Text = "Terms of Service";
             btn_terms.UseVisualStyleBackColor = true;
             // 
             // btn_Login
             // 
             btn_Login.Enabled = false;
-            btn_Login.Location = new Point(100, 103);
+            btn_Login.Location = new Point(100, 118);
             btn_Login.Margin = new Padding(3, 2, 3, 2);
             btn_Login.Name = "btn_Login";
             btn_Login.Size = new Size(164, 37);
@@ -125,7 +126,7 @@
             // btn_Register
             // 
             btn_Register.Enabled = false;
-            btn_Register.Location = new Point(270, 103);
+            btn_Register.Location = new Point(270, 118);
             btn_Register.Margin = new Padding(3, 2, 3, 2);
             btn_Register.Name = "btn_Register";
             btn_Register.Size = new Size(109, 37);
@@ -134,12 +135,22 @@
             btn_Register.UseVisualStyleBackColor = true;
             btn_Register.Click += btn_Register_Click;
             // 
+            // lblLoginResponse
+            // 
+            lblLoginResponse.AutoSize = true;
+            lblLoginResponse.Location = new Point(100, 98);
+            lblLoginResponse.Name = "lblLoginResponse";
+            lblLoginResponse.Size = new Size(149, 15);
+            lblLoginResponse.TabIndex = 9;
+            lblLoginResponse.Text = "login response placeholder";
+            // 
             // frm_Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
-            ClientSize = new Size(389, 151);
+            ClientSize = new Size(389, 166);
+            Controls.Add(lblLoginResponse);
             Controls.Add(btn_Register);
             Controls.Add(btn_Login);
             Controls.Add(btn_terms);
@@ -169,5 +180,6 @@
         private Button btn_terms;
         private Button btn_Login;
         private Button btn_Register;
+        private Label lblLoginResponse;
     }
 }
