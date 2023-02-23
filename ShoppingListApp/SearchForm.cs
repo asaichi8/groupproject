@@ -12,7 +12,7 @@ namespace ShoppingListApp
 {
     public partial class SearchForm : Form
     {
-        string searchItem;
+        //string searchItem;
         public SearchForm(string searchItem)
         {
             InitializeComponent();
