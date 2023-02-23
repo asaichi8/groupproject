@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,5 +37,10 @@ namespace ShoppingListApp
 
         public static bool VerifyHash(string text, byte[] salt, byte[] hash) =>
             HashText(text, salt).SequenceEqual(hash);
+
+        public static string HashedPasswordToString(byte[] hashedPassword, byte[] salt)
+        {
+            return Encoding.UTF8.GetString(salt) + Encoding.UTF8.GetString(hashedPassword);
+        }
     }
 }

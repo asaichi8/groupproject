@@ -16,8 +16,6 @@ namespace ShoppingListApp
 {
     public partial class frmLogin : Form
     {
-        //string username;
-        //SecureString password;
         public frmLogin()
         {
             InitializeComponent();
@@ -48,13 +46,23 @@ namespace ShoppingListApp
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (!LoginUtils.CreateUserFolders(txtUser.Text))
+            string user = txtUser.Text;
+            // create folders
+            if (!LoginUtils.CreateUserFolders(user))
             {
                 lblLoginResponse.Text = "Failed to create user folders.";
                 return;
             }
 
-            // ...
+            // start new code block so our data is in memory as little as possible
+            {
+                byte[] salt = Hasher.GenerateSalt();
+
+                byte[] szHashedPass = Hasher.HashText(txtPassword.Text, salt);
+                string strHashedPass = Hasher.HashedPasswordToString(szHashedPass, salt);
+
+                LoginUtils.CreatePasswordFile(user, strHashedPass);
+            }
 
             lblLoginResponse.Text = "Register successful.";
         }
