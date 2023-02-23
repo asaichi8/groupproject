@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ShoppingListApp
+namespace ShoppingListApp.src.login
 {
     public static class LoginUtils
     {
