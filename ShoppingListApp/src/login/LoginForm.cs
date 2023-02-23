@@ -16,6 +16,7 @@ namespace ShoppingListApp
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)
         {
+            // usernames and passwords cannot be empty, so disable the text boxes if they are
             if (txtPassword.Text.Length == 0 || txtUser.Text.Length == 0)
             {
                 btnLogin.Enabled = false;
@@ -56,6 +57,7 @@ namespace ShoppingListApp
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // disallow any characters in the username textbox that aren't allowed in a username
             e.Handled = !LoginUtils.isUsernameCharValid(e.KeyChar);
         }
 
