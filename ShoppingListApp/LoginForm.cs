@@ -51,12 +51,20 @@ namespace ShoppingListApp
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.Handled = !LoginUtils.isUsernameCharValid(e.KeyChar);
+        }
+    }
+
+    public static class LoginUtils
+    {
+        public static bool isUsernameCharValid(char c)
+        {
             Regex regexValidCharacter = new(@"^[A-Za-z0-9\b]");
 
-            if (char.IsControl(e.KeyChar)) // allow shortcuts e.g. ctrl+c, ctrl+a etc.
-                return;
+            if (char.IsControl(c)) // allow shortcuts e.g. ctrl+c, ctrl+a etc.
+                return true;
 
-            e.Handled = !regexValidCharacter.IsMatch(e.KeyChar.ToString());
+            return regexValidCharacter.IsMatch(c.ToString());
         }
     }
 }
