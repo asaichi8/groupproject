@@ -13,11 +13,11 @@ namespace ShoppingListApp
     using System.Security;
     using System.Text.RegularExpressions;
 
-    public partial class frm_Login : Form
+    public partial class frmLogin : Form
     {
         //string username;
         //SecureString password;
-        public frm_Login()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -29,20 +29,20 @@ namespace ShoppingListApp
 
         private void loginInfo_TextChanged(object sender, EventArgs e)
         {
-            if (txt_password.Text.Length == 0 || txt_user.Text.Length == 0)
+            if (txtPassword.Text.Length == 0 || txtUser.Text.Length == 0)
             {
-                btn_Login.Enabled = false;
-                btn_Register.Enabled = false;
+                btnLogin.Enabled = false;
+                btnRegister.Enabled = false;
                 return;
             }
 
-            btn_Login.Enabled = true;
-            btn_Register.Enabled = true;
+            btnLogin.Enabled = true;
+            btnRegister.Enabled = true;
         }
 
         private void cbx_showPass_CheckedChanged(object sender, EventArgs e)
         {
-            txt_password.UseSystemPasswordChar = !cbx_showPass.Checked;
+            txtPassword.UseSystemPasswordChar = !cbxShowPass.Checked;
         }
 
         private void btn_Register_Click(object sender, EventArgs e)

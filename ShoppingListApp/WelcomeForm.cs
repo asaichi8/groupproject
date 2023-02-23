@@ -17,7 +17,7 @@ namespace ShoppingListApp
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            Form productPage = new SearchForm(searchItem);
+            Form productPage = new frmSearch(searchItem);
             productPage.Show();
         }
 

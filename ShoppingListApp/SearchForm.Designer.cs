@@ -1,6 +1,6 @@
 ﻿namespace ShoppingListApp
 {
-    partial class SearchForm
+    partial class frmSearch
     {
         /// <summary>
         /// Required designer variable.
@@ -28,49 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
-            this.btn_Search = new System.Windows.Forms.Button();
-            this.txt_Search = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearch));
+            btnSearch = new Button();
+            txtSearch = new TextBox();
+            SuspendLayout();
             // 
-            // btn_Search
+            // btnSearch
             // 
-            this.btn_Search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Search.Location = new System.Drawing.Point(0, -1);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(166, 75);
-            this.btn_Search.TabIndex = 0;
-            this.btn_Search.Text = "Return to search menu";
-            this.btn_Search.UseVisualStyleBackColor = true;
+            btnSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSearch.Location = new Point(0, -1);
+            btnSearch.Margin = new Padding(3, 2, 3, 2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(145, 56);
+            btnSearch.TabIndex = 0;
+            btnSearch.Text = "Return to search menu";
+            btnSearch.UseVisualStyleBackColor = true;
             // 
-            // txt_Search
+            // txtSearch
             // 
-            this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Search.Location = new System.Drawing.Point(206, 14);
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(363, 38);
-            this.txt_Search.TabIndex = 4;
-            this.txt_Search.Text = "Enter product name here...";
+            txtSearch.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(180, 10);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(318, 32);
+            txtSearch.TabIndex = 4;
+            txtSearch.Text = "Enter product name here...";
             // 
-            // SearchForm
+            // frmSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txt_Search);
-            this.Controls.Add(this.btn_Search);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SearchForm";
-            this.Text = "SearchForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Info;
+            ClientSize = new Size(700, 338);
+            Controls.Add(txtSearch);
+            Controls.Add(btnSearch);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "frmSearch";
+            Text = "SearchForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button btn_Search;
-        private TextBox txt_Search;
+        private Button btnSearch;
+        private TextBox txtSearch;
     }
 }

@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace ShoppingListApp
 {
-    public partial class SearchForm : Form
+    public partial class frmSearch : Form
     {
         //string searchItem;
-        public SearchForm(string searchItem)
+        public frmSearch(string searchItem)
         {
             InitializeComponent();
-            if(searchItem != null)
+            if (searchItem != null)
             {
-                txt_Search.Text = searchItem;
+                txtSearch.Text = searchItem;
             }
         }
     }

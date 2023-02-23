@@ -1,6 +1,6 @@
 ﻿namespace ShoppingListApp
 {
-    partial class ListForm
+    partial class frmList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListForm));
-            this.btn_welcome = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmList));
+            btnWelcome = new Button();
+            SuspendLayout();
             // 
-            // btn_welcome
+            // btnWelcome
             // 
-            this.btn_welcome.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_welcome.Location = new System.Drawing.Point(-2, -3);
-            this.btn_welcome.Name = "btn_welcome";
-            this.btn_welcome.Size = new System.Drawing.Size(157, 74);
-            this.btn_welcome.TabIndex = 0;
-            this.btn_welcome.Text = "Return to welcome page";
-            this.btn_welcome.UseVisualStyleBackColor = true;
+            btnWelcome.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWelcome.Location = new Point(-2, -2);
+            btnWelcome.Margin = new Padding(3, 2, 3, 2);
+            btnWelcome.Name = "btnWelcome";
+            btnWelcome.Size = new Size(137, 56);
+            btnWelcome.TabIndex = 0;
+            btnWelcome.Text = "Return to welcome page";
+            btnWelcome.UseVisualStyleBackColor = true;
             // 
-            // ListForm
+            // frmList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_welcome);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ListForm";
-            this.Text = "ListForm";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Info;
+            ClientSize = new Size(700, 338);
+            Controls.Add(btnWelcome);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "frmList";
+            Text = "ListForm";
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btn_welcome;
+        private Button btnWelcome;
     }
 }

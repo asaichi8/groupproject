@@ -1,6 +1,6 @@
 ﻿namespace ShoppingListApp
 {
-    partial class frm_Login
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,112 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
-            lbl_title = new Label();
-            txt_user = new TextBox();
-            txt_password = new TextBox();
-            lbl_Username = new Label();
-            lbl_password = new Label();
-            cbx_showPass = new CheckBox();
-            btn_terms = new Button();
-            btn_Login = new Button();
-            btn_Register = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            lblTitle = new Label();
+            txtUser = new TextBox();
+            txtPassword = new TextBox();
+            lblUsername = new Label();
+            lblPassword = new Label();
+            cbxShowPass = new CheckBox();
+            btnTerms = new Button();
+            btnLogin = new Button();
+            btnRegister = new Button();
             lblLoginResponse = new Label();
             SuspendLayout();
             // 
-            // lbl_title
+            // lblTitle
             // 
-            lbl_title.AutoSize = true;
-            lbl_title.Location = new Point(158, 11);
-            lbl_title.Name = "lbl_title";
-            lbl_title.Size = new Size(43, 15);
-            lbl_title.TabIndex = 0;
-            lbl_title.Text = "Sign in";
+            lblTitle.AutoSize = true;
+            lblTitle.Location = new Point(158, 11);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(43, 15);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Sign in";
             // 
-            // txt_user
+            // txtUser
             // 
-            txt_user.Location = new Point(100, 34);
-            txt_user.Margin = new Padding(3, 2, 3, 2);
-            txt_user.MaxLength = 32;
-            txt_user.Name = "txt_user";
-            txt_user.Size = new Size(164, 23);
-            txt_user.TabIndex = 1;
-            txt_user.TextChanged += loginInfo_TextChanged;
-            txt_user.KeyPress += txt_user_KeyPress;
+            txtUser.Location = new Point(100, 34);
+            txtUser.Margin = new Padding(3, 2, 3, 2);
+            txtUser.MaxLength = 32;
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(164, 23);
+            txtUser.TabIndex = 1;
+            txtUser.TextChanged += loginInfo_TextChanged;
+            txtUser.KeyPress += txt_user_KeyPress;
             // 
-            // txt_password
+            // txtPassword
             // 
-            txt_password.Location = new Point(100, 73);
-            txt_password.Margin = new Padding(3, 2, 3, 2);
-            txt_password.MaxLength = 128;
-            txt_password.Name = "txt_password";
-            txt_password.Size = new Size(164, 23);
-            txt_password.TabIndex = 2;
-            txt_password.UseSystemPasswordChar = true;
-            txt_password.TextChanged += loginInfo_TextChanged;
+            txtPassword.Location = new Point(100, 73);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.MaxLength = 128;
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(164, 23);
+            txtPassword.TabIndex = 2;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.TextChanged += loginInfo_TextChanged;
             // 
-            // lbl_Username
+            // lblUsername
             // 
-            lbl_Username.AutoSize = true;
-            lbl_Username.Location = new Point(23, 37);
-            lbl_Username.Name = "lbl_Username";
-            lbl_Username.Size = new Size(63, 15);
-            lbl_Username.TabIndex = 3;
-            lbl_Username.Text = "Username:";
+            lblUsername.AutoSize = true;
+            lblUsername.Location = new Point(23, 37);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(63, 15);
+            lblUsername.TabIndex = 3;
+            lblUsername.Text = "Username:";
             // 
-            // lbl_password
+            // lblPassword
             // 
-            lbl_password.AutoSize = true;
-            lbl_password.Location = new Point(27, 78);
-            lbl_password.Name = "lbl_password";
-            lbl_password.Size = new Size(60, 15);
-            lbl_password.TabIndex = 4;
-            lbl_password.Text = "Password:";
+            lblPassword.AutoSize = true;
+            lblPassword.Location = new Point(27, 78);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(60, 15);
+            lblPassword.TabIndex = 4;
+            lblPassword.Text = "Password:";
             // 
-            // cbx_showPass
+            // cbxShowPass
             // 
-            cbx_showPass.AutoSize = true;
-            cbx_showPass.Location = new Point(269, 75);
-            cbx_showPass.Margin = new Padding(3, 2, 3, 2);
-            cbx_showPass.Name = "cbx_showPass";
-            cbx_showPass.Size = new Size(108, 19);
-            cbx_showPass.TabIndex = 5;
-            cbx_showPass.Text = "Show password";
-            cbx_showPass.UseVisualStyleBackColor = true;
-            cbx_showPass.CheckedChanged += cbx_showPass_CheckedChanged;
+            cbxShowPass.AutoSize = true;
+            cbxShowPass.Location = new Point(269, 75);
+            cbxShowPass.Margin = new Padding(3, 2, 3, 2);
+            cbxShowPass.Name = "cbxShowPass";
+            cbxShowPass.Size = new Size(108, 19);
+            cbxShowPass.TabIndex = 5;
+            cbxShowPass.Text = "Show password";
+            cbxShowPass.UseVisualStyleBackColor = true;
+            cbxShowPass.CheckedChanged += cbx_showPass_CheckedChanged;
             // 
-            // btn_terms
+            // btnTerms
             // 
-            btn_terms.Location = new Point(285, 9);
-            btn_terms.Margin = new Padding(3, 2, 3, 2);
-            btn_terms.Name = "btn_terms";
-            btn_terms.Size = new Size(94, 39);
-            btn_terms.TabIndex = 6;
-            btn_terms.Text = "Terms of Service";
-            btn_terms.UseVisualStyleBackColor = true;
+            btnTerms.Location = new Point(285, 9);
+            btnTerms.Margin = new Padding(3, 2, 3, 2);
+            btnTerms.Name = "btnTerms";
+            btnTerms.Size = new Size(94, 39);
+            btnTerms.TabIndex = 6;
+            btnTerms.Text = "Terms of Service";
+            btnTerms.UseVisualStyleBackColor = true;
             // 
-            // btn_Login
+            // btnLogin
             // 
-            btn_Login.Enabled = false;
-            btn_Login.Location = new Point(100, 118);
-            btn_Login.Margin = new Padding(3, 2, 3, 2);
-            btn_Login.Name = "btn_Login";
-            btn_Login.Size = new Size(164, 37);
-            btn_Login.TabIndex = 7;
-            btn_Login.Text = "Login";
-            btn_Login.UseVisualStyleBackColor = true;
+            btnLogin.Enabled = false;
+            btnLogin.Location = new Point(100, 118);
+            btnLogin.Margin = new Padding(3, 2, 3, 2);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(164, 37);
+            btnLogin.TabIndex = 7;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
             // 
-            // btn_Register
+            // btnRegister
             // 
-            btn_Register.Enabled = false;
-            btn_Register.Location = new Point(270, 118);
-            btn_Register.Margin = new Padding(3, 2, 3, 2);
-            btn_Register.Name = "btn_Register";
-            btn_Register.Size = new Size(109, 37);
-            btn_Register.TabIndex = 8;
-            btn_Register.Text = "Register";
-            btn_Register.UseVisualStyleBackColor = true;
-            btn_Register.Click += btn_Register_Click;
+            btnRegister.Enabled = false;
+            btnRegister.Location = new Point(270, 118);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(109, 37);
+            btnRegister.TabIndex = 8;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btn_Register_Click;
             // 
             // lblLoginResponse
             // 
@@ -144,25 +144,25 @@
             lblLoginResponse.TabIndex = 9;
             lblLoginResponse.Text = "login response placeholder";
             // 
-            // frm_Login
+            // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(389, 166);
             Controls.Add(lblLoginResponse);
-            Controls.Add(btn_Register);
-            Controls.Add(btn_Login);
-            Controls.Add(btn_terms);
-            Controls.Add(cbx_showPass);
-            Controls.Add(lbl_password);
-            Controls.Add(lbl_Username);
-            Controls.Add(txt_password);
-            Controls.Add(txt_user);
-            Controls.Add(lbl_title);
+            Controls.Add(btnRegister);
+            Controls.Add(btnLogin);
+            Controls.Add(btnTerms);
+            Controls.Add(cbxShowPass);
+            Controls.Add(lblPassword);
+            Controls.Add(lblUsername);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUser);
+            Controls.Add(lblTitle);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frm_Login";
+            Name = "frmLogin";
             Text = "Login";
             Load += LoginForm_Load;
             ResumeLayout(false);
@@ -171,15 +171,15 @@
 
         #endregion
 
-        private Label lbl_title;
-        private TextBox txt_user;
-        private TextBox txt_password;
-        private Label lbl_Username;
-        private Label lbl_password;
-        private CheckBox cbx_showPass;
-        private Button btn_terms;
-        private Button btn_Login;
-        private Button btn_Register;
+        private Label lblTitle;
+        private TextBox txtUser;
+        private TextBox txtPassword;
+        private Label lblUsername;
+        private Label lblPassword;
+        private CheckBox cbxShowPass;
+        private Button btnTerms;
+        private Button btnLogin;
+        private Button btnRegister;
         private Label lblLoginResponse;
     }
 }
