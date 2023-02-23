@@ -47,21 +47,18 @@ namespace ShoppingListApp
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string user = txtUser.Text;
-            // create folders
             if (!LoginUtils.CreateUserFolders(user))
             {
                 lblLoginResponse.Text = "Failed to create user folders.";
                 return;
             }
 
-            // start new code block so our data is in memory as little as possible
+            byte[] hashedPassword = Hasher.Hash(txtPassword.Text);
+
+            if (!LoginUtils.CreatePasswordFile(user, hashedPassword))
             {
-                byte[] salt = Hasher.GenerateSalt();
-
-                byte[] szHashedPass = Hasher.HashText(txtPassword.Text, salt);
-                string strHashedPass = Hasher.HashedPasswordToString(szHashedPass, salt);
-
-                LoginUtils.CreatePasswordFile(user, strHashedPass);
+                lblLoginResponse.Text = "Failed to store password.";
+                return;
             }
 
             lblLoginResponse.Text = "Register successful.";
@@ -74,7 +71,30 @@ namespace ShoppingListApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string user = txtUser.Text;
+            string userDir = LoginUtils.GetUserDir(user);
 
+            if (!Directory.Exists(userDir))
+            {
+                lblLoginResponse.Text = "Invalid username.";
+                return;
+            }
+
+            byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
+            if (hashedPassword == null || hashedPassword.Length != 64)
+            {
+                lblLoginResponse.Text = "Could not read password file.";
+                return;
+            }
+
+            if (!Hasher.VerifyHash(txtPassword.Text, hashedPassword))
+            {
+                lblLoginResponse.Text = "Invalid password.";
+                return;
+            }
+
+            // here we should open up a new form, this response is temporary
+            lblLoginResponse.Text = "success";
         }
     }
 }

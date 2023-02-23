@@ -141,9 +141,8 @@
             lblLoginResponse.AutoSize = true;
             lblLoginResponse.Location = new Point(100, 98);
             lblLoginResponse.Name = "lblLoginResponse";
-            lblLoginResponse.Size = new Size(149, 15);
+            lblLoginResponse.Size = new Size(0, 15);
             lblLoginResponse.TabIndex = 9;
-            lblLoginResponse.Text = "login response placeholder";
             // 
             // frmLogin
             // 
