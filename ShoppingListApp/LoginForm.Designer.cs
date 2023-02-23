@@ -37,6 +37,7 @@
             cbx_showPass = new CheckBox();
             btn_terms = new Button();
             btn_Login = new Button();
+            btn_Register = new Button();
             SuspendLayout();
             // 
             // lbl_title
@@ -52,7 +53,7 @@
             // 
             txt_user.Location = new Point(100, 34);
             txt_user.Margin = new Padding(3, 2, 3, 2);
-            txt_user.MaxLength = 128;
+            txt_user.MaxLength = 32;
             txt_user.Name = "txt_user";
             txt_user.Size = new Size(164, 23);
             txt_user.TabIndex = 1;
@@ -120,12 +121,24 @@
             btn_Login.Text = "Login";
             btn_Login.UseVisualStyleBackColor = true;
             // 
+            // btn_Register
+            // 
+            btn_Register.Enabled = false;
+            btn_Register.Location = new Point(270, 103);
+            btn_Register.Margin = new Padding(3, 2, 3, 2);
+            btn_Register.Name = "btn_Register";
+            btn_Register.Size = new Size(109, 37);
+            btn_Register.TabIndex = 8;
+            btn_Register.Text = "Register";
+            btn_Register.UseVisualStyleBackColor = true;
+            // 
             // frm_Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(389, 151);
+            Controls.Add(btn_Register);
             Controls.Add(btn_Login);
             Controls.Add(btn_terms);
             Controls.Add(cbx_showPass);
@@ -153,5 +166,6 @@
         private CheckBox cbx_showPass;
         private Button btn_terms;
         private Button btn_Login;
+        private Button btn_Register;
     }
 }

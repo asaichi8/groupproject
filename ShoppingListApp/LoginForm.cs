@@ -30,10 +30,12 @@ namespace ShoppingListApp
             if (txt_password.Text.Length == 0 || txt_user.Text.Length == 0)
             {
                 btn_Login.Enabled = false;
+                btn_Register.Enabled = false;
                 return;
             }
 
             btn_Login.Enabled = true;
+            btn_Register.Enabled = true;
         }
 
         private void cbx_showPass_CheckedChanged(object sender, EventArgs e)
