@@ -58,6 +58,7 @@
             txt_user.Size = new Size(164, 23);
             txt_user.TabIndex = 1;
             txt_user.TextChanged += loginInfo_TextChanged;
+            txt_user.KeyPress += txt_user_KeyPress;
             // 
             // txt_password
             // 
@@ -131,6 +132,7 @@
             btn_Register.TabIndex = 8;
             btn_Register.Text = "Register";
             btn_Register.UseVisualStyleBackColor = true;
+            btn_Register.Click += btn_Register_Click;
             // 
             // frm_Login
             // 

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 namespace ShoppingListApp
 {
     using System.Security;
+    using System.Text.RegularExpressions;
+
     public partial class frm_Login : Form
     {
         //string username;
@@ -41,6 +43,21 @@ namespace ShoppingListApp
         private void cbx_showPass_CheckedChanged(object sender, EventArgs e)
         {
             txt_password.UseSystemPasswordChar = !cbx_showPass.Checked;
+        }
+
+        private void btn_Register_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_user_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Regex regexValidCharacters = new Regex(@"^[A-Za-z0-9\b]");
+
+            if (char.IsControl(e.KeyChar)) // allow shortcuts e.g. ctrl+c, ctrl+a etc.
+                return;
+
+            e.Handled = !regexValidCharacters.IsMatch(e.KeyChar.ToString());
         }
     }
 }
