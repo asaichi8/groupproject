@@ -46,7 +46,15 @@ namespace ShoppingListApp
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            if (!LoginUtils.CreateUserFolders(txtUser.Text))
+            {
+                lblLoginResponse.Text = "Failed to create user folders.";
+                return;
+            }
 
+            // ...
+
+            lblLoginResponse.Text = "Register successful.";
         }
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
@@ -57,6 +65,41 @@ namespace ShoppingListApp
 
     public static class LoginUtils
     {
+        private static bool CreateFolder(string name, string dir = "")
+        {
+            try
+            {
+                if (dir == null) 
+                    dir = Directory.GetCurrentDirectory();
+
+                string profilesPath = Path.Combine(dir, name);
+
+                // CreateDirectory won't do anything if the folder already exists
+                Directory.CreateDirectory(profilesPath);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool CreateUserFolders(string username)
+        {
+            const string INITIAL_FOLDER = "profiles";
+            string curDir = Directory.GetCurrentDirectory();
+
+            if (!CreateFolder(INITIAL_FOLDER))
+                return false;
+
+            string tarDir = Path.Combine(curDir, INITIAL_FOLDER);
+            if (!CreateFolder(username, tarDir))
+                return false;
+
+            return true;
+        }
+
         public static bool isUsernameCharValid(char c)
         {
             Regex regexValidCharacter = new(@"^[A-Za-z0-9\b]");
