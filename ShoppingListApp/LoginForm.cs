@@ -52,7 +52,7 @@ namespace ShoppingListApp
 
         private void txt_user_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Regex regexValidCharacters = new Regex(@"^[A-Za-z0-9\b]");
+            Regex regexValidCharacters = new(@"^[A-Za-z0-9\b]");
 
             if (char.IsControl(e.KeyChar)) // allow shortcuts e.g. ctrl+c, ctrl+a etc.
                 return;
