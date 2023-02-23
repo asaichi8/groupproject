@@ -2,17 +2,17 @@ namespace ShoppingListApp
 {
     using System.Collections.Specialized;
     using System.Security;
-    public partial class frm_HomePage : Form
+    public partial class frmHomePage : Form
     {
         string searchItem;
-        public frm_HomePage()
+        public frmHomePage()
         {
             InitializeComponent();
         }
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            searchItem = txt_Search.Text;
+            searchItem = txtSearch.Text;
         }
 
         private void btn_Search_Click(object sender, EventArgs e)

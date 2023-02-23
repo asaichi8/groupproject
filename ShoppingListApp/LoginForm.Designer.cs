@@ -58,8 +58,8 @@
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(164, 23);
             txtUser.TabIndex = 1;
-            txtUser.TextChanged += loginInfo_TextChanged;
-            txtUser.KeyPress += txt_user_KeyPress;
+            txtUser.TextChanged += LoginInfo_TextChanged;
+            txtUser.KeyPress += txtUser_KeyPress;
             // 
             // txtPassword
             // 
@@ -70,7 +70,7 @@
             txtPassword.Size = new Size(164, 23);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
-            txtPassword.TextChanged += loginInfo_TextChanged;
+            txtPassword.TextChanged += LoginInfo_TextChanged;
             // 
             // lblUsername
             // 
@@ -100,7 +100,7 @@
             cbxShowPass.TabIndex = 5;
             cbxShowPass.Text = "Show password";
             cbxShowPass.UseVisualStyleBackColor = true;
-            cbxShowPass.CheckedChanged += cbx_showPass_CheckedChanged;
+            cbxShowPass.CheckedChanged += cbxShowPass_CheckedChanged;
             // 
             // btnTerms
             // 
@@ -133,7 +133,7 @@
             btnRegister.TabIndex = 8;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btn_Register_Click;
+            btnRegister.Click += btnRegister_Click;
             // 
             // lblLoginResponse
             // 
