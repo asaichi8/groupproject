@@ -73,6 +73,7 @@ namespace ShoppingListApp
 
             return VerifyHash(text, salt, pass);
         }
+
         /// <summary>
         /// Compare the hashed password to given text.
         /// </summary>

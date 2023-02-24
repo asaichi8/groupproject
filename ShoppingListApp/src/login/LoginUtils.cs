@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace ShoppingListApp.src.login
+namespace ShoppingListApp
 {
     public static class LoginUtils
     {
@@ -38,15 +38,18 @@ namespace ShoppingListApp.src.login
         /// Creates a folder inside the "profiles" folder based on a given username.
         /// </summary>
         /// <param name="username">The name of the folder.</param>
-        /// <returns>TRUE if success, FALSE if failed.</returns>
-        public static bool CreateUserFolders(string username)
+        /// <returns>TRUE if success, FALSE if user already exists, NULL if failed.</returns>
+        public static bool? CreateUserFolders(string username)
         {
             if (!CreateFolder(INITIAL_FOLDER))
-                return false;
+                return null;
 
             string profilesDir = GetProfilesDir();
-            if (Directory.Exists(GetUserDir(username)) || !CreateFolder(username, profilesDir))
+            if (Directory.Exists(GetUserDir(username)))
                 return false;
+
+            if (!CreateFolder(username, profilesDir))
+                return null;
 
             return true;
         }

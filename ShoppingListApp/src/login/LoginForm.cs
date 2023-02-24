@@ -1,6 +1,4 @@
-﻿using ShoppingListApp.src.login;
-
-namespace ShoppingListApp
+﻿namespace ShoppingListApp
 {
     public partial class frmLogin : Form
     {
@@ -38,9 +36,16 @@ namespace ShoppingListApp
             // TODO: make sure passwords are secure enough, maybe based on their entropy?
             //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
             string user = txtUser.Text;
-            if (!LoginUtils.CreateUserFolders(user))
+
+            bool? bCreateUserFolder = LoginUtils.CreateUserFolders(user);
+            if (bCreateUserFolder is null)
             {
                 lblLoginResponse.Text = "Failed to create user folders.";
+                return;
+            }
+            else if (bCreateUserFolder is false)
+            {
+                lblLoginResponse.Text = "Username already exists.";
                 return;
             }
 
