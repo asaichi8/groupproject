@@ -18,7 +18,7 @@ namespace ShoppingListApp
         {
             try
             {
-                if (dir == null)
+                if (dir is null)
                     dir = Directory.GetCurrentDirectory();
 
                 string profilesPath = Path.Combine(dir, name);

@@ -78,7 +78,7 @@
             }
 
             byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
-            if (hashedPassword == null || hashedPassword.Length != 64)
+            if (hashedPassword is null || hashedPassword.Length != 64)
             {
                 SetStatus(lblLoginResponse, "Could not read password file.", Color.Red);
                 return;
