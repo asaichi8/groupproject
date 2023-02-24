@@ -40,12 +40,12 @@
             bool? bCreateUserFolder = LoginUtils.CreateUserFolders(user);
             if (bCreateUserFolder is null)
             {
-                lblLoginResponse.Text = "Failed to create user folders.";
+                SetStatus(lblLoginResponse, "Failed to create user folders.", Color.Red);
                 return;
             }
             else if (bCreateUserFolder is false)
             {
-                lblLoginResponse.Text = "Username already exists.";
+                SetStatus(lblLoginResponse, "Username already exists.", Color.Red);
                 return;
             }
 
@@ -53,11 +53,11 @@
 
             if (!LoginUtils.CreatePasswordFile(user, hashedPassword))
             {
-                lblLoginResponse.Text = "Failed to store password.";
+                SetStatus(lblLoginResponse, "Failed to store password.", Color.Red);
                 return;
             }
 
-            lblLoginResponse.Text = "Register successful.";
+            SetStatus(lblLoginResponse, "Register successful.", Color.Green);
         }
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
@@ -73,25 +73,35 @@
 
             if (!Directory.Exists(userDir))
             {
-                lblLoginResponse.Text = "Invalid username.";
+                SetStatus(lblLoginResponse, "Invalid username.", Color.Red);
                 return;
             }
 
             byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
             if (hashedPassword == null || hashedPassword.Length != 64)
             {
-                lblLoginResponse.Text = "Could not read password file.";
+                SetStatus(lblLoginResponse, "Could not read password file.", Color.Red);
                 return;
             }
 
             if (!Hasher.VerifyHash(txtPassword.Text, hashedPassword))
             {
-                lblLoginResponse.Text = "Invalid password.";
+                SetStatus(lblLoginResponse, "Invalid password.", Color.Red);
                 return;
             }
 
             // TODO: boot up welcome form instead of changing login response
-            lblLoginResponse.Text = "success";
+            SetStatus(lblLoginResponse, "success", Color.Green);
+        }
+
+        private static void SetStatus(object o, string status, Color color)
+        {
+            Label? label = o as Label;
+            if (label is null)
+                return;
+
+            label.Text = status;
+            label.ForeColor = color;
         }
     }
 }
