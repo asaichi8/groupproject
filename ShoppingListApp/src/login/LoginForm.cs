@@ -90,17 +90,14 @@
                 return;
             }
 
-            // TODO: boot up welcome form instead of changing login response
             Hide();
             var welcomeForm = new frmHomePage();
             welcomeForm.Show();
-            //SetStatus(lblLoginResponse, "success", Color.Green);
         }
 
         private static void SetStatus(object o, string status, Color color)
         {
-            Label? label = o as Label;
-            if (label is null)
+            if (o is not Label label)
                 return;
 
             label.Text = status;
