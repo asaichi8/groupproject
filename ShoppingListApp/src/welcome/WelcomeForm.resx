@@ -61,7 +61,7 @@
   <data name="pbxUFix.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIUAAACfCAYAAADXlxrBAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAALRBJREFUeF7tXQd8FNX2Rnm+Z8EnKkiTLl1EAUXEht2nAvrwiVhQsaOg2EH/NhSx
+        vQAADr0BR/uQrQAALRBJREFUeF7tXQd8FNX2Rnm+Z8EnKkiTLl1EAUXEht2nAvrwiVhQsaOg2EH/NhSx
         YkGkCwgkJCQQQoBAEhLSSe+9b3rvle9/zplZUnaSbJINxGS/3+/8kp2duTM797vnnnPuuff2ghlmNIGZ
         FGYYwEwKMwxgJoUZBug0UlRV1SE3uxLZmRXI6eLCz1heVqM+uRmdRgr3Y5m4daQ9RvexxIQ+1l1Wxvex
         wvA+FtiyNkZ9cuB0bTkqC71RkX+CxLWLywlUl9U/uynQaaQ44ZCO6y63wZW9dmJwr91dVgb12oXLeu3A
@@ -259,7 +259,7 @@
   <data name="pbxBrainVire.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAM4AAABaCAYAAADw6GmRAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAANu9JREFUeF7tfQd4VWW2tvfO/Pef+9876ozTdIrOWBgdy1gQCzL2XhnbWEYcxy5K
+        vQAADr0BR/uQrQAANu9JREFUeF7tfQd4VWW2tvfO/Pef+9876ozTdIrOWBgdy1gQCzL2XhnbWEYcxy5K
         kaIiivQqvdcEAmmQQAippBcCCem9k+SUnN5r3n+tdc4hCSQkRLCe93l2cs53dvn2t9e72lf2OQgiiCBO
         G0HiBBHEEBAkThBBDAFB4gQRxBAQJE4QQQwBQeIEEcQQECTO2YLXjS6XFV0OI7zWTniMx+DRN8Gjq/dv
         dXCpK+BWlXZvyhK4FUVwtuXLxp+lrOc+dAwf232eRjm316KG12GQa/K1gzi7CBJnIHg9Ioxeu56EUwmP

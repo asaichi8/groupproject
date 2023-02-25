@@ -91,7 +91,10 @@
             }
 
             // TODO: boot up welcome form instead of changing login response
-            SetStatus(lblLoginResponse, "success", Color.Green);
+            Hide();
+            var welcomeForm = new frmHomePage();
+            welcomeForm.Show();
+            //SetStatus(lblLoginResponse, "success", Color.Green);
         }
 
         private static void SetStatus(object o, string status, Color color)

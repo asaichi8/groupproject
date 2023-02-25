@@ -25,5 +25,10 @@ namespace ShoppingListApp
         {
             MessageBox.Show("This will link to the shopping list.");
         }
+
+        private void frmHomePage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

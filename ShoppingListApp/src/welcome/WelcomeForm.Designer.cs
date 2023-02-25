@@ -133,6 +133,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmHomePage";
             Text = "Welcome";
+            Load += frmHomePage_Load;
             ((System.ComponentModel.ISupportInitialize)pbxUFix).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxBrainVire).EndInit();
             ResumeLayout(false);
