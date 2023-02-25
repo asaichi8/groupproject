@@ -165,7 +165,6 @@
             Name = "frmLogin";
             Text = "Login";
             Load += LoginForm_Load;
-            Shown += frmLogin_Shown;
             VisibleChanged += frmLogin_VisibleChanged;
             ResumeLayout(false);
             PerformLayout();
