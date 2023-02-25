@@ -4,7 +4,7 @@ namespace ShoppingListApp
     using System.Security;
     public partial class frmHomePage : Form
     {
-        string searchItem;
+        string? searchItem;
         public frmHomePage()
         {
             InitializeComponent();
@@ -17,6 +17,9 @@ namespace ShoppingListApp
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
+            if (searchItem is null)
+                return;
+
             Form productPage = new frmSearch(searchItem);
             productPage.Show();
         }
