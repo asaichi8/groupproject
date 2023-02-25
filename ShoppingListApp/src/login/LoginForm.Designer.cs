@@ -1,6 +1,6 @@
 ﻿namespace ShoppingListApp
 {
-    partial class frmLogin
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             lblTitle = new Label();
             txtUser = new TextBox();
             txtPassword = new TextBox();

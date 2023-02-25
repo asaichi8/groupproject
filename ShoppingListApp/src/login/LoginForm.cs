@@ -2,9 +2,9 @@
 
 namespace ShoppingListApp
 {
-    public partial class frmLogin : Form
+    public partial class FormLogin : Form
     {
-        public frmLogin()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -93,7 +93,7 @@ namespace ShoppingListApp
             }
 
             Hide();
-            Form welcomeForm = new frmHomePage(this, user);
+            Form welcomeForm = new FormHomePage(this, user);
             welcomeForm.Show();
         }
 
