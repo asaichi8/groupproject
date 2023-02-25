@@ -39,8 +39,9 @@ namespace ShoppingListApp
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Close();
+            frmLogin.Location = Location;
             frmLogin.Show();
+            Close();
         }
     }
 }

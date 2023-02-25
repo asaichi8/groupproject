@@ -119,7 +119,7 @@
             btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(164, 37);
-            btnLogin.TabIndex = 7;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
@@ -131,7 +131,7 @@
             btnRegister.Margin = new Padding(3, 2, 3, 2);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(109, 37);
-            btnRegister.TabIndex = 8;
+            btnRegister.TabIndex = 4;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
             btnRegister.Click += btnRegister_Click;
@@ -165,6 +165,8 @@
             Name = "frmLogin";
             Text = "Login";
             Load += LoginForm_Load;
+            Shown += frmLogin_Shown;
+            VisibleChanged += frmLogin_VisibleChanged;
             ResumeLayout(false);
             PerformLayout();
         }

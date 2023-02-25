@@ -95,6 +95,22 @@
             welcomeForm.Show();
         }
 
+        // called when Show() is called on this object
+        private void frmLogin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!((Form)sender).Visible)
+                return;
+
+            Reset();
+        }
+
+        private void Reset()
+        {
+            Controls.Clear();
+            InitializeComponent();
+            ActiveControl = txtUser;
+        }
+
         private static void SetStatus(object o, string status, Color color)
         {
             if (o is not Label label)

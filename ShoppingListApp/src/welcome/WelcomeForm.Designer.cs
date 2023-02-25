@@ -81,7 +81,7 @@
             txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(318, 32);
-            txtSearch.TabIndex = 3;
+            txtSearch.TabIndex = 1;
             txtSearch.Text = "Enter product name here...";
             txtSearch.TextChanged += txt_Search_TextChanged;
             // 
@@ -92,7 +92,7 @@
             btnToList.Margin = new Padding(3, 2, 3, 2);
             btnToList.Name = "btnToList";
             btnToList.Size = new Size(200, 67);
-            btnToList.TabIndex = 4;
+            btnToList.TabIndex = 3;
             btnToList.Text = "Go to shopping list";
             btnToList.UseVisualStyleBackColor = true;
             btnToList.Click += btn_ToList_Click;
@@ -104,7 +104,7 @@
             btnFilter.Margin = new Padding(3, 2, 3, 2);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(200, 67);
-            btnFilter.TabIndex = 5;
+            btnFilter.TabIndex = 4;
             btnFilter.Text = "Filter Shops";
             btnFilter.UseVisualStyleBackColor = true;
             // 
@@ -114,7 +114,7 @@
             btnSearch.Margin = new Padding(3, 2, 3, 2);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(123, 26);
-            btnSearch.TabIndex = 6;
+            btnSearch.TabIndex = 2;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btn_Search_Click;
@@ -134,7 +134,7 @@
             btnLogout.Location = new Point(582, 297);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(106, 35);
-            btnLogout.TabIndex = 8;
+            btnLogout.TabIndex = 5;
             btnLogout.Text = "Log out";
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
