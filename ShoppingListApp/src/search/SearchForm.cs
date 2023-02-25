@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingListApp.src;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,19 @@ using System.Windows.Forms;
 
 namespace ShoppingListApp
 {
-    public partial class frmSearch : Form
+    public partial class FormSearch : Form
     {
-        //string searchItem;
-        public frmSearch(string searchItem)
+        Form prevForm;
+        public FormSearch(Form _prevForm, string _searchItem)
         {
             InitializeComponent();
-            if (searchItem != null)
-            {
-                txtSearch.Text = searchItem;
-            }
+            txtSearch.Text = _searchItem;
+            prevForm = _prevForm;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            prevForm.SwapForm(this, true);
         }
     }
 }
