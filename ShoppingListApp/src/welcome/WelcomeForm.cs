@@ -1,12 +1,14 @@
+using ShoppingListApp.src;
+
 namespace ShoppingListApp
 {
-    public partial class frmHomePage : Form
+    public partial class FormHomePage : Form
     {
-        Form frmLogin;
-        string username;
+        readonly Form frmLogin;
+        readonly string username;
         string? searchItem;
 
-        public frmHomePage(Form _frmLogin, string _username)
+        public FormHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
             username = _username;
@@ -26,27 +28,35 @@ namespace ShoppingListApp
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (searchItem is null)
+            {
+                MessageBox.Show("Please enter the product name before attempting to search.", "Could not search",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
-            Form productPage = new frmSearch(searchItem);
-            productPage.Show();
+            Form productPage = new FormSearch(this, searchItem);
+            productPage.SwapForm(this);
+            productPage.CenterChild(this);
         }
 
         private void btnToList_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This will link to the shopping list.");
+            Form formList = new FormList(this, username);
+            formList.SwapForm(this);
+            formList.CenterChild(this);
         }
+
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            // set the location of frmLogin to the center of the current form
-            frmLogin.Location = new Point(
-                this.Location.X + (this.Size.Width / 2) - (frmLogin.Size.Width / 2),
-                this.Location.Y + (this.Size.Height / 2) - (frmLogin.Size.Height / 2)
-            );
+            frmLogin.SwapForm(this);
+            frmLogin.CenterChild(this);
+        }
 
-            frmLogin.Show();
-            Close();
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Placeholder for filtering shops.", "Placeholder");
         }
     }
 }

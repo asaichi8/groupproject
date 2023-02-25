@@ -1,6 +1,6 @@
 ﻿namespace ShoppingListApp
 {
-    partial class frmHomePage
+    partial class FormHomePage
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomePage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHomePage));
             lblWelcomeMessage = new Label();
             pbxUFix = new PictureBox();
             pbxBrainVire = new PictureBox();
@@ -107,6 +107,7 @@
             btnFilter.TabIndex = 4;
             btnFilter.Text = "Filter Shops";
             btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
             // btnSearch
             // 
@@ -139,7 +140,7 @@
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
             // 
-            // frmHomePage
+            // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -155,7 +156,7 @@
             Controls.Add(pbxUFix);
             Controls.Add(lblWelcomeMessage);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmHomePage";
+            Name = "FormHomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Welcome";
             Load += frmHomePage_Load;
