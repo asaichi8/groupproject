@@ -5,8 +5,9 @@ namespace ShoppingListApp.src.Login
     public static class LoginUtils
     {
         private static readonly string CUR_DIR = Directory.GetCurrentDirectory();
-        private static readonly string INITIAL_FOLDER = "profiles";
-        private static readonly string PASSWORD_FILENAME = "cred";
+        private const string INITIAL_FOLDER = "profiles";
+        private const string PASSWORD_FILENAME = "cred";
+        private const int PASSWORD_LENGTH_BYTES = 64;
 
         /// <summary>
         /// Creates a folder with a given name at a specified directory.
@@ -111,10 +112,10 @@ namespace ShoppingListApp.src.Login
 
                 using (FileStream fileStream = new(filePath, FileMode.Open))
                 {
-                    byte[] first64Bytes = new byte[64];
-                    fileStream.Read(first64Bytes, 0, 64);
+                    byte[] passwordInBytes = new byte[PASSWORD_LENGTH_BYTES];
+                    fileStream.Read(passwordInBytes, 0, PASSWORD_LENGTH_BYTES);
 
-                    return first64Bytes;
+                    return passwordInBytes;
                 }
             }
             catch
