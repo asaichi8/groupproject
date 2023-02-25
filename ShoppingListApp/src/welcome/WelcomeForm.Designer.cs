@@ -36,6 +36,8 @@
             btnToList = new Button();
             btnFilter = new Button();
             btnSearch = new Button();
+            lblUsername = new Label();
+            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)pbxUFix).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxBrainVire).BeginInit();
             SuspendLayout();
@@ -117,12 +119,34 @@
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btn_Search_Click;
             // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUsername.Location = new Point(12, 309);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(41, 20);
+            lblUsername.TabIndex = 7;
+            lblUsername.Text = "User:";
+            // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(582, 297);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(106, 35);
+            btnLogout.TabIndex = 8;
+            btnLogout.Text = "Log out";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // frmHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(700, 338);
+            Controls.Add(btnLogout);
+            Controls.Add(lblUsername);
             Controls.Add(btnSearch);
             Controls.Add(btnFilter);
             Controls.Add(btnToList);
@@ -149,5 +173,7 @@
         private Button btnToList;
         private Button btnFilter;
         private Button btnSearch;
+        private Label lblUsername;
+        private Button btnLogout;
     }
 }

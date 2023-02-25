@@ -1,13 +1,21 @@
 namespace ShoppingListApp
 {
-    using System.Collections.Specialized;
-    using System.Security;
     public partial class frmHomePage : Form
     {
+        Form frmLogin;
+        string username;
         string? searchItem;
-        public frmHomePage()
+
+        public frmHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
+            username = _username;
+            frmLogin = _frmLogin;
+        }
+
+        private void frmHomePage_Load(object sender, EventArgs e)
+        {
+            lblUsername.Text = $"User: {username}";
         }
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
@@ -29,9 +37,10 @@ namespace ShoppingListApp
             MessageBox.Show("This will link to the shopping list.");
         }
 
-        private void frmHomePage_Load(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            Close();
+            frmLogin.Show();
         }
     }
 }

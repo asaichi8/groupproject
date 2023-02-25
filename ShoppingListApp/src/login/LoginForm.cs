@@ -91,7 +91,7 @@
             }
 
             Hide();
-            var welcomeForm = new frmHomePage();
+            Form welcomeForm = new frmHomePage(this, user);
             welcomeForm.Show();
         }
 
