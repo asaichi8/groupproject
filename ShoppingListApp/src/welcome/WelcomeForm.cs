@@ -18,12 +18,12 @@ namespace ShoppingListApp
             lblUsername.Text = $"User: {username}";
         }
 
-        private void txt_Search_TextChanged(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             searchItem = txtSearch.Text;
         }
 
-        private void btn_Search_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             if (searchItem is null)
                 return;
@@ -32,7 +32,7 @@ namespace ShoppingListApp
             productPage.Show();
         }
 
-        private void btn_ToList_Click(object sender, EventArgs e)
+        private void btnToList_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This will link to the shopping list.");
         }

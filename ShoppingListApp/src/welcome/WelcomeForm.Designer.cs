@@ -80,10 +80,10 @@
             txtSearch.Location = new Point(162, 172);
             txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Enter product name here...";
             txtSearch.Size = new Size(318, 32);
             txtSearch.TabIndex = 1;
-            txtSearch.Text = "Enter product name here...";
-            txtSearch.TextChanged += txt_Search_TextChanged;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // btnToList
             // 
@@ -95,7 +95,7 @@
             btnToList.TabIndex = 3;
             btnToList.Text = "Go to shopping list";
             btnToList.UseVisualStyleBackColor = true;
-            btnToList.Click += btn_ToList_Click;
+            btnToList.Click += btnToList_Click;
             // 
             // btnFilter
             // 
@@ -117,7 +117,7 @@
             btnSearch.TabIndex = 2;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btn_Search_Click;
+            btnSearch.Click += btnSearch_Click;
             // 
             // lblUsername
             // 
