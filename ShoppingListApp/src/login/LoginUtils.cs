@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace ShoppingListApp
+namespace ShoppingListApp.src.Login
 {
     public static class LoginUtils
     {

@@ -1,4 +1,6 @@
-﻿namespace ShoppingListApp
+﻿using ShoppingListApp.src.Login;
+
+namespace ShoppingListApp
 {
     public partial class frmLogin : Form
     {
