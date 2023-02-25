@@ -163,6 +163,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += LoginForm_Load;
             VisibleChanged += frmLogin_VisibleChanged;

@@ -39,7 +39,12 @@ namespace ShoppingListApp
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            frmLogin.Location = Location;
+            // set the location of frmLogin to the center of the current form
+            frmLogin.Location = new Point(
+                this.Location.X + (this.Size.Width / 2) - (frmLogin.Size.Width / 2),
+                this.Location.Y + (this.Size.Height / 2) - (frmLogin.Size.Height / 2)
+            );
+
             frmLogin.Show();
             Close();
         }

@@ -156,6 +156,7 @@
             Controls.Add(lblWelcomeMessage);
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmHomePage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Welcome";
             Load += frmHomePage_Load;
             ((System.ComponentModel.ISupportInitialize)pbxUFix).EndInit();
