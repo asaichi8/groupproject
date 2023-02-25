@@ -11,6 +11,7 @@ namespace ShoppingListApp.src.Login
         
         private const int MEMORY_TO_USE_KB = 1024 * 64; // 64mb
         private const int NO_OF_ITERATIONS = 4; // lowest amount of iterations recommended
+        private const int DEGREE_OF_PARALLELISM = 8;
 
         /// <summary>
         /// Generates a random 32-byte salt for enhanced security.
@@ -34,12 +35,10 @@ namespace ShoppingListApp.src.Login
         /// <returns>32-byte array containing the salted and hashed password.</returns>
         private static byte[] HashAndSaltText(string s, byte[] salt)
         {
-            int coresAvailable = Environment.ProcessorCount;
-
             byte[] hashedPassword = new Argon2id(Encoding.UTF8.GetBytes(s))
             {
                 Salt = salt,
-                DegreeOfParallelism = coresAvailable, // use half of available cores
+                DegreeOfParallelism = DEGREE_OF_PARALLELISM, // use half of available cores
                 MemorySize = MEMORY_TO_USE_KB,
                 Iterations = NO_OF_ITERATIONS
             }.GetBytes(HASH_SIZE_BYTES);
