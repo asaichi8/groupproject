@@ -59,6 +59,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(273, 32);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnToList
             // 
@@ -70,6 +71,7 @@
             this.btnToList.TabIndex = 3;
             this.btnToList.Text = "Go to shopping list";
             this.btnToList.UseVisualStyleBackColor = true;
+            this.btnToList.Click += new System.EventHandler(this.btnToList_Click);
             // 
             // btnFilter
             // 
@@ -81,6 +83,7 @@
             this.btnFilter.TabIndex = 4;
             this.btnFilter.Text = "Filter Shops";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // btnSearch
             // 
@@ -91,6 +94,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblUsername
             // 
@@ -110,6 +114,7 @@
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Log out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pbxBrainVire
             // 

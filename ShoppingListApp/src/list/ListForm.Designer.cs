@@ -48,6 +48,7 @@
             this.btnWelcome.TabIndex = 0;
             this.btnWelcome.Text = "Return to welcome page";
             this.btnWelcome.UseVisualStyleBackColor = true;
+            this.btnWelcome.Click += new System.EventHandler(this.btnWelcome_Click);
             // 
             // lblListForUser
             // 
