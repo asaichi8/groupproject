@@ -35,6 +35,7 @@
             this.wbv_Shop2 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.btn_Search = new System.Windows.Forms.Button();
+            this.btn_Filter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wbv_Shop1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbv_Shop2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -102,12 +103,23 @@
             this.btn_Search.Text = "Search";
             this.btn_Search.UseVisualStyleBackColor = true;
             // 
+            // btn_Filter
+            // 
+            this.btn_Filter.Location = new System.Drawing.Point(406, 523);
+            this.btn_Filter.Name = "btn_Filter";
+            this.btn_Filter.Size = new System.Drawing.Size(122, 56);
+            this.btn_Filter.TabIndex = 9;
+            this.btn_Filter.Text = "Filter Shops";
+            this.btn_Filter.UseVisualStyleBackColor = true;
+            this.btn_Filter.Click += new System.EventHandler(this.btn_Filter_Click);
+            // 
             // FormSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(936, 599);
+            this.ClientSize = new System.Drawing.Size(936, 591);
+            this.Controls.Add(this.btn_Filter);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.webView21);
             this.Controls.Add(this.wbv_Shop2);
@@ -135,5 +147,6 @@
         private Microsoft.Web.WebView2.WinForms.WebView2 wbv_Shop2;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private Button btn_Search;
+        private Button btn_Filter;
     }
 }

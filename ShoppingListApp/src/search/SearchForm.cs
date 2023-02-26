@@ -25,5 +25,10 @@ namespace ShoppingListApp
         {
             prevForm.SwapForm(this, true);
         }
+
+        private void btn_Filter_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This will make a popup window appear to allow the user to change their shop choices.", "Coming soon.", MessageBoxButtons.OK);
+        }
     }
 }
