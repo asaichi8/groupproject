@@ -98,6 +98,7 @@
             this.cbxShowPass.TabIndex = 5;
             this.cbxShowPass.Text = "Show password";
             this.cbxShowPass.UseVisualStyleBackColor = true;
+            this.cbxShowPass.CheckedChanged += new System.EventHandler(this.cbxShowPass_CheckedChanged);
             // 
             // btnTerms
             // 
@@ -119,6 +120,7 @@
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnRegister
             // 
@@ -130,6 +132,7 @@
             this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lblLoginResponse
             // 
