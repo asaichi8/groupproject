@@ -1,4 +1,5 @@
 ﻿using ShoppingListApp.src;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ShoppingListApp
 {
@@ -22,6 +23,11 @@ namespace ShoppingListApp
         private void btnWelcome_Click(object sender, EventArgs e)
         {
             prevForm.SwapForm(this, true);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

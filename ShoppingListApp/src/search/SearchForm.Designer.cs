@@ -29,47 +29,46 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSearch));
-            btnSearch = new Button();
-            txtSearch = new TextBox();
-            SuspendLayout();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
             // 
             // btnSearch
             // 
-            btnSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearch.Location = new Point(12, 10);
-            btnSearch.Margin = new Padding(3, 2, 3, 2);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(145, 56);
-            btnSearch.TabIndex = 0;
-            btnSearch.Text = "Return to search menu";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnSearch.Location = new System.Drawing.Point(10, 9);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(124, 49);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "Return to search menu";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
-            txtSearch.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(163, 21);
-            txtSearch.Margin = new Padding(3, 2, 3, 2);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Enter product name here...";
-            txtSearch.Size = new Size(525, 32);
-            txtSearch.TabIndex = 4;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.txtSearch.Location = new System.Drawing.Point(140, 18);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(451, 32);
+            this.txtSearch.TabIndex = 4;
             // 
             // FormSearch
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Info;
-            ClientSize = new Size(700, 338);
-            Controls.Add(txtSearch);
-            Controls.Add(btnSearch);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "FormSearch";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "SearchForm";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.ClientSize = new System.Drawing.Size(645, 395);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "FormSearch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SearchForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
