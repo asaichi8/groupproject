@@ -80,7 +80,6 @@
             txtSearch.Location = new Point(162, 172);
             txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Enter product name here...";
             txtSearch.Size = new Size(318, 32);
             txtSearch.TabIndex = 1;
             txtSearch.TextChanged += txtSearch_TextChanged;
