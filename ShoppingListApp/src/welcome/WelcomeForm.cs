@@ -1,4 +1,5 @@
 using ShoppingListApp.src;
+using ShoppingListApp.src.search;
 
 namespace ShoppingListApp
 {
@@ -7,12 +8,14 @@ namespace ShoppingListApp
         readonly Form frmLogin;
         readonly string username;
         string? searchItem;
+        Form frmFilter;
 
         public FormHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
             username = _username;
             frmLogin = _frmLogin;
+            frmFilter = new FilterForm();
         }
 
         private void frmHomePage_Load(object sender, EventArgs e)
@@ -46,8 +49,6 @@ namespace ShoppingListApp
             formList.CenterChild(this);
         }
 
-
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             frmLogin.SwapForm(this);
@@ -56,7 +57,7 @@ namespace ShoppingListApp
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Placeholder for filtering shops.", "Placeholder");
+            frmFilter.Show();
         }
     }
 }

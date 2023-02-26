@@ -89,7 +89,6 @@
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.lblListForUser);
             this.Controls.Add(this.btnWelcome);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
