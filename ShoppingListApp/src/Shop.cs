@@ -37,5 +37,10 @@ namespace ShoppingListApp.src
         {
             get { return allShops; }
         }
+
+        public static void DisableAllFilters()
+        {
+            allShops.ForEach(shop => shop.isFiltered = false);
+        }
     }
 }
