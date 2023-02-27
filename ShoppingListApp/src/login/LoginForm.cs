@@ -90,30 +90,18 @@ namespace ShoppingListApp
 
             // remember me
             Properties.Settings.Default.LastUsername = user;
+            Reset();
+            txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
 
-            Hide();
+            this.Hide();
             Form welcomeForm = new FormHomePage(this, user);
             welcomeForm.Show();
         }
 
-        // called when Show() is called on this object
-        private void frmLogin_VisibleChanged(object sender, EventArgs e)
-        {
-            if (!((Form)sender).Visible)
-                return;
-
-            Reset();
-
-            txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
-            this.ActiveControl = txtUser; // select username textbox
-        }
-
         private void Reset()
         {
-            // TODO: use a new method to do this
-            // reset all controls to default
-            this.Controls.Clear();
-            InitializeComponent();
+            txtPassword.ResetText();
+            cbxShowPass.Checked = false;
         }
 
         private static void SetStatus(object o, string status, Color color)

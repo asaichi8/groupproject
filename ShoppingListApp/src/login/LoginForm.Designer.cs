@@ -126,6 +126,7 @@
             this.btnTerms.Name = "btnTerms";
             this.btnTerms.Size = new System.Drawing.Size(406, 55);
             this.btnTerms.TabIndex = 5;
+            this.btnTerms.TabStop = false;
             this.btnTerms.Text = "Terms of Service";
             this.btnTerms.UseVisualStyleBackColor = true;
             // 
@@ -218,7 +219,6 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.VisibleChanged += new System.EventHandler(this.frmLogin_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
