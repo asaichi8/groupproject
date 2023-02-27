@@ -1,11 +1,10 @@
 ﻿using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace ShoppingListApp.src.Login
 {
     public static class LoginUtils
     {
-        private static readonly string CUR_DIR = Directory.GetCurrentDirectory();
+        private static readonly string CUR_DIR = Path.GetDirectoryName(Application.ExecutablePath);
         private const string INITIAL_FOLDER = "profiles";
         private const string PASSWORD_FILENAME = "cred";
         public const int PASSWORD_LENGTH_BYTES = 64;
@@ -21,7 +20,7 @@ namespace ShoppingListApp.src.Login
             try
             {
                 if (dir is null)
-                    dir = Directory.GetCurrentDirectory();
+                    dir = CUR_DIR;
 
                 string profilesPath = Path.Combine(dir, name);
 
