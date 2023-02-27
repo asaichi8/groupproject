@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnReturn = new System.Windows.Forms.Button();
             this.lblListForUser = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.chrtShops = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chrtShops)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReturn
             // 
+            this.btnReturn.BackColor = System.Drawing.Color.DarkOrange;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReturn.FlatAppearance.BorderSize = 0;
@@ -51,7 +52,7 @@
             this.btnReturn.Size = new System.Drawing.Size(570, 88);
             this.btnReturn.TabIndex = 0;
             this.btnReturn.Text = "< Return to welcome page";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // lblListForUser
@@ -66,26 +67,27 @@
             this.lblListForUser.TabIndex = 1;
             this.lblListForUser.Text = "IF YOU CAN SEE THIS, AN ERROR OCCURED";
             // 
-            // chart1
+            // chrtShops
             // 
-            this.chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Right;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(564, 0);
-            this.chart1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(501, 665);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chrt_Shops";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chrtShops.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised;
+            chartArea2.Name = "ChartArea1";
+            this.chrtShops.ChartAreas.Add(chartArea2);
+            this.chrtShops.Dock = System.Windows.Forms.DockStyle.Right;
+            legend2.Name = "Legend1";
+            this.chrtShops.Legends.Add(legend2);
+            this.chrtShops.Location = new System.Drawing.Point(564, 0);
+            this.chrtShops.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.chrtShops.Name = "chrtShops";
+            this.chrtShops.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chrtShops.Series.Add(series2);
+            this.chrtShops.Size = new System.Drawing.Size(501, 665);
+            this.chrtShops.TabIndex = 2;
+            this.chrtShops.Text = "chrt_Shops";
+            this.chrtShops.Click += new System.EventHandler(this.chrtShops_Click);
             // 
             // FormList
             // 
@@ -94,18 +96,18 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.CancelButton = this.btnReturn;
             this.ClientSize = new System.Drawing.Size(1065, 665);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chrtShops);
             this.Controls.Add(this.lblListForUser);
             this.Controls.Add(this.btnReturn);
             this.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "FormList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Your list";
             this.Load += new System.EventHandler(this.frmList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrtShops)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,6 +117,6 @@
 
         private Button btnReturn;
         private Label lblListForUser;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrtShops;
     }
 }
