@@ -43,15 +43,7 @@ namespace ShoppingListApp
         private void btnFilter_Click(object sender, EventArgs e)
         {
             Form filterForm = new FormFilter();
-            filterForm.ShowDialog();
-        }
-
-        private void FormSearch_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason != CloseReason.UserClosing)
-                return;
-
-            prevForm.Show();
+            filterForm.ShowDialog(this);
         }
     }
 }

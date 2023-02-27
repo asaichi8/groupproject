@@ -198,7 +198,6 @@
             this.Name = "FormSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSearch_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvTesco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).EndInit();

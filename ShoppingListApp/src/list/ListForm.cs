@@ -30,13 +30,5 @@ namespace ShoppingListApp
         {
 
         }
-
-        private void FormList_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason != CloseReason.UserClosing)
-                return;
-
-            prevForm.Show();
-        }
     }
 }
