@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.Web.WebView2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoppingListApp
+namespace ShoppingListApp.src
 {
     public class BorderlessUtils
     {
@@ -48,7 +49,7 @@ namespace ShoppingListApp
             foreach (Control c in f.Controls)
             {
                 // check for interactable controls
-                if (c is Button || c is CheckBox || c is TextBox)
+                if (c is Button || c is CheckBox || c is TextBox || c is WebView2)
                     continue;
 
                 c.MouseDown += Uninteractable_MouseDown;
