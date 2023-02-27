@@ -136,7 +136,7 @@ namespace ShoppingListApp
             SetStatus("Attempting to register...", Color.Orange);
             System.Windows.Forms.Application.UseWaitCursor = true;
 
-            Thread.Sleep(250);
+            Thread.Sleep(500);
 
             try
             { 
