@@ -31,7 +31,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormList));
             this.btnWelcome = new System.Windows.Forms.Button();
             this.lblListForUser = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -40,23 +39,29 @@
             // 
             // btnWelcome
             // 
-            this.btnWelcome.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnWelcome.Location = new System.Drawing.Point(10, 10);
-            this.btnWelcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWelcome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWelcome.FlatAppearance.BorderSize = 0;
+            this.btnWelcome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWelcome.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWelcome.ForeColor = System.Drawing.Color.White;
+            this.btnWelcome.Location = new System.Drawing.Point(14, 13);
+            this.btnWelcome.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnWelcome.Name = "btnWelcome";
-            this.btnWelcome.Size = new System.Drawing.Size(117, 49);
+            this.btnWelcome.Size = new System.Drawing.Size(379, 88);
             this.btnWelcome.TabIndex = 0;
-            this.btnWelcome.Text = "Return to welcome page";
+            this.btnWelcome.Text = "< Return to welcome page";
             this.btnWelcome.UseVisualStyleBackColor = true;
             this.btnWelcome.Click += new System.EventHandler(this.btnWelcome_Click);
             // 
             // lblListForUser
             // 
             this.lblListForUser.AutoSize = true;
-            this.lblListForUser.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.lblListForUser.Location = new System.Drawing.Point(5, 416);
+            this.lblListForUser.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListForUser.ForeColor = System.Drawing.Color.White;
+            this.lblListForUser.Location = new System.Drawing.Point(9, 923);
+            this.lblListForUser.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblListForUser.Name = "lblListForUser";
-            this.lblListForUser.Size = new System.Drawing.Size(174, 25);
+            this.lblListForUser.Size = new System.Drawing.Size(208, 28);
             this.lblListForUser.TabIndex = 1;
             this.lblListForUser.Text = "Showing list for user";
             // 
@@ -68,28 +73,30 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Right;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(470, 0);
+            this.chart1.Location = new System.Drawing.Point(678, 0);
+            this.chart1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(314, 450);
+            this.chart1.Size = new System.Drawing.Size(628, 970);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chrt_Shops";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // FormList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(784, 450);
+            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.ClientSize = new System.Drawing.Size(1306, 970);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.lblListForUser);
             this.Controls.Add(this.btnWelcome);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ListForm";

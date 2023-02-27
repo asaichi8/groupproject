@@ -36,9 +36,13 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(25, 128);
+            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Close.ForeColor = System.Drawing.Color.Goldenrod;
+            this.btn_Close.Location = new System.Drawing.Point(42, 290);
+            this.btn_Close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(100, 39);
+            this.btn_Close.Size = new System.Drawing.Size(167, 63);
             this.btn_Close.TabIndex = 0;
             this.btn_Close.Text = "OK";
             this.btn_Close.UseVisualStyleBackColor = true;
@@ -46,9 +50,13 @@
             // cbx_Asda
             // 
             this.cbx_Asda.AutoSize = true;
-            this.cbx_Asda.Location = new System.Drawing.Point(25, 24);
+            this.cbx_Asda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbx_Asda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_Asda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbx_Asda.Location = new System.Drawing.Point(42, 39);
+            this.cbx_Asda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbx_Asda.Name = "cbx_Asda";
-            this.cbx_Asda.Size = new System.Drawing.Size(50, 17);
+            this.cbx_Asda.Size = new System.Drawing.Size(68, 25);
             this.cbx_Asda.TabIndex = 1;
             this.cbx_Asda.Text = "Asda";
             this.cbx_Asda.UseVisualStyleBackColor = true;
@@ -56,9 +64,12 @@
             // cbx_Tesco
             // 
             this.cbx_Tesco.AutoSize = true;
-            this.cbx_Tesco.Location = new System.Drawing.Point(25, 60);
+            this.cbx_Tesco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbx_Tesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_Tesco.Location = new System.Drawing.Point(42, 97);
+            this.cbx_Tesco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbx_Tesco.Name = "cbx_Tesco";
-            this.cbx_Tesco.Size = new System.Drawing.Size(56, 17);
+            this.cbx_Tesco.Size = new System.Drawing.Size(72, 25);
             this.cbx_Tesco.TabIndex = 2;
             this.cbx_Tesco.Text = "Tesco";
             this.cbx_Tesco.UseVisualStyleBackColor = true;
@@ -66,23 +77,27 @@
             // cbx_Sainsburys
             // 
             this.cbx_Sainsburys.AutoSize = true;
-            this.cbx_Sainsburys.Location = new System.Drawing.Point(25, 94);
+            this.cbx_Sainsburys.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbx_Sainsburys.Location = new System.Drawing.Point(42, 152);
+            this.cbx_Sainsburys.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbx_Sainsburys.Name = "cbx_Sainsburys";
-            this.cbx_Sainsburys.Size = new System.Drawing.Size(77, 17);
+            this.cbx_Sainsburys.Size = new System.Drawing.Size(119, 25);
             this.cbx_Sainsburys.TabIndex = 3;
             this.cbx_Sainsburys.Text = "Sainsburys";
             this.cbx_Sainsburys.UseVisualStyleBackColor = true;
             // 
             // FilterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(156, 176);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(263, 368);
             this.Controls.Add(this.cbx_Sainsburys);
             this.Controls.Add(this.cbx_Tesco);
             this.Controls.Add(this.cbx_Asda);
             this.Controls.Add(this.btn_Close);
+            this.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FilterForm";
             this.Text = "Filter";
             this.ResumeLayout(false);
