@@ -49,10 +49,10 @@
             this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(1208, 13);
+            this.btnBack.Location = new System.Drawing.Point(1091, 16);
             this.btnBack.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(236, 57);
+            this.btnBack.Size = new System.Drawing.Size(218, 75);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Return to search menu";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             this.Controls.Add(this.btnBack);
             this.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Goldenrod;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "FormSearch";
