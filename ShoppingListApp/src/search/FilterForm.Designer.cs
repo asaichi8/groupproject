@@ -106,6 +106,7 @@
             this.Name = "FilterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filter";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FilterForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

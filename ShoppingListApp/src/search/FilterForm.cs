@@ -16,5 +16,13 @@ namespace ShoppingListApp.src.search
         {
             InitializeComponent();
         }
+
+        private void FilterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            /*foreach (Shop shop in Shop.AllShops) 
+            {
+                shop.
+            }*/
+        }
     }
 }

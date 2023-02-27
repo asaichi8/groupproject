@@ -2,7 +2,7 @@ namespace ShoppingListApp
 {
     internal static class Program
     {
-        public static object ApplicationConfiguration { get; private set; }
+        //public static object ApplicationConfiguration { get; private set; }
 
         /// <summary>
         ///  The main entry point for the application.
