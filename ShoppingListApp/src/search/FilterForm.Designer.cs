@@ -1,6 +1,6 @@
 ﻿namespace ShoppingListApp.src.search
 {
-    partial class FilterForm
+    partial class FormFilter
     {
         /// <summary>
         /// Required designer variable.
@@ -107,6 +107,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filter";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FilterForm_FormClosed);
+            this.Load += new System.EventHandler(this.FilterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

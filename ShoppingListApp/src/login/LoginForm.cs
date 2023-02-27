@@ -103,9 +103,9 @@ namespace ShoppingListApp
 
         private void Reset()
         {
-            Controls.Clear();
+            this.Controls.Clear();
             InitializeComponent();
-            ActiveControl = txtUser;
+            this.ActiveControl = txtUser;
         }
 
         private static void SetStatus(object o, string status, Color color)

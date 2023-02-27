@@ -54,7 +54,7 @@ namespace ShoppingListApp
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            Form frmFilter = new FilterForm();
+            Form frmFilter = new FormFilter();
             frmFilter.ShowDialog(this);
         }
     }
