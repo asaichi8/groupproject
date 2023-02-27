@@ -103,6 +103,9 @@ namespace ShoppingListApp
                 return;
 
             Reset();
+
+            txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
+            this.ActiveControl = txtUser; // select username textbox
         }
 
         private void Reset()
@@ -111,9 +114,6 @@ namespace ShoppingListApp
             // reset all controls to default
             this.Controls.Clear();
             InitializeComponent();
-
-            txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
-            this.ActiveControl = txtUser; // select username textbox
         }
 
         private static void SetStatus(object o, string status, Color color)
