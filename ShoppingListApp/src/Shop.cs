@@ -12,6 +12,9 @@ namespace ShoppingListApp.src
 
         public Shop(string _name)
         {
+            if (allShops.Any(shop => shop.name == _name))
+                throw new ArgumentException($"Duplicate shop {_name} not allowed!");
+
             this.name = _name;
             this.isFiltered = false;
 
