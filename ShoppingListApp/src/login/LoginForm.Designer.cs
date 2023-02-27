@@ -41,8 +41,6 @@
             this.lblLoginResponse = new System.Windows.Forms.Label();
             this.tmrResponseTimeout = new System.Windows.Forms.Timer(this.components);
             this.pbxBrainVire = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnMinimise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,38 +189,6 @@
             this.pbxBrainVire.TabIndex = 11;
             this.pbxBrainVire.TabStop = false;
             // 
-            // btnExit
-            // 
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnExit.Location = new System.Drawing.Point(407, 0);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(25, 25);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.TabStop = false;
-            this.btnExit.Text = "✖";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnMinimise
-            // 
-            this.btnMinimise.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimise.FlatAppearance.BorderSize = 0;
-            this.btnMinimise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimise.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnMinimise.Location = new System.Drawing.Point(382, 0);
-            this.btnMinimise.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnMinimise.Name = "btnMinimise";
-            this.btnMinimise.Size = new System.Drawing.Size(25, 25);
-            this.btnMinimise.TabIndex = 13;
-            this.btnMinimise.TabStop = false;
-            this.btnMinimise.Text = "🗕";
-            this.btnMinimise.UseVisualStyleBackColor = true;
-            this.btnMinimise.Click += new System.EventHandler(this.btnMinimise_Click);
-            // 
             // FormLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -230,8 +196,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(432, 520);
-            this.Controls.Add(this.btnMinimise);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbxBrainVire);
             this.Controls.Add(this.lblLoginResponse);
             this.Controls.Add(this.btnRegister);
@@ -271,7 +235,5 @@
         private Label lblLoginResponse;
         private PictureBox pbxBrainVire;
         private System.Windows.Forms.Timer tmrResponseTimeout;
-        private Button btnExit;
-        private Button btnMinimise;
     }
 }
