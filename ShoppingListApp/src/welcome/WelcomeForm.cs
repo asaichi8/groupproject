@@ -8,14 +8,12 @@ namespace ShoppingListApp
         readonly Form frmLogin;
         readonly string username;
         string? searchItem;
-        Form frmFilter;
 
         public FormHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
             username = _username;
             frmLogin = _frmLogin;
-            frmFilter = new FilterForm();
         }
 
         private void frmHomePage_Load(object sender, EventArgs e)
@@ -57,7 +55,8 @@ namespace ShoppingListApp
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            frmFilter.Show();
+            Form frmFilter = new FilterForm();
+            frmFilter.ShowDialog(this);
         }
     }
 }

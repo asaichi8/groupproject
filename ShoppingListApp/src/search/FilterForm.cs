@@ -16,5 +16,10 @@ namespace ShoppingListApp.src.search
         {
             InitializeComponent();
         }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
