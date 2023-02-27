@@ -20,11 +20,11 @@ namespace ShoppingListApp
         {
             InitializeComponent();
             this.Icon = Properties.Resources.UFix_Logo_Icon;
-            HookUninteractableControls();
+            HookUninteractableControls(this);
         }
 
         // call SendMessage & ReleaseCapture from winapi to simulate moving title bar
-        private void Uninteractable_MouseDown(object sender, MouseEventArgs e)
+        private static void Uninteractable_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
                 return;
@@ -33,7 +33,21 @@ namespace ShoppingListApp
             const uint HTCAPTION = 0x2;           // https://learn.microsoft.com/en-us/windows/win32/inputdev/wm-nchittest
 
             ReleaseCapture();
-            SendMessage(this.Handle, WM_NCLBUTTONDOWN, (IntPtr)HTCAPTION, (IntPtr)0);
+            SendMessage(((Control)sender).FindForm().Handle, WM_NCLBUTTONDOWN, (IntPtr)HTCAPTION, (IntPtr)0);
+        }
+
+        private static void HookUninteractableControls(Form f)
+        {
+            foreach (Control c in f.Controls)
+            {
+                // check for interactable controls
+                if (c is Button || c is CheckBox || c is TextBox)
+                    continue;
+
+                c.MouseDown += Uninteractable_MouseDown;
+            }
+
+            f.MouseDown += Uninteractable_MouseDown;
         }
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)
@@ -231,20 +245,6 @@ namespace ShoppingListApp
                 tmrResponseTimeout.Stop();
                 tmrResponseTimeout.Start();
             });
-        }
-
-        private void HookUninteractableControls()
-        {
-            foreach (Control c in this.Controls)
-            {
-                // check for interactable controls
-                if (c is Button || c is CheckBox || c is TextBox)
-                    continue;
-
-                c.MouseDown += Uninteractable_MouseDown;
-            }
-
-            this.MouseDown += Uninteractable_MouseDown;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
