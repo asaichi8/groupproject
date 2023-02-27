@@ -38,31 +38,51 @@ namespace ShoppingListApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (AttemptLogin())
+                LoginComplete();
+        }
+
+        bool AttemptLogin()
+        {
             SetStatus("Logging in...", Color.Orange, false);
+            SetLoginControlsEnabled(false);
 
-            string user = txtUser.Text;
-            string userDir = LoginUtils.GetUserDir(user);
-
-            if (!Directory.Exists(userDir))
+            try
             {
-                SetStatus("Invalid username.", Color.Red);
-                return;
-            }
+                string user = txtUser.Text;
+                string userDir = LoginUtils.GetUserDir(user);
 
-            byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
-            if (hashedPassword is null || hashedPassword.Length != LoginUtils.PASSWORD_LENGTH_BYTES)
+                if (!Directory.Exists(userDir))
+                {
+                    SetStatus("Invalid username.", Color.Red);
+                    return false;
+                }
+
+                byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
+                if (hashedPassword is null || hashedPassword.Length != LoginUtils.PASSWORD_LENGTH_BYTES)
+                {
+                    SetStatus("Could not read password file.", Color.Red);
+                    return false;
+                }
+
+                if (!Hasher.VerifyHash(txtPassword.Text, hashedPassword))
+                {
+                    SetStatus("Invalid password.", Color.Red);
+                    return false;
+                }
+
+                return true;
+            }
+            finally
             {
-                SetStatus("Could not read password file.", Color.Red);
-                return;
+                SetLoginControlsEnabled(true);
             }
+        }
 
-            if (!Hasher.VerifyHash(txtPassword.Text, hashedPassword))
-            {
-                SetStatus("Invalid password.", Color.Red);
-                return;
-            }
-
+        void LoginComplete()
+        {
             // remember me
+            string user = txtUser.Text;
             Properties.Settings.Default.LastUsername = user;
             Reset();
             txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
