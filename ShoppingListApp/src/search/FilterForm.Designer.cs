@@ -28,96 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Close = new System.Windows.Forms.Button();
-            this.cbx_Asda = new System.Windows.Forms.CheckBox();
-            this.cbx_Tesco = new System.Windows.Forms.CheckBox();
-            this.cbx_Sainsburys = new System.Windows.Forms.CheckBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.grpShops = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
-            // btn_Close
+            // btnClose
             // 
-            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Close.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Close.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btn_Close.Location = new System.Drawing.Point(13, 107);
-            this.btn_Close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(170, 45);
-            this.btn_Close.TabIndex = 0;
-            this.btn_Close.Text = "OK";
-            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.Goldenrod;
+            this.btnClose.Location = new System.Drawing.Point(12, 39);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(172, 45);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "OK";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
-            // cbx_Asda
+            // grpShops
             // 
-            this.cbx_Asda.AutoSize = true;
-            this.cbx_Asda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbx_Asda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_Asda.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbx_Asda.Location = new System.Drawing.Point(24, 14);
-            this.cbx_Asda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbx_Asda.Name = "cbx_Asda";
-            this.cbx_Asda.Size = new System.Drawing.Size(49, 17);
-            this.cbx_Asda.TabIndex = 1;
-            this.cbx_Asda.Text = "Asda";
-            this.cbx_Asda.UseVisualStyleBackColor = true;
+            this.grpShops.Location = new System.Drawing.Point(12, 12);
+            this.grpShops.Name = "grpShops";
+            this.grpShops.Size = new System.Drawing.Size(172, 19);
+            this.grpShops.TabIndex = 1;
+            this.grpShops.TabStop = false;
+            this.grpShops.Text = "Available shops";
             // 
-            // cbx_Tesco
-            // 
-            this.cbx_Tesco.AutoSize = true;
-            this.cbx_Tesco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbx_Tesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_Tesco.Location = new System.Drawing.Point(24, 41);
-            this.cbx_Tesco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbx_Tesco.Name = "cbx_Tesco";
-            this.cbx_Tesco.Size = new System.Drawing.Size(51, 17);
-            this.cbx_Tesco.TabIndex = 2;
-            this.cbx_Tesco.Text = "Tesco";
-            this.cbx_Tesco.UseVisualStyleBackColor = true;
-            // 
-            // cbx_Sainsburys
-            // 
-            this.cbx_Sainsburys.AutoSize = true;
-            this.cbx_Sainsburys.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbx_Sainsburys.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_Sainsburys.Location = new System.Drawing.Point(24, 68);
-            this.cbx_Sainsburys.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbx_Sainsburys.Name = "cbx_Sainsburys";
-            this.cbx_Sainsburys.Size = new System.Drawing.Size(79, 17);
-            this.cbx_Sainsburys.TabIndex = 3;
-            this.cbx_Sainsburys.Text = "Sainsburys";
-            this.cbx_Sainsburys.UseVisualStyleBackColor = true;
-            // 
-            // FilterForm
+            // FormFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(196, 166);
-            this.Controls.Add(this.cbx_Sainsburys);
-            this.Controls.Add(this.cbx_Tesco);
-            this.Controls.Add(this.cbx_Asda);
-            this.Controls.Add(this.btn_Close);
+            this.ClientSize = new System.Drawing.Size(196, 97);
+            this.Controls.Add(this.grpShops);
+            this.Controls.Add(this.btnClose);
             this.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FilterForm";
+            this.Name = "FormFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filter";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FilterForm_FormClosed);
             this.Load += new System.EventHandler(this.FilterForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Button btn_Close;
-        private CheckBox cbx_Asda;
-        private CheckBox cbx_Tesco;
-        private CheckBox cbx_Sainsburys;
+        private Button btnClose;
+        private GroupBox grpShops;
     }
 }
