@@ -9,6 +9,13 @@ namespace ShoppingListApp
 {
     public partial class FormLogin : Form
     {
+        // https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessage
+        // https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-releasecapture
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
         public FormLogin()
         {
             InitializeComponent();
@@ -16,9 +23,17 @@ namespace ShoppingListApp
             HookUninteractableControls();
         }
 
+        // call SendMessage & ReleaseCapture from winapi to simulate moving title bar
         private void Uninteractable_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left)
+                return;
 
+            const uint WM_NCLBUTTONDOWN = 0x00A1; // https://learn.microsoft.com/en-us/windows/win32/inputdev/wm-nclbuttondown
+            const uint HTCAPTION = 0x2;           // https://learn.microsoft.com/en-us/windows/win32/inputdev/wm-nchittest
+
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_NCLBUTTONDOWN, (IntPtr)HTCAPTION, (IntPtr)0);
         }
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)
@@ -222,6 +237,7 @@ namespace ShoppingListApp
         {
             foreach (Control c in this.Controls)
             {
+                // check for interactable controls
                 if (c is Button || c is CheckBox || c is TextBox)
                     continue;
 
