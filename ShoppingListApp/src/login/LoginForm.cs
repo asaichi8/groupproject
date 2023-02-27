@@ -1,5 +1,8 @@
 ﻿using ShoppingListApp.src.Login;
 using ShoppingListApp.Properties;
+using System.Collections.Generic;
+using System.Net.Sockets;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ShoppingListApp
 {
@@ -15,47 +18,16 @@ namespace ShoppingListApp
             // usernames and passwords cannot be empty, so disable the text boxes if they are
             if (txtPassword.Text.Length == 0 || txtUser.Text.Length == 0)
             {
-                btnLogin.Enabled = false;
-                btnRegister.Enabled = false;
+                SetLoginControlsEnabled(false, true);
                 return;
             }
 
-            btnLogin.Enabled = true;
-            btnRegister.Enabled = true;
+            SetLoginControlsEnabled(true, true);
         }
 
         private void cbxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = !cbxShowPass.Checked;
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            // TODO: make sure passwords are secure enough, maybe based on their entropy?
-            //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
-            string user = txtUser.Text;
-
-            bool? bCreateUserFolder = LoginUtils.CreateUserFolders(user);
-            if (bCreateUserFolder is null)
-            {
-                SetStatus(lblLoginResponse, "Failed to create user folders.", Color.Red);
-                return;
-            }
-            else if (bCreateUserFolder is false)
-            {
-                SetStatus(lblLoginResponse, "Username already exists.", Color.Red);
-                return;
-            }
-
-            byte[] hashedPassword = Hasher.Hash(txtPassword.Text);
-
-            if (!LoginUtils.CreatePasswordFile(user, hashedPassword))
-            {
-                SetStatus(lblLoginResponse, "Failed to store password.", Color.Red);
-                return;
-            }
-
-            SetStatus(lblLoginResponse, "Register successful.", Color.Green);
         }
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
@@ -71,20 +43,20 @@ namespace ShoppingListApp
 
             if (!Directory.Exists(userDir))
             {
-                SetStatus(lblLoginResponse, "Invalid username.", Color.Red);
+                SetStatus("Invalid username.", Color.Red);
                 return;
             }
 
             byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
             if (hashedPassword is null || hashedPassword.Length != LoginUtils.PASSWORD_LENGTH_BYTES)
             {
-                SetStatus(lblLoginResponse, "Could not read password file.", Color.Red);
+                SetStatus("Could not read password file.", Color.Red);
                 return;
             }
 
             if (!Hasher.VerifyHash(txtPassword.Text, hashedPassword))
             {
-                SetStatus(lblLoginResponse, "Invalid password.", Color.Red);
+                SetStatus("Invalid password.", Color.Red);
                 return;
             }
 
@@ -98,6 +70,76 @@ namespace ShoppingListApp
             welcomeForm.Show();
         }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Thread tRegister = new Thread(new ThreadStart(Register));
+            tRegister.Start();
+        }
+
+        // TODO: make sure passwords are secure enough, maybe based on their entropy?
+        //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
+        void Register()
+        {
+            SetStatus("Attempting to register...", Color.Orange);
+            System.Windows.Forms.Application.UseWaitCursor = true;
+
+            Invoke((MethodInvoker)delegate
+            {
+                SetLoginControlsEnabled(false);
+            });
+
+            Thread.Sleep(250);
+
+            try
+            { 
+                string user = txtUser.Text;
+
+                bool? bCreateUserFolder = LoginUtils.CreateUserFolders(user);
+                if (bCreateUserFolder is null)
+                {
+                    SetStatus("Failed to create user folders.", Color.Red);
+                    return;
+                }
+                else if (bCreateUserFolder is false)
+                {
+                    SetStatus("Username already exists.", Color.Red);
+                    return;
+                }
+
+                byte[] hashedPassword = Hasher.Hash(txtPassword.Text);
+
+                if (!LoginUtils.CreatePasswordFile(user, hashedPassword))
+                {
+                    SetStatus("Failed to store password.", Color.Red);
+                    return;
+                }
+
+                SetStatus("Register successful.", Color.Green);
+            }
+            finally
+            {
+                Invoke((MethodInvoker)delegate
+                {
+                    SetLoginControlsEnabled(true);
+                });
+
+                System.Windows.Forms.Application.UseWaitCursor = false;
+            }
+        }
+
+        void SetLoginControlsEnabled(bool enabled, bool buttonsOnly = false)
+        {
+            btnLogin.Enabled = enabled;
+            btnRegister.Enabled = enabled;
+
+            if (buttonsOnly)
+                return;
+
+            txtUser.Enabled = enabled;
+            txtPassword.Enabled = enabled;
+            cbxShowPass.Enabled = enabled;
+        }
+
         private void Reset()
         {
             txtPassword.ResetText();
@@ -105,15 +147,16 @@ namespace ShoppingListApp
             cbxShowPass.Checked = false;
         }
 
-        private void SetStatus(object o, string status, Color color)
+        private void SetStatus(string status, Color color)
         {
-            if (o is not Label label)
-                return;
-
             tmrResponseTimeout.Stop();
             tmrResponseTimeout.Start();
-            label.Text = status;
-            label.ForeColor = color;
+
+            Invoke((MethodInvoker)delegate
+            {
+                lblLoginResponse.Text = status;
+                lblLoginResponse.ForeColor = color;
+            });
         }
 
         private void tmrResponseTimeout_Tick(object sender, EventArgs e)
