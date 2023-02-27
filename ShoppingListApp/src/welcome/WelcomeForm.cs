@@ -13,6 +13,11 @@ namespace ShoppingListApp
         {
             InitializeComponent();
             this.Icon = Properties.Resources.UFix_Logo_Icon;
+            BorderlessUtils.HookUninteractableControls(this);
+
+            BorderlessUtils bu = new BorderlessUtils(this);
+            bu.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
+
             frmLogin = _frmLogin;
             username = _username;
         }
