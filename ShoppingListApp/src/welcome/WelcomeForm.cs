@@ -37,14 +37,14 @@ namespace ShoppingListApp
             }
 
             Form productPage = new FormSearch(this, searchItem);
-            productPage.SwapForm(this);
+            productPage.ShowDialog(this);
             productPage.CenterChild(this);
         }
 
         private void btnToList_Click(object sender, EventArgs e)
         {
             Form formList = new FormList(this, username);
-            formList.SwapForm(this);
+            formList.ShowDialog(this);
             formList.CenterChild(this);
         }
 
