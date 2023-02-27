@@ -19,6 +19,11 @@ namespace ShoppingListApp.src.search
         {
             InitializeComponent();
             this.Icon = Properties.Resources.UFix_Logo_Icon;
+            BorderlessUtils.HookUninteractableControls(this);
+
+            // borderless filter is too ambiguous
+            //BorderlessUtils bu = new BorderlessUtils(this);
+            //bu.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
         }
 
         private void FilterForm_Load(object sender, EventArgs e)
