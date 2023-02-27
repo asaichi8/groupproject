@@ -1,4 +1,5 @@
 ﻿using ShoppingListApp.src.Login;
+using ShoppingListApp.Properties;
 
 namespace ShoppingListApp
 {
@@ -87,6 +88,9 @@ namespace ShoppingListApp
                 return;
             }
 
+            // remember me
+            Properties.Settings.Default.LastUsername = user;
+
             Hide();
             Form welcomeForm = new FormHomePage(this, user);
             welcomeForm.Show();
@@ -103,9 +107,13 @@ namespace ShoppingListApp
 
         private void Reset()
         {
+            // TODO: use a new method to do this
+            // reset all controls to default
             this.Controls.Clear();
             InitializeComponent();
-            this.ActiveControl = txtUser;
+
+            txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
+            this.ActiveControl = txtUser; // select username textbox
         }
 
         private static void SetStatus(object o, string status, Color color)
