@@ -39,9 +39,10 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblLoginResponse = new System.Windows.Forms.Label();
-            this.lblBroughtBy = new System.Windows.Forms.Label();
-            this.pbxBrainVire = new System.Windows.Forms.PictureBox();
             this.tmrResponseTimeout = new System.Windows.Forms.Timer(this.components);
+            this.pbxBrainVire = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnMinimise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblTitle.Location = new System.Drawing.Point(26, 137);
+            this.lblTitle.Location = new System.Drawing.Point(33, 18);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(77, 28);
@@ -61,7 +62,7 @@
             // 
             this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Location = new System.Drawing.Point(114, 184);
+            this.txtUser.Location = new System.Drawing.Point(113, 172);
             this.txtUser.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUser.MaxLength = 32;
             this.txtUser.Name = "txtUser";
@@ -73,7 +74,7 @@
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Location = new System.Drawing.Point(114, 220);
+            this.txtPassword.Location = new System.Drawing.Point(113, 208);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPassword.MaxLength = 128;
             this.txtPassword.Name = "txtPassword";
@@ -85,7 +86,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(15, 184);
+            this.lblUsername.Location = new System.Drawing.Point(14, 172);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(80, 19);
@@ -95,7 +96,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(15, 220);
+            this.lblPassword.Location = new System.Drawing.Point(14, 208);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(77, 19);
@@ -108,7 +109,7 @@
             this.cbxShowPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxShowPass.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold);
-            this.cbxShowPass.Location = new System.Drawing.Point(114, 246);
+            this.cbxShowPass.Location = new System.Drawing.Point(113, 234);
             this.cbxShowPass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxShowPass.Name = "cbxShowPass";
             this.cbxShowPass.Size = new System.Drawing.Size(109, 19);
@@ -123,7 +124,7 @@
             this.btnTerms.FlatAppearance.BorderSize = 0;
             this.btnTerms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerms.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnTerms.Location = new System.Drawing.Point(0, 492);
+            this.btnTerms.Location = new System.Drawing.Point(0, 461);
             this.btnTerms.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTerms.Name = "btnTerms";
             this.btnTerms.Size = new System.Drawing.Size(436, 59);
@@ -139,7 +140,7 @@
             this.btnLogin.Enabled = false;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(12, 321);
+            this.btnLogin.Location = new System.Drawing.Point(12, 290);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(406, 69);
@@ -154,7 +155,7 @@
             this.btnRegister.Enabled = false;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnRegister.Location = new System.Drawing.Point(12, 398);
+            this.btnRegister.Location = new System.Drawing.Point(12, 367);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(406, 69);
@@ -167,38 +168,60 @@
             // 
             this.lblLoginResponse.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblLoginResponse.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblLoginResponse.Location = new System.Drawing.Point(224, 246);
+            this.lblLoginResponse.Location = new System.Drawing.Point(223, 234);
             this.lblLoginResponse.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLoginResponse.Name = "lblLoginResponse";
             this.lblLoginResponse.Size = new System.Drawing.Size(194, 51);
             this.lblLoginResponse.TabIndex = 9;
             this.lblLoginResponse.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblBroughtBy
-            // 
-            this.lblBroughtBy.AutoSize = true;
-            this.lblBroughtBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBroughtBy.Location = new System.Drawing.Point(17, 9);
-            this.lblBroughtBy.Name = "lblBroughtBy";
-            this.lblBroughtBy.Size = new System.Drawing.Size(89, 19);
-            this.lblBroughtBy.TabIndex = 10;
-            this.lblBroughtBy.Text = "Powered by";
-            // 
-            // pbxBrainVire
-            // 
-            this.pbxBrainVire.Image = global::ShoppingListApp.Properties.Resources.BrainVire_Logo;
-            this.pbxBrainVire.Location = new System.Drawing.Point(21, 31);
-            this.pbxBrainVire.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pbxBrainVire.Name = "pbxBrainVire";
-            this.pbxBrainVire.Size = new System.Drawing.Size(398, 83);
-            this.pbxBrainVire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxBrainVire.TabIndex = 11;
-            this.pbxBrainVire.TabStop = false;
-            // 
             // tmrResponseTimeout
             // 
             this.tmrResponseTimeout.Interval = 2500;
             this.tmrResponseTimeout.Tick += new System.EventHandler(this.tmrResponseTimeout_Tick);
+            // 
+            // pbxBrainVire
+            // 
+            this.pbxBrainVire.Image = global::ShoppingListApp.Properties.Resources.BrainVire_Logo;
+            this.pbxBrainVire.Location = new System.Drawing.Point(12, 62);
+            this.pbxBrainVire.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pbxBrainVire.Name = "pbxBrainVire";
+            this.pbxBrainVire.Size = new System.Drawing.Size(406, 83);
+            this.pbxBrainVire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxBrainVire.TabIndex = 11;
+            this.pbxBrainVire.TabStop = false;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Goldenrod;
+            this.btnExit.Location = new System.Drawing.Point(407, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(25, 25);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.TabStop = false;
+            this.btnExit.Text = "✖";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnMinimise
+            // 
+            this.btnMinimise.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimise.FlatAppearance.BorderSize = 0;
+            this.btnMinimise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimise.ForeColor = System.Drawing.Color.Goldenrod;
+            this.btnMinimise.Location = new System.Drawing.Point(382, 0);
+            this.btnMinimise.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnMinimise.Name = "btnMinimise";
+            this.btnMinimise.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimise.TabIndex = 13;
+            this.btnMinimise.TabStop = false;
+            this.btnMinimise.Text = "🗕";
+            this.btnMinimise.UseVisualStyleBackColor = true;
+            this.btnMinimise.Click += new System.EventHandler(this.btnMinimise_Click);
             // 
             // FormLogin
             // 
@@ -206,9 +229,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(432, 550);
+            this.ClientSize = new System.Drawing.Size(432, 520);
+            this.Controls.Add(this.btnMinimise);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbxBrainVire);
-            this.Controls.Add(this.lblBroughtBy);
             this.Controls.Add(this.lblLoginResponse);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
@@ -221,7 +245,7 @@
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "FormLogin";
@@ -245,8 +269,9 @@
         private Button btnLogin;
         private Button btnRegister;
         private Label lblLoginResponse;
-        private Label lblBroughtBy;
         private PictureBox pbxBrainVire;
         private System.Windows.Forms.Timer tmrResponseTimeout;
+        private Button btnExit;
+        private Button btnMinimise;
     }
 }
