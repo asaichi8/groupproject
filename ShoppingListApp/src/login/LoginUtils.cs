@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace ShoppingListApp.src.Login
 {
@@ -7,7 +8,7 @@ namespace ShoppingListApp.src.Login
         private static readonly string CUR_DIR = Directory.GetCurrentDirectory();
         private const string INITIAL_FOLDER = "profiles";
         private const string PASSWORD_FILENAME = "cred";
-        private const int PASSWORD_LENGTH_BYTES = 64;
+        public const int PASSWORD_LENGTH_BYTES = 64;
 
         /// <summary>
         /// Creates a folder with a given name at a specified directory.

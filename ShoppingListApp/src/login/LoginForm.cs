@@ -76,7 +76,7 @@ namespace ShoppingListApp
             }
 
             byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
-            if (hashedPassword is null || hashedPassword.Length != 64)
+            if (hashedPassword is null || hashedPassword.Length != LoginUtils.PASSWORD_LENGTH_BYTES)
             {
                 SetStatus(lblLoginResponse, "Could not read password file.", Color.Red);
                 return;
