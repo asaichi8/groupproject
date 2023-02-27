@@ -101,6 +101,7 @@ namespace ShoppingListApp
         private void Reset()
         {
             txtPassword.ResetText();
+            lblLoginResponse.ResetText();
             cbxShowPass.Checked = false;
         }
 

@@ -168,9 +168,9 @@
             this.lblLoginResponse.Location = new System.Drawing.Point(226, 124);
             this.lblLoginResponse.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLoginResponse.Name = "lblLoginResponse";
-            this.lblLoginResponse.Size = new System.Drawing.Size(194, 19);
+            this.lblLoginResponse.Size = new System.Drawing.Size(194, 51);
             this.lblLoginResponse.TabIndex = 9;
-            this.lblLoginResponse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLoginResponse.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblBroughtBy
             // 
