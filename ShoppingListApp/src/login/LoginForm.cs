@@ -38,6 +38,8 @@ namespace ShoppingListApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            SetStatus("Logging in...", Color.Orange, false);
+
             string user = txtUser.Text;
             string userDir = LoginUtils.GetUserDir(user);
 
@@ -147,16 +149,19 @@ namespace ShoppingListApp
             cbxShowPass.Checked = false;
         }
 
-        private void SetStatus(string status, Color color)
+        private void SetStatus(string status, Color color, bool shouldTimeout = true)
         {
-            tmrResponseTimeout.Stop();
-            tmrResponseTimeout.Start();
-
             Invoke((MethodInvoker)delegate
             {
                 lblLoginResponse.Text = status;
                 lblLoginResponse.ForeColor = color;
             });
+
+            if (!shouldTimeout)
+                return;
+
+            tmrResponseTimeout.Stop();
+            tmrResponseTimeout.Start();
         }
 
         private void tmrResponseTimeout_Tick(object sender, EventArgs e)
