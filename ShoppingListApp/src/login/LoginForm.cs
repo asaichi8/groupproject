@@ -25,6 +25,14 @@ namespace ShoppingListApp
             SetLoginControlsEnabled(true, true);
         }
 
+        private void tmrResponseTimeout_Tick(object sender, EventArgs e)
+        {
+            ((System.Windows.Forms.Timer)sender).Stop();
+
+            if (this.Visible)
+                lblLoginResponse.ResetText();
+        }
+
         private void cbxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = !cbxShowPass.Checked;
@@ -36,20 +44,39 @@ namespace ShoppingListApp
             e.Handled = !LoginUtils.isUsernameCharValid(e.KeyChar);
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            if (AttemptLogin())
-                LoginComplete();
+            await Task.Run(() =>
+            {
+                return AttemptLogin(txtUser.Text);
+            }).ContinueWith(task =>
+            {
+                if (task.Result)
+                    LoginComplete();
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        bool AttemptLogin()
+        private async void btnRegister_Click(object sender, EventArgs e)
         {
+            await Task.Run(() => { Register(); });
+        }
+
+
+
+        bool AttemptLogin(string user)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                SetLoginControlsEnabled(false);
+            });
+
             SetStatus("Logging in...", Color.Orange, false);
-            SetLoginControlsEnabled(false);
+            System.Windows.Forms.Application.UseWaitCursor = true;
+
+            Thread.Sleep(250);
 
             try
             {
-                string user = txtUser.Text;
                 string userDir = LoginUtils.GetUserDir(user);
 
                 if (!Directory.Exists(userDir))
@@ -75,7 +102,12 @@ namespace ShoppingListApp
             }
             finally
             {
-                SetLoginControlsEnabled(true);
+                System.Windows.Forms.Application.UseWaitCursor = false;
+
+                Invoke((MethodInvoker)delegate
+                {
+                    SetLoginControlsEnabled(true);
+                });
             }
         }
 
@@ -92,23 +124,17 @@ namespace ShoppingListApp
             welcomeForm.Show();
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            Thread tRegister = new Thread(new ThreadStart(Register));
-            tRegister.Start();
-        }
-
         // TODO: make sure passwords are secure enough, maybe based on their entropy?
         //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
         void Register()
         {
-            SetStatus("Attempting to register...", Color.Orange);
-            System.Windows.Forms.Application.UseWaitCursor = true;
-
             Invoke((MethodInvoker)delegate
             {
                 SetLoginControlsEnabled(false);
             });
+
+            SetStatus("Attempting to register...", Color.Orange);
+            System.Windows.Forms.Application.UseWaitCursor = true;
 
             Thread.Sleep(250);
 
@@ -140,12 +166,12 @@ namespace ShoppingListApp
             }
             finally
             {
+                System.Windows.Forms.Application.UseWaitCursor = false;
+
                 Invoke((MethodInvoker)delegate
                 {
                     SetLoginControlsEnabled(true);
                 });
-
-                System.Windows.Forms.Application.UseWaitCursor = false;
             }
         }
 
@@ -182,14 +208,6 @@ namespace ShoppingListApp
 
             tmrResponseTimeout.Stop();
             tmrResponseTimeout.Start();
-        }
-
-        private void tmrResponseTimeout_Tick(object sender, EventArgs e)
-        {
-            ((System.Windows.Forms.Timer)sender).Stop();
-
-            if (this.Visible)
-                lblLoginResponse.ResetText();
         }
     }
 }
