@@ -197,7 +197,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchForm";
+            this.Text = "Search";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSearch_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvTesco)).EndInit();
