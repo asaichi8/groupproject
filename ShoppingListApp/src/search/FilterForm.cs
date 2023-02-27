@@ -31,6 +31,7 @@ namespace ShoppingListApp.src.search
                 return;
             }
 
+            // dynamically create new checkboxes for each shop
             Point lastCbxPos = INITIAL_CBX_POS;
 
             foreach (Shop shop in Shop.AllShops) 
@@ -58,12 +59,18 @@ namespace ShoppingListApp.src.search
 
         private void FilterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // TODO: save results to Shop.allShops
-
-            /*foreach (Shop shop in Shop.AllShops) 
+            // save results to Shop.allShops
+            // for each checkbox in the group that owns a tag...
+            foreach (CheckBox cbx in grpShops.Controls.OfType<CheckBox>()) 
             {
-                
-            }*/
+                // will throw an exception if nothing is found, but that should never happen
+                Shop shop = Shop.AllShops.First(shop => shop.Name == cbx.Text); 
+
+                if (shop is null)
+                    continue;
+
+                shop.IsFiltered = cbx.Checked;
+            }
         }
     }
 }
