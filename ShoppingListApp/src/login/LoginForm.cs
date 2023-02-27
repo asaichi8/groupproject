@@ -9,11 +9,6 @@ namespace ShoppingListApp
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoginInfo_TextChanged(object sender, EventArgs e)
         {
             // usernames and passwords cannot be empty, so disable the text boxes if they are

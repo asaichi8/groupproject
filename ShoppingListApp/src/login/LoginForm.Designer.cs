@@ -51,7 +51,7 @@
             this.lblTitle.Location = new System.Drawing.Point(338, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(108, 38);
+            this.lblTitle.Size = new System.Drawing.Size(74, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Sign in";
             // 
@@ -63,7 +63,7 @@
             this.txtUser.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUser.MaxLength = 32;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(279, 27);
+            this.txtUser.Size = new System.Drawing.Size(279, 18);
             this.txtUser.TabIndex = 1;
             this.txtUser.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
             // 
@@ -75,7 +75,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPassword.MaxLength = 128;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(279, 27);
+            this.txtPassword.Size = new System.Drawing.Size(279, 18);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
@@ -86,7 +86,7 @@
             this.lblUsername.Location = new System.Drawing.Point(40, 63);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(111, 28);
+            this.lblUsername.Size = new System.Drawing.Size(80, 19);
             this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username:";
             // 
@@ -96,7 +96,7 @@
             this.lblPassword.Location = new System.Drawing.Point(40, 132);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(105, 28);
+            this.lblPassword.Size = new System.Drawing.Size(77, 19);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
@@ -108,7 +108,7 @@
             this.cbxShowPass.Location = new System.Drawing.Point(172, 228);
             this.cbxShowPass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxShowPass.Name = "cbxShowPass";
-            this.cbxShowPass.Size = new System.Drawing.Size(179, 32);
+            this.cbxShowPass.Size = new System.Drawing.Size(129, 23);
             this.cbxShowPass.TabIndex = 5;
             this.cbxShowPass.Text = "Show password";
             this.cbxShowPass.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             this.lblLoginResponse.Location = new System.Drawing.Point(167, 179);
             this.lblLoginResponse.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLoginResponse.Name = "lblLoginResponse";
-            this.lblLoginResponse.Size = new System.Drawing.Size(0, 28);
+            this.lblLoginResponse.Size = new System.Drawing.Size(0, 19);
             this.lblLoginResponse.TabIndex = 9;
             // 
             // lblBroughtBy
@@ -174,7 +174,7 @@
             this.lblBroughtBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblBroughtBy.Location = new System.Drawing.Point(45, 541);
             this.lblBroughtBy.Name = "lblBroughtBy";
-            this.lblBroughtBy.Size = new System.Drawing.Size(122, 28);
+            this.lblBroughtBy.Size = new System.Drawing.Size(89, 19);
             this.lblBroughtBy.TabIndex = 10;
             this.lblBroughtBy.Text = "Powered by";
             // 
@@ -191,7 +191,7 @@
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(500, 864);
@@ -213,6 +213,7 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.VisibleChanged += new System.EventHandler(this.frmLogin_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

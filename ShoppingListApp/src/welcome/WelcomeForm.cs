@@ -49,8 +49,7 @@ namespace ShoppingListApp
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            frmLogin.SwapForm(this);
-            frmLogin.CenterChild(this);
+            frmLogin.SwapForm(this, true);
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
