@@ -12,8 +12,8 @@ namespace ShoppingListApp
         public FormHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
-            username = _username;
             frmLogin = _frmLogin;
+            username = _username;
         }
 
         private void frmHomePage_Load(object sender, EventArgs e)
