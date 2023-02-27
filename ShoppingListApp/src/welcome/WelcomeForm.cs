@@ -50,14 +50,27 @@ namespace ShoppingListApp
         private void btnLogout_Click(object sender, EventArgs e)
         {
             frmLogin.SwapForm(this, true);
-
-            Shop.DisableAllFilters();
+            Logout();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
             Form frmFilter = new FormFilter();
             frmFilter.ShowDialog(this);
+        }
+
+        private void FormHomePage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+                return;
+
+            frmLogin.Show();
+            Logout();
+        }
+
+        void Logout()
+        {
+            Shop.DisableAllFilters();
         }
     }
 }

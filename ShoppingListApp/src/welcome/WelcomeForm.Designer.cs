@@ -175,6 +175,7 @@
             this.Name = "FormHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormHomePage_FormClosing);
             this.Load += new System.EventHandler(this.frmHomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUFix)).EndInit();

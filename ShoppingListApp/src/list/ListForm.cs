@@ -20,14 +20,22 @@ namespace ShoppingListApp
             lblListForUser.Text = $"Showing list for user {username}...";
         }
 
-        private void btnWelcome_Click(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-            prevForm.SwapForm(this, true);
+            this.Close();
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormList_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+                return;
+
+            prevForm.Show();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace ShoppingListApp
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            prevForm.SwapForm(this, true);
+            this.Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -43,6 +43,14 @@ namespace ShoppingListApp
         {
             Form filterForm = new FormFilter();
             filterForm.ShowDialog();
+        }
+
+        private void FormSearch_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+                return;
+
+            prevForm.Show();
         }
     }
 }

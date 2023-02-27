@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.btnWelcome = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.lblListForUser = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnWelcome
+            // btnReturn
             // 
-            this.btnWelcome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWelcome.FlatAppearance.BorderSize = 0;
-            this.btnWelcome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWelcome.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWelcome.ForeColor = System.Drawing.Color.White;
-            this.btnWelcome.Location = new System.Drawing.Point(14, 13);
-            this.btnWelcome.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnWelcome.Name = "btnWelcome";
-            this.btnWelcome.Size = new System.Drawing.Size(379, 88);
-            this.btnWelcome.TabIndex = 0;
-            this.btnWelcome.Text = "< Return to welcome page";
-            this.btnWelcome.UseVisualStyleBackColor = true;
-            this.btnWelcome.Click += new System.EventHandler(this.btnWelcome_Click);
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Location = new System.Drawing.Point(14, 13);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(379, 88);
+            this.btnReturn.TabIndex = 0;
+            this.btnReturn.Text = "< Return to welcome page";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // lblListForUser
             // 
@@ -68,19 +68,19 @@
             // chart1
             // 
             this.chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Raised;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Right;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(678, 0);
             this.chart1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(628, 970);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chrt_Shops";
@@ -94,12 +94,13 @@
             this.ClientSize = new System.Drawing.Size(1306, 970);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.lblListForUser);
-            this.Controls.Add(this.btnWelcome);
+            this.Controls.Add(this.btnReturn);
             this.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ListForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormList_FormClosing);
             this.Load += new System.EventHandler(this.frmList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
@@ -109,7 +110,7 @@
 
         #endregion
 
-        private Button btnWelcome;
+        private Button btnReturn;
         private Label lblListForUser;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
