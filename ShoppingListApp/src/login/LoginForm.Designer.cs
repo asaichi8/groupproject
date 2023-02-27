@@ -50,7 +50,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblTitle.Location = new System.Drawing.Point(28, 15);
+            this.lblTitle.Location = new System.Drawing.Point(26, 137);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(77, 28);
@@ -61,7 +61,7 @@
             // 
             this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Location = new System.Drawing.Point(116, 62);
+            this.txtUser.Location = new System.Drawing.Point(114, 184);
             this.txtUser.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUser.MaxLength = 32;
             this.txtUser.Name = "txtUser";
@@ -73,7 +73,7 @@
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Location = new System.Drawing.Point(116, 98);
+            this.txtPassword.Location = new System.Drawing.Point(114, 220);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPassword.MaxLength = 128;
             this.txtPassword.Name = "txtPassword";
@@ -85,7 +85,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(17, 62);
+            this.lblUsername.Location = new System.Drawing.Point(15, 184);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(80, 19);
@@ -95,7 +95,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(17, 98);
+            this.lblPassword.Location = new System.Drawing.Point(15, 220);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(77, 19);
@@ -108,7 +108,7 @@
             this.cbxShowPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxShowPass.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold);
-            this.cbxShowPass.Location = new System.Drawing.Point(116, 124);
+            this.cbxShowPass.Location = new System.Drawing.Point(114, 246);
             this.cbxShowPass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxShowPass.Name = "cbxShowPass";
             this.cbxShowPass.Size = new System.Drawing.Size(109, 19);
@@ -123,10 +123,10 @@
             this.btnTerms.FlatAppearance.BorderSize = 0;
             this.btnTerms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerms.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnTerms.Location = new System.Drawing.Point(14, 568);
+            this.btnTerms.Location = new System.Drawing.Point(0, 492);
             this.btnTerms.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTerms.Name = "btnTerms";
-            this.btnTerms.Size = new System.Drawing.Size(406, 55);
+            this.btnTerms.Size = new System.Drawing.Size(436, 59);
             this.btnTerms.TabIndex = 5;
             this.btnTerms.TabStop = false;
             this.btnTerms.Text = "Terms of Service";
@@ -139,7 +139,7 @@
             this.btnLogin.Enabled = false;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(14, 179);
+            this.btnLogin.Location = new System.Drawing.Point(12, 321);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(406, 69);
@@ -154,7 +154,7 @@
             this.btnRegister.Enabled = false;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnRegister.Location = new System.Drawing.Point(14, 256);
+            this.btnRegister.Location = new System.Drawing.Point(12, 398);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(406, 69);
@@ -167,7 +167,7 @@
             // 
             this.lblLoginResponse.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblLoginResponse.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblLoginResponse.Location = new System.Drawing.Point(226, 124);
+            this.lblLoginResponse.Location = new System.Drawing.Point(224, 246);
             this.lblLoginResponse.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLoginResponse.Name = "lblLoginResponse";
             this.lblLoginResponse.Size = new System.Drawing.Size(194, 51);
@@ -178,7 +178,7 @@
             // 
             this.lblBroughtBy.AutoSize = true;
             this.lblBroughtBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBroughtBy.Location = new System.Drawing.Point(28, 388);
+            this.lblBroughtBy.Location = new System.Drawing.Point(17, 9);
             this.lblBroughtBy.Name = "lblBroughtBy";
             this.lblBroughtBy.Size = new System.Drawing.Size(89, 19);
             this.lblBroughtBy.TabIndex = 10;
@@ -187,10 +187,10 @@
             // pbxBrainVire
             // 
             this.pbxBrainVire.Image = global::ShoppingListApp.Properties.Resources.BrainVire_Logo;
-            this.pbxBrainVire.Location = new System.Drawing.Point(13, 410);
+            this.pbxBrainVire.Location = new System.Drawing.Point(21, 31);
             this.pbxBrainVire.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbxBrainVire.Name = "pbxBrainVire";
-            this.pbxBrainVire.Size = new System.Drawing.Size(406, 125);
+            this.pbxBrainVire.Size = new System.Drawing.Size(398, 83);
             this.pbxBrainVire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxBrainVire.TabIndex = 11;
             this.pbxBrainVire.TabStop = false;
@@ -205,7 +205,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(432, 624);
+            this.ClientSize = new System.Drawing.Size(432, 550);
             this.Controls.Add(this.pbxBrainVire);
             this.Controls.Add(this.lblBroughtBy);
             this.Controls.Add(this.lblLoginResponse);

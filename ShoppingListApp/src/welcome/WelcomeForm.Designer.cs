@@ -123,6 +123,7 @@
             // 
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold);
             this.btnLogout.Location = new System.Drawing.Point(959, 585);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnLogout.Name = "btnLogout";
