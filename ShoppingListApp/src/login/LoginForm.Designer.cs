@@ -64,7 +64,7 @@
             this.txtUser.MaxLength = 32;
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(304, 18);
-            this.txtUser.TabIndex = 1;
+            this.txtUser.TabIndex = 0;
             this.txtUser.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
             // 
             // txtPassword
@@ -76,7 +76,7 @@
             this.txtPassword.MaxLength = 128;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(304, 18);
-            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
             // 
@@ -110,7 +110,7 @@
             this.cbxShowPass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxShowPass.Name = "cbxShowPass";
             this.cbxShowPass.Size = new System.Drawing.Size(109, 19);
-            this.cbxShowPass.TabIndex = 5;
+            this.cbxShowPass.TabIndex = 2;
             this.cbxShowPass.Text = "Show password";
             this.cbxShowPass.UseVisualStyleBackColor = true;
             this.cbxShowPass.CheckedChanged += new System.EventHandler(this.cbxShowPass_CheckedChanged);
@@ -125,7 +125,7 @@
             this.btnTerms.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTerms.Name = "btnTerms";
             this.btnTerms.Size = new System.Drawing.Size(406, 55);
-            this.btnTerms.TabIndex = 6;
+            this.btnTerms.TabIndex = 5;
             this.btnTerms.Text = "Terms of Service";
             this.btnTerms.UseVisualStyleBackColor = true;
             // 
