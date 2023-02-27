@@ -46,7 +46,7 @@
             this.lblWelcomeMessage.AutoSize = true;
             this.lblWelcomeMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblWelcomeMessage.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.lblWelcomeMessage.Location = new System.Drawing.Point(95, 11);
+            this.lblWelcomeMessage.Location = new System.Drawing.Point(94, 24);
             this.lblWelcomeMessage.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblWelcomeMessage.Name = "lblWelcomeMessage";
             this.lblWelcomeMessage.Size = new System.Drawing.Size(534, 25);
@@ -56,7 +56,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.txtSearch.Location = new System.Drawing.Point(254, 286);
+            this.txtSearch.Location = new System.Drawing.Point(254, 290);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(498, 32);
@@ -112,7 +112,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.lblUsername.Location = new System.Drawing.Point(32, 574);
+            this.lblUsername.Location = new System.Drawing.Point(12, 623);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(298, 20);

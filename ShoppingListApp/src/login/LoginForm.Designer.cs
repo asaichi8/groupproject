@@ -46,12 +46,12 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblTitle.Location = new System.Drawing.Point(338, 9);
+            this.lblTitle.Location = new System.Drawing.Point(28, 15);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(74, 25);
+            this.lblTitle.Size = new System.Drawing.Size(77, 28);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Sign in";
             // 
@@ -59,11 +59,11 @@
             // 
             this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Location = new System.Drawing.Point(167, 63);
+            this.txtUser.Location = new System.Drawing.Point(116, 62);
             this.txtUser.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUser.MaxLength = 32;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(279, 18);
+            this.txtUser.Size = new System.Drawing.Size(304, 18);
             this.txtUser.TabIndex = 1;
             this.txtUser.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
             // 
@@ -71,11 +71,11 @@
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Location = new System.Drawing.Point(167, 132);
+            this.txtPassword.Location = new System.Drawing.Point(116, 98);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPassword.MaxLength = 128;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(279, 18);
+            this.txtPassword.Size = new System.Drawing.Size(304, 18);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
@@ -83,7 +83,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(40, 63);
+            this.lblUsername.Location = new System.Drawing.Point(17, 62);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(80, 19);
@@ -93,7 +93,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(40, 132);
+            this.lblPassword.Location = new System.Drawing.Point(17, 98);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(77, 19);
@@ -105,10 +105,11 @@
             this.cbxShowPass.AutoSize = true;
             this.cbxShowPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxShowPass.Location = new System.Drawing.Point(172, 228);
+            this.cbxShowPass.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold);
+            this.cbxShowPass.Location = new System.Drawing.Point(116, 124);
             this.cbxShowPass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxShowPass.Name = "cbxShowPass";
-            this.cbxShowPass.Size = new System.Drawing.Size(129, 23);
+            this.cbxShowPass.Size = new System.Drawing.Size(109, 19);
             this.cbxShowPass.TabIndex = 5;
             this.cbxShowPass.Text = "Show password";
             this.cbxShowPass.UseVisualStyleBackColor = true;
@@ -120,10 +121,10 @@
             this.btnTerms.FlatAppearance.BorderSize = 0;
             this.btnTerms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerms.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnTerms.Location = new System.Drawing.Point(142, 788);
+            this.btnTerms.Location = new System.Drawing.Point(14, 566);
             this.btnTerms.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTerms.Name = "btnTerms";
-            this.btnTerms.Size = new System.Drawing.Size(233, 73);
+            this.btnTerms.Size = new System.Drawing.Size(406, 55);
             this.btnTerms.TabIndex = 6;
             this.btnTerms.Text = "Terms of Service";
             this.btnTerms.UseVisualStyleBackColor = true;
@@ -135,7 +136,7 @@
             this.btnLogin.Enabled = false;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(45, 343);
+            this.btnLogin.Location = new System.Drawing.Point(14, 179);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(406, 69);
@@ -150,7 +151,7 @@
             this.btnRegister.Enabled = false;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.Goldenrod;
-            this.btnRegister.Location = new System.Drawing.Point(45, 434);
+            this.btnRegister.Location = new System.Drawing.Point(14, 256);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(406, 69);
@@ -172,7 +173,7 @@
             // 
             this.lblBroughtBy.AutoSize = true;
             this.lblBroughtBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBroughtBy.Location = new System.Drawing.Point(45, 541);
+            this.lblBroughtBy.Location = new System.Drawing.Point(28, 388);
             this.lblBroughtBy.Name = "lblBroughtBy";
             this.lblBroughtBy.Size = new System.Drawing.Size(89, 19);
             this.lblBroughtBy.TabIndex = 10;
@@ -181,10 +182,10 @@
             // pbxBrainVire
             // 
             this.pbxBrainVire.Image = global::ShoppingListApp.Properties.Resources.BrainVire_Logo;
-            this.pbxBrainVire.Location = new System.Drawing.Point(50, 615);
+            this.pbxBrainVire.Location = new System.Drawing.Point(13, 410);
             this.pbxBrainVire.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbxBrainVire.Name = "pbxBrainVire";
-            this.pbxBrainVire.Size = new System.Drawing.Size(401, 122);
+            this.pbxBrainVire.Size = new System.Drawing.Size(406, 125);
             this.pbxBrainVire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxBrainVire.TabIndex = 11;
             this.pbxBrainVire.TabStop = false;
@@ -194,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(500, 864);
+            this.ClientSize = new System.Drawing.Size(432, 624);
             this.Controls.Add(this.pbxBrainVire);
             this.Controls.Add(this.lblBroughtBy);
             this.Controls.Add(this.lblLoginResponse);
