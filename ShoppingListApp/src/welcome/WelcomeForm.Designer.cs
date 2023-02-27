@@ -49,7 +49,7 @@
             this.lblWelcomeMessage.Location = new System.Drawing.Point(95, 11);
             this.lblWelcomeMessage.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblWelcomeMessage.Name = "lblWelcomeMessage";
-            this.lblWelcomeMessage.Size = new System.Drawing.Size(783, 38);
+            this.lblWelcomeMessage.Size = new System.Drawing.Size(534, 25);
             this.lblWelcomeMessage.TabIndex = 0;
             this.lblWelcomeMessage.Text = "Welcome to the Brainvire Ltd. Shopping Comparison Program.";
             // 
@@ -59,7 +59,7 @@
             this.txtSearch.Location = new System.Drawing.Point(254, 286);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(498, 44);
+            this.txtSearch.Size = new System.Drawing.Size(498, 32);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -115,9 +115,9 @@
             this.lblUsername.Location = new System.Drawing.Point(32, 574);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(65, 31);
+            this.lblUsername.Size = new System.Drawing.Size(298, 20);
             this.lblUsername.TabIndex = 7;
-            this.lblUsername.Text = "User:";
+            this.lblUsername.Text = "IF YOU CAN SEE THIS, AN ERROR OCCURED";
             // 
             // btnLogout
             // 
@@ -156,7 +156,7 @@
             // 
             // FormHomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1142, 660);
@@ -175,6 +175,7 @@
             this.Name = "FormHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
+            this.Load += new System.EventHandler(this.frmHomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUFix)).EndInit();
             this.ResumeLayout(false);
