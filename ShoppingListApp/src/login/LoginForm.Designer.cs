@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -40,6 +41,7 @@
             this.lblLoginResponse = new System.Windows.Forms.Label();
             this.lblBroughtBy = new System.Windows.Forms.Label();
             this.pbxBrainVire = new System.Windows.Forms.PictureBox();
+            this.tmrResponseTimeout = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,6 +195,11 @@
             this.pbxBrainVire.TabIndex = 11;
             this.pbxBrainVire.TabStop = false;
             // 
+            // tmrResponseTimeout
+            // 
+            this.tmrResponseTimeout.Interval = 2500;
+            this.tmrResponseTimeout.Tick += new System.EventHandler(this.tmrResponseTimeout_Tick);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -239,5 +246,6 @@
         private Label lblLoginResponse;
         private Label lblBroughtBy;
         private PictureBox pbxBrainVire;
+        private System.Windows.Forms.Timer tmrResponseTimeout;
     }
 }

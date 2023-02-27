@@ -105,13 +105,23 @@ namespace ShoppingListApp
             cbxShowPass.Checked = false;
         }
 
-        private static void SetStatus(object o, string status, Color color)
+        private void SetStatus(object o, string status, Color color)
         {
             if (o is not Label label)
                 return;
 
+            tmrResponseTimeout.Stop();
+            tmrResponseTimeout.Start();
             label.Text = status;
             label.ForeColor = color;
+        }
+
+        private void tmrResponseTimeout_Tick(object sender, EventArgs e)
+        {
+            ((System.Windows.Forms.Timer)sender).Stop();
+
+            if (this.Visible)
+                lblLoginResponse.ResetText();
         }
     }
 }
