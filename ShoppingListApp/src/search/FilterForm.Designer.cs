@@ -47,7 +47,6 @@
             this.btn_Close.TabIndex = 0;
             this.btn_Close.Text = "OK";
             this.btn_Close.UseVisualStyleBackColor = true;
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // cbx_Asda
             // 
