@@ -201,13 +201,13 @@ namespace ShoppingListApp
             {
                 lblLoginResponse.Text = status;
                 lblLoginResponse.ForeColor = color;
+
+                if (!shouldTimeout)
+                    return;
+
+                tmrResponseTimeout.Stop();
+                tmrResponseTimeout.Start();
             });
-
-            if (!shouldTimeout)
-                return;
-
-            tmrResponseTimeout.Stop();
-            tmrResponseTimeout.Start();
         }
     }
 }
