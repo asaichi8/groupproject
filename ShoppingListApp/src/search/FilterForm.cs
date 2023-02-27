@@ -31,10 +31,21 @@ namespace ShoppingListApp.src.search
                 return;
             }
 
+            CreateCheckboxes();
+        }
+
+        private void FilterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SaveFilters();
+        }
+
+
+        private void CreateCheckboxes()
+        {
             // dynamically create new checkboxes for each shop
             Point lastCbxPos = INITIAL_CBX_POS;
 
-            foreach (Shop shop in Shop.AllShops) 
+            foreach (Shop shop in Shop.AllShops)
             {
                 // create a new CheckBox control
                 CheckBox cbx = new CheckBox
@@ -50,21 +61,21 @@ namespace ShoppingListApp.src.search
                 int newSpace = INITIAL_CBX_POS.Y + CBX_DIFF_Y; // amount of new space created by adding button
 
                 btnClose.Location = new Point(btnClose.Location.X, btnClose.Location.Y + newSpace);
-                grpShops.Size     = new Size(grpShops.Width, grpShops.Height + newSpace);
-                this.Size         = new Size(this.Width, this.Height + newSpace);
+                grpShops.Size = new Size(grpShops.Width, grpShops.Height + newSpace);
+                this.Size = new Size(this.Width, this.Height + newSpace);
 
                 lastCbxPos = new Point(lastCbxPos.X, lastCbxPos.Y + newSpace);
             }
         }
 
-        private void FilterForm_FormClosed(object sender, FormClosedEventArgs e)
+        // save results to Shop.allShops
+        private void SaveFilters()
         {
-            // save results to Shop.allShops
             // for each checkbox in the group that owns a tag...
-            foreach (CheckBox cbx in grpShops.Controls.OfType<CheckBox>()) 
+            foreach (CheckBox cbx in grpShops.Controls.OfType<CheckBox>())
             {
                 // will throw an exception if nothing is found, but that should never happen
-                Shop shop = Shop.AllShops.First(shop => shop.Name == cbx.Text); 
+                Shop shop = Shop.AllShops.First(shop => shop.Name == cbx.Text);
 
                 if (shop is null)
                     continue;
