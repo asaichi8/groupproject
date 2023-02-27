@@ -79,5 +79,15 @@ namespace ShoppingListApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon UFix_Logo_Icon {
+            get {
+                object obj = ResourceManager.GetObject("UFix_Logo_Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

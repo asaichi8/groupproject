@@ -7,11 +7,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Resources\UFix-Logo.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\UFix_Logo_Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Resources\UFix-Logo.ico" />
+    <Content Include="Resources\UFix_Logo_Icon.ico" />
   </ItemGroup>
 
   <ItemGroup>

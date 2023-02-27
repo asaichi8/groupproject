@@ -20,6 +20,7 @@ namespace ShoppingListApp
         public FormSearch(Form _prevForm, string _searchItem)
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
             //wbvAsda.EnsureCoreWebView2Async(default, default);

@@ -18,6 +18,7 @@ namespace ShoppingListApp.src.search
         public FormFilter()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
         }
 
         private void FilterForm_Load(object sender, EventArgs e)
@@ -82,6 +83,11 @@ namespace ShoppingListApp.src.search
 
                 shop.IsFiltered = cbx.Checked;
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,6 +10,7 @@ namespace ShoppingListApp
         public FormList(Form _prevForm, string _username)
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
             prevForm = _prevForm;
             username = _username;
         }

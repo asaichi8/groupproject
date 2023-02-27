@@ -12,6 +12,7 @@ namespace ShoppingListApp
         public FormHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
             frmLogin = _frmLogin;
             username = _username;
         }

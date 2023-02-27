@@ -11,6 +11,7 @@ namespace ShoppingListApp
         public FormLogin()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
         }
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)
