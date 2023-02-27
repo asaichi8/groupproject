@@ -162,13 +162,14 @@
             // 
             // lblLoginResponse
             // 
-            this.lblLoginResponse.AutoSize = true;
-            this.lblLoginResponse.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblLoginResponse.Location = new System.Drawing.Point(235, 126);
+            this.lblLoginResponse.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLoginResponse.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblLoginResponse.Location = new System.Drawing.Point(226, 124);
             this.lblLoginResponse.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLoginResponse.Name = "lblLoginResponse";
-            this.lblLoginResponse.Size = new System.Drawing.Size(0, 15);
+            this.lblLoginResponse.Size = new System.Drawing.Size(194, 19);
             this.lblLoginResponse.TabIndex = 9;
+            this.lblLoginResponse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblBroughtBy
             // 
