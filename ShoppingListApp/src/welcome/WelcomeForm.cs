@@ -50,6 +50,8 @@ namespace ShoppingListApp
         private void btnLogout_Click(object sender, EventArgs e)
         {
             frmLogin.SwapForm(this, true);
+
+            Shop.DisableAllFilters();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
