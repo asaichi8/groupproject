@@ -3,6 +3,7 @@ using ShoppingListApp.Properties;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using static System.Net.Mime.MediaTypeNames;
+using System.Drawing.Text;
 
 namespace ShoppingListApp
 {
@@ -12,6 +13,12 @@ namespace ShoppingListApp
         {
             InitializeComponent();
             this.Icon = Properties.Resources.UFix_Logo_Icon;
+            HookUninteractableControls();
+        }
+
+        private void Uninteractable_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)
@@ -209,6 +216,19 @@ namespace ShoppingListApp
                 tmrResponseTimeout.Stop();
                 tmrResponseTimeout.Start();
             });
+        }
+
+        private void HookUninteractableControls()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is Button || c is CheckBox || c is TextBox)
+                    continue;
+
+                c.MouseDown += Uninteractable_MouseDown;
+            }
+
+            this.MouseDown += Uninteractable_MouseDown;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
