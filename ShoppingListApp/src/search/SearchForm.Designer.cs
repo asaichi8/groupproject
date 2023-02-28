@@ -38,6 +38,9 @@
             this.lblAsda = new System.Windows.Forms.Label();
             this.lblTesco = new System.Windows.Forms.Label();
             this.lblSainsburys = new System.Windows.Forms.Label();
+            this.btn_AddAsda = new System.Windows.Forms.Button();
+            this.btnAddTesco = new System.Windows.Forms.Button();
+            this.btnAddSains = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvTesco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).BeginInit();
@@ -66,7 +69,7 @@
             this.txtSearch.Location = new System.Drawing.Point(270, 16);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(694, 34);
+            this.txtSearch.Size = new System.Drawing.Size(694, 43);
             this.txtSearch.TabIndex = 4;
             // 
             // wbvAsda
@@ -138,7 +141,7 @@
             this.btnFilter.Location = new System.Drawing.Point(14, 16);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(248, 34);
+            this.btnFilter.Size = new System.Drawing.Size(248, 43);
             this.btnFilter.TabIndex = 9;
             this.btnFilter.Text = "Filter Shops";
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -150,7 +153,7 @@
             this.lblAsda.Location = new System.Drawing.Point(10, 76);
             this.lblAsda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblAsda.Name = "lblAsda";
-            this.lblAsda.Size = new System.Drawing.Size(42, 19);
+            this.lblAsda.Size = new System.Drawing.Size(49, 23);
             this.lblAsda.TabIndex = 10;
             this.lblAsda.Text = "Asda";
             // 
@@ -160,7 +163,7 @@
             this.lblTesco.Location = new System.Drawing.Point(491, 76);
             this.lblTesco.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTesco.Name = "lblTesco";
-            this.lblTesco.Size = new System.Drawing.Size(46, 19);
+            this.lblTesco.Size = new System.Drawing.Size(52, 23);
             this.lblTesco.TabIndex = 11;
             this.lblTesco.Text = "Tesco";
             // 
@@ -170,18 +173,48 @@
             this.lblSainsburys.Location = new System.Drawing.Point(972, 76);
             this.lblSainsburys.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSainsburys.Name = "lblSainsburys";
-            this.lblSainsburys.Size = new System.Drawing.Size(81, 19);
+            this.lblSainsburys.Size = new System.Drawing.Size(96, 23);
             this.lblSainsburys.TabIndex = 12;
             this.lblSainsburys.Text = "Sainsburys";
+            // 
+            // btn_AddAsda
+            // 
+            this.btn_AddAsda.Location = new System.Drawing.Point(156, 752);
+            this.btn_AddAsda.Name = "btn_AddAsda";
+            this.btn_AddAsda.Size = new System.Drawing.Size(175, 47);
+            this.btn_AddAsda.TabIndex = 13;
+            this.btn_AddAsda.Text = "Add to list";
+            this.btn_AddAsda.UseVisualStyleBackColor = true;
+            // 
+            // btnAddTesco
+            // 
+            this.btnAddTesco.Location = new System.Drawing.Point(648, 752);
+            this.btnAddTesco.Name = "btnAddTesco";
+            this.btnAddTesco.Size = new System.Drawing.Size(175, 47);
+            this.btnAddTesco.TabIndex = 14;
+            this.btnAddTesco.Text = "Add to list";
+            this.btnAddTesco.UseVisualStyleBackColor = true;
+            // 
+            // btnAddSains
+            // 
+            this.btnAddSains.Location = new System.Drawing.Point(1148, 752);
+            this.btnAddSains.Name = "btnAddSains";
+            this.btnAddSains.Size = new System.Drawing.Size(175, 47);
+            this.btnAddSains.TabIndex = 15;
+            this.btnAddSains.Text = "Add to list";
+            this.btnAddSains.UseVisualStyleBackColor = true;
             // 
             // FormSearch
             // 
             this.AcceptButton = this.btnSearch;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnBack;
-            this.ClientSize = new System.Drawing.Size(1458, 756);
+            this.ClientSize = new System.Drawing.Size(1458, 809);
+            this.Controls.Add(this.btnAddSains);
+            this.Controls.Add(this.btnAddTesco);
+            this.Controls.Add(this.btn_AddAsda);
             this.Controls.Add(this.lblSainsburys);
             this.Controls.Add(this.lblTesco);
             this.Controls.Add(this.lblAsda);
@@ -220,5 +253,8 @@
         private Label lblAsda;
         private Label lblTesco;
         private Label lblSainsburys;
+        private Button btn_AddAsda;
+        private Button btnAddTesco;
+        private Button btnAddSains;
     }
 }
