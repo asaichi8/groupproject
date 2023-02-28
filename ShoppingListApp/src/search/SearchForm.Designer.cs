@@ -38,7 +38,7 @@
             this.lblAsda = new System.Windows.Forms.Label();
             this.lblTesco = new System.Windows.Forms.Label();
             this.lblSainsburys = new System.Windows.Forms.Label();
-            this.btn_AddAsda = new System.Windows.Forms.Button();
+            this.btnAddAsda = new System.Windows.Forms.Button();
             this.btnAddTesco = new System.Windows.Forms.Button();
             this.btnAddSains = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).BeginInit();
@@ -69,7 +69,7 @@
             this.txtSearch.Location = new System.Drawing.Point(270, 16);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(694, 43);
+            this.txtSearch.Size = new System.Drawing.Size(694, 34);
             this.txtSearch.TabIndex = 4;
             // 
             // wbvAsda
@@ -153,7 +153,7 @@
             this.lblAsda.Location = new System.Drawing.Point(10, 76);
             this.lblAsda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblAsda.Name = "lblAsda";
-            this.lblAsda.Size = new System.Drawing.Size(49, 23);
+            this.lblAsda.Size = new System.Drawing.Size(42, 19);
             this.lblAsda.TabIndex = 10;
             this.lblAsda.Text = "Asda";
             // 
@@ -163,7 +163,7 @@
             this.lblTesco.Location = new System.Drawing.Point(491, 76);
             this.lblTesco.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTesco.Name = "lblTesco";
-            this.lblTesco.Size = new System.Drawing.Size(52, 23);
+            this.lblTesco.Size = new System.Drawing.Size(46, 19);
             this.lblTesco.TabIndex = 11;
             this.lblTesco.Text = "Tesco";
             // 
@@ -173,18 +173,18 @@
             this.lblSainsburys.Location = new System.Drawing.Point(972, 76);
             this.lblSainsburys.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSainsburys.Name = "lblSainsburys";
-            this.lblSainsburys.Size = new System.Drawing.Size(96, 23);
+            this.lblSainsburys.Size = new System.Drawing.Size(81, 19);
             this.lblSainsburys.TabIndex = 12;
             this.lblSainsburys.Text = "Sainsburys";
             // 
-            // btn_AddAsda
+            // btnAddAsda
             // 
-            this.btn_AddAsda.Location = new System.Drawing.Point(156, 752);
-            this.btn_AddAsda.Name = "btn_AddAsda";
-            this.btn_AddAsda.Size = new System.Drawing.Size(175, 47);
-            this.btn_AddAsda.TabIndex = 13;
-            this.btn_AddAsda.Text = "Add to list";
-            this.btn_AddAsda.UseVisualStyleBackColor = true;
+            this.btnAddAsda.Location = new System.Drawing.Point(156, 752);
+            this.btnAddAsda.Name = "btnAddAsda";
+            this.btnAddAsda.Size = new System.Drawing.Size(175, 47);
+            this.btnAddAsda.TabIndex = 13;
+            this.btnAddAsda.Text = "Add to list";
+            this.btnAddAsda.UseVisualStyleBackColor = true;
             // 
             // btnAddTesco
             // 
@@ -207,14 +207,14 @@
             // FormSearch
             // 
             this.AcceptButton = this.btnSearch;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(1458, 809);
             this.Controls.Add(this.btnAddSains);
             this.Controls.Add(this.btnAddTesco);
-            this.Controls.Add(this.btn_AddAsda);
+            this.Controls.Add(this.btnAddAsda);
             this.Controls.Add(this.lblSainsburys);
             this.Controls.Add(this.lblTesco);
             this.Controls.Add(this.lblAsda);
@@ -253,7 +253,7 @@
         private Label lblAsda;
         private Label lblTesco;
         private Label lblSainsburys;
-        private Button btn_AddAsda;
+        private Button btnAddAsda;
         private Button btnAddTesco;
         private Button btnAddSains;
     }
