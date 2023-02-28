@@ -179,6 +179,8 @@
             // 
             // btnAddAsda
             // 
+            this.btnAddAsda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAsda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAsda.Location = new System.Drawing.Point(156, 752);
             this.btnAddAsda.Name = "btnAddAsda";
             this.btnAddAsda.Size = new System.Drawing.Size(175, 47);
@@ -188,6 +190,8 @@
             // 
             // btnAddTesco
             // 
+            this.btnAddTesco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddTesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTesco.Location = new System.Drawing.Point(648, 752);
             this.btnAddTesco.Name = "btnAddTesco";
             this.btnAddTesco.Size = new System.Drawing.Size(175, 47);
@@ -197,7 +201,9 @@
             // 
             // btnAddSains
             // 
-            this.btnAddSains.Location = new System.Drawing.Point(1148, 752);
+            this.btnAddSains.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSains.Location = new System.Drawing.Point(1134, 750);
             this.btnAddSains.Name = "btnAddSains";
             this.btnAddSains.Size = new System.Drawing.Size(175, 47);
             this.btnAddSains.TabIndex = 15;
