@@ -19,8 +19,8 @@ namespace ShoppingListApp
             this.Icon = Properties.Resources.UFix_Logo_Icon;
             BorderlessUtils.HookUninteractableControls(this);
 
-            BorderlessUtils bu = new BorderlessUtils(this);
-            bu.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
+            CornerButton cb = new CornerButton(this);
+            cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
         }
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)

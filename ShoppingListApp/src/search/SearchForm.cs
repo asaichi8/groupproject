@@ -23,8 +23,8 @@ namespace ShoppingListApp
             this.Icon = Properties.Resources.UFix_Logo_Icon;
             BorderlessUtils.HookUninteractableControls(this);
 
-            BorderlessUtils bu = new BorderlessUtils(this);
-            bu.CreateCloseButton(FlatStyle.Flat, Color.Goldenrod);
+            CornerButton cb = new CornerButton(this);
+            cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
