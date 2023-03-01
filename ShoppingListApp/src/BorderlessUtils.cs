@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace ShoppingListApp.src
 {
@@ -19,11 +20,11 @@ namespace ShoppingListApp.src
         private readonly Form form;
         private int buttonsAdded = 0;
         private readonly Size size = new Size(25, 25);
-        private const string BTN_CLOSE_NAME = "btnClose";
+        private const string BTN_CLOSE_NAME = "Close";
         private const string BTN_CLOSE_TEXT = "✖";
-        private const string BTN_MAXIMISE_NAME = "btnMaximise";
+        private const string BTN_MAXIMISE_NAME = "Maximise";
         private const string BTN_MAXIMISE_TEXT = "🗖";
-        private const string BTN_MINIMISE_NAME = "btnMinimise";
+        private const string BTN_MINIMISE_NAME = "Minimise";
         private const string BTN_MINIMISE_TEXT = "🗕";
 
         public BorderlessUtils(Form _form)
@@ -99,25 +100,49 @@ namespace ShoppingListApp.src
 
         }
 
+        private ToolTip CreateToolTip(Control control, string tip)
+        {
+            if (control is null)
+                throw new ArgumentNullException($"{nameof(control)} cannot be null.");
+
+            ToolTip toolTip = new ToolTip();
+
+            toolTip.InitialDelay = 1000;
+            toolTip.ReshowDelay = 500;
+            toolTip.AutoPopDelay = 5000;
+            toolTip.ShowAlways = true;
+
+            toolTip.SetToolTip(control, tip);
+
+            return toolTip;
+        }
+
         public void CreateCloseButton(FlatStyle style, Color color)
         {
-            CreateTitlebarButton(size, BTN_CLOSE_NAME, BTN_CLOSE_TEXT, style, color).Click += btnExit_Click;
+            Button close = CreateTitlebarButton(size, "btn" + BTN_CLOSE_NAME, BTN_CLOSE_TEXT, style, color);
+            close.Click += btnExit_Click;
+
+            CreateToolTip(close, BTN_CLOSE_NAME);
         }
         public void CreateMaximiseButton(FlatStyle style, Color color)
         {
-            Button b = CreateTitlebarButton(size, BTN_MAXIMISE_NAME, BTN_MAXIMISE_TEXT, style, color);
-            b.Click += btnMaximise_Click;
+            Button maximise = CreateTitlebarButton(size, "btn" + BTN_MAXIMISE_NAME, BTN_MAXIMISE_TEXT, style, color);
+            maximise.Click += btnMaximise_Click;
+
+            CreateToolTip(maximise, BTN_MAXIMISE_NAME);
 
             if (!form.MaximizeBox)
-                b.Enabled = false;
+                maximise.Enabled = false;
         }
         public void CreateMinimiseButton(FlatStyle style, Color color)
         {
-            Button b = CreateTitlebarButton(size, BTN_MINIMISE_NAME, BTN_MINIMISE_TEXT, style, color);
-            b.Click += btnMinimise_Click;
+            Button minimise = CreateTitlebarButton(size, "btn" + BTN_MINIMISE_NAME, BTN_MINIMISE_TEXT, style, color);
+            minimise.Click += btnMinimise_Click;
+
+            CreateToolTip(minimise, BTN_MINIMISE_NAME);
 
             if (!form.MinimizeBox)
-                b.Enabled = false;
+                minimise.Enabled = false;
         }
 
         public void CreateTitlebarButtons(FlatStyle style, Color color, bool checkIfDisabled = true)
