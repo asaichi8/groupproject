@@ -1,5 +1,8 @@
 ﻿namespace ShoppingListApp.src
 {
+    /// <summary>
+    /// Adds extra functionality to forms.
+    /// </summary>
     public static class FormExtensions
     {
         /// <summary>

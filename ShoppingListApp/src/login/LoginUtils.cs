@@ -2,6 +2,9 @@
 
 namespace ShoppingListApp.src.Login
 {
+    /// <summary>
+    /// Provides utility methods to create and manage user profiles and their passwords.
+    /// </summary>
     public static class LoginUtils
     {
         private static readonly string CUR_DIR = Path.GetDirectoryName(Application.ExecutablePath);

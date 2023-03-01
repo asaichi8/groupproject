@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ShoppingListApp.src.Login
 {
+    /// <summary>
+    /// Provides methods for secure password hashing using the Argon2id algorithm with random salt generation.
+    /// </summary>
     public static class Hasher
     {
         private const int SALT_SIZE_BYTES = 32;

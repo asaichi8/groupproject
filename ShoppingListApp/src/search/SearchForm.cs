@@ -20,9 +20,12 @@ namespace ShoppingListApp
         public FormSearch(Form _prevForm, string _searchItem)
         {
             InitializeComponent();
-            this.Icon = Properties.Resources.UFix_Logo_Icon;
-            BorderlessUtils.HookUninteractableControls(this);
 
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
+
+            BorderlessUtils.MakeFormDraggable(this);
+
+            // create minimise, maximise, close buttons
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
@@ -47,6 +50,7 @@ namespace ShoppingListApp
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            // show filter form
             Form filterForm = new FormFilter();
             filterForm.ShowDialog(this);
         }

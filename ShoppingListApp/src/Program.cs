@@ -14,6 +14,7 @@ namespace ShoppingListApp
         static void Main()
         {
             CreateShops();
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();   // Updating to C# version 8.0 and above causes the system not to detect to it.
@@ -22,7 +23,12 @@ namespace ShoppingListApp
             Application.Run(new FormLogin());
         }
 
-        // creating an instance of a Shop object will add it to a static list
+        /// <summary>
+        /// Use this method to create new shops for the application.
+        /// </summary>
+        /// <remarks>
+        /// The created Shop objects are added to the static <see cref="Shop.AllShops"/> list.
+        /// </remarks>
         static private void CreateShops()
         {
             Shop tesco = new Shop("Tesco");

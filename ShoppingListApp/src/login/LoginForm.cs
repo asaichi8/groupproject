@@ -1,24 +1,19 @@
 ﻿using ShoppingListApp.src.Login;
-using ShoppingListApp.Properties;
-using System.Collections.Generic;
-using System.Net.Sockets;
-using static System.Net.Mime.MediaTypeNames;
-using System.Drawing.Text;
-using System.Drawing;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using ShoppingListApp.src;
 
 namespace ShoppingListApp
 {
     public partial class FormLogin : Form
     {
-
         public FormLogin()
         {
             InitializeComponent();
-            this.Icon = Properties.Resources.UFix_Logo_Icon;
-            BorderlessUtils.HookUninteractableControls(this);
 
+            this.Icon = Properties.Resources.UFix_Logo_Icon; 
+
+            BorderlessUtils.MakeFormDraggable(this);
+
+            // create minimise, maximise, close buttons
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
         }
@@ -56,39 +51,49 @@ namespace ShoppingListApp
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            // asynchronously run the AttemptLogin method so the ui doesn't hang while logging in
             await Task.Run(() =>
             {
                 return AttemptLogin(txtUser.Text);
-            }).ContinueWith(task =>
+            }).ContinueWith(task => // after the method has completed:
             {
-                if (task.Result)
-                    LoginComplete();
+                if (task.Result) // if AttemptLogin succeeded...
+                    LoginComplete(); // ...run LoginComplete method
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
+            // asynchronously run the Register method so the ui doesn't hang while registering
             await Task.Run(() => { Register(); });
         }
 
-
-
+        /// <summary>
+        /// Attempt to authenticate user's login details.
+        /// </summary>
+        /// <param name="user">Username of the user attempting to log in.</param>
+        /// <returns>TRUE if login is successful, FALSE otherwise.</returns>
         bool AttemptLogin(string user)
         {
+            // disable login controls on ui thread to prevent user input while logging in
             Invoke((MethodInvoker)delegate
             {
                 SetLoginControlsEnabled(false);
             });
 
             SetStatus("Logging in...", Color.Orange, false);
+
+            // change cursor to wait cursor to indicate to user something is happening
             System.Windows.Forms.Application.UseWaitCursor = true;
 
+            // simulate processing time
             Thread.Sleep(250);
 
             try
             {
                 string userDir = LoginUtils.GetUserDir(user);
 
+                // if directory doesn't exist, username was invalid
                 if (!Directory.Exists(userDir))
                 {
                     SetStatus("Invalid username.", Color.Red);
@@ -96,12 +101,15 @@ namespace ShoppingListApp
                 }
 
                 byte[]? hashedPassword = LoginUtils.ReadPasswordFile(user);
+
+                // if password file could not be read or has incorrect length, method failed
                 if (hashedPassword is null || hashedPassword.Length != LoginUtils.PASSWORD_LENGTH_BYTES)
                 {
                     SetStatus("Could not read password file.", Color.Red);
                     return false;
                 }
 
+                // verify entered password against hashed password
                 if (!Hasher.VerifyHash(txtPassword.Text, hashedPassword))
                 {
                     SetStatus("Invalid password.", Color.Red);
@@ -112,8 +120,10 @@ namespace ShoppingListApp
             }
             finally
             {
+                // reset cursor to default
                 System.Windows.Forms.Application.UseWaitCursor = false;
 
+                // re-enable login controls on ui thread
                 Invoke((MethodInvoker)delegate
                 {
                     SetLoginControlsEnabled(true);
@@ -121,6 +131,13 @@ namespace ShoppingListApp
             }
         }
 
+        /// <summary>
+        /// Handles the completion of a successful login by remembering the user's username, resetting the login form,
+        /// and showing the main form with the specified user.
+        /// </summary>
+        /// <remarks>
+        /// This method is typically called after a successful login and is responsible for performing any necessary post-login tasks.
+        /// </remarks>
         void LoginComplete()
         {
             // remember me
@@ -129,6 +146,7 @@ namespace ShoppingListApp
             Reset();
             txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
 
+            // switch to welcome form
             this.Hide();
             Form welcomeForm = new FormHomePage(this, user);
             welcomeForm.Show();
@@ -136,42 +154,59 @@ namespace ShoppingListApp
 
         // TODO: make sure passwords are secure enough, maybe based on their entropy?
         //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
+        /// <summary>
+        /// Attempts to register a new user by creating a user directory and storing a hashed password for the user.
+        /// </summary>
+        /// <remarks>
+        /// This method is typically called when the user clicks the "Register" button on the login form.
+        /// </remarks>
+        /// <exception cref="System.Security.Cryptography.CryptographicException">
+        /// Thrown when an error occurs during password hashing.
+        /// </exception>
         void Register()
         {
+            // disable login controls on ui thread to prevent user input while registering
             Invoke((MethodInvoker)delegate
             {
                 SetLoginControlsEnabled(false);
             });
 
             SetStatus("Attempting to register...", Color.Orange);
+
+            // change cursor to wait cursor to indicate to user something is happening
             System.Windows.Forms.Application.UseWaitCursor = true;
 
-            Thread.Sleep(500);
+            Thread.Sleep(500); // simulate processing time
 
             try
             { 
                 string user = txtUser.Text;
 
-                bool? bCreateUserFolder = LoginUtils.CreateUserFolders(user);
-                if (bCreateUserFolder is null)
+                // attempt to create user directory for new user
+                bool? userFolderCreationResult = LoginUtils.CreateUserFolders(user);
+                if (userFolderCreationResult is null) // creation failed
                 {
                     SetStatus("Failed to create user folders.", Color.Red);
                     return;
                 }
-                else if (bCreateUserFolder is false)
+                else if (userFolderCreationResult is false) // user already exists
                 {
                     SetStatus("Username already exists.", Color.Red);
                     return;
                 }
 
+                // hash the password and store it in a password file for the new user
                 byte[] hashedPassword = Hasher.Hash(txtPassword.Text);
 
-                if (!LoginUtils.CreatePasswordFile(user, hashedPassword))
+                // attempt to create password file for new user
+                bool createPasswordFileResult = LoginUtils.CreatePasswordFile(user, hashedPassword);
+                if (createPasswordFileResult is false) // creation failed
                 {
                     SetStatus("Failed to store password.", Color.Red);
                     return;
                 }
 
+                // everything succeeded
                 SetStatus("Register successful.", Color.Green);
             }
             finally
@@ -184,7 +219,11 @@ namespace ShoppingListApp
                 });
             }
         }
-
+        /// <summary>
+        /// Enables or disables login controls based on the specified flag.
+        /// </summary>
+        /// <param name="enabled">A boolean value indicating whether controls should be enabled.</param>
+        /// <param name="buttonsOnly">If true, only login and register buttons are affected.</param>
         void SetLoginControlsEnabled(bool enabled, bool buttonsOnly = false)
         {
             btnLogin.Enabled = enabled;
@@ -198,6 +237,9 @@ namespace ShoppingListApp
             cbxShowPass.Enabled = enabled;
         }
 
+        /// <summary>
+        /// Attempts to clear the login form to its default state.
+        /// </summary>
         private void Reset()
         {
             txtPassword.ResetText();
@@ -205,6 +247,12 @@ namespace ShoppingListApp
             cbxShowPass.Checked = false;
         }
 
+        /// <summary>
+        /// Sets the text and color of the login response label and starts a timer to clear the message after a certain interval.
+        /// </summary>
+        /// <param name="status">The status message to display.</param>
+        /// <param name="color">The color of the status message.</param>
+        /// <param name="shouldTimeout">A boolean value indicating whether the message should disappear automatically after a certain interval.</param>
         private void SetStatus(string status, Color color, bool shouldTimeout = true)
         {
             Invoke((MethodInvoker)delegate

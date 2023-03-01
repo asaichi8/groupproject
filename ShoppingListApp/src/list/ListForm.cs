@@ -11,8 +11,10 @@ namespace ShoppingListApp
         public FormList(Form _prevForm, string _username)
         {
             InitializeComponent();
+
             this.Icon = Properties.Resources.UFix_Logo_Icon;
-            BorderlessUtils.HookUninteractableControls(this);
+
+            BorderlessUtils.MakeFormDraggable(this);
 
             // chart covers these up
             //BorderlessUtils bu = new BorderlessUtils(this);

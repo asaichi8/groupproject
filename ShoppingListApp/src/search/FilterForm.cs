@@ -18,8 +18,10 @@ namespace ShoppingListApp.src.search
         public FormFilter()
         {
             InitializeComponent();
+
             this.Icon = Properties.Resources.UFix_Logo_Icon;
-            BorderlessUtils.HookUninteractableControls(this);
+
+            BorderlessUtils.MakeFormDraggable(this);
 
             // borderless filter is too ambiguous
             //BorderlessUtils bu = new BorderlessUtils(this);
@@ -29,13 +31,7 @@ namespace ShoppingListApp.src.search
         private void FilterForm_Load(object sender, EventArgs e)
         {
             if (Shop.AllShops.Count == 0)
-            {
-                MessageBox.Show("ERROR: No shops were found. Please contact an admin.", "No shops found",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                this.Close();
-                return;
-            }
+                throw new InvalidOperationException("No shops were found. Add at least one shop before using the application.");
 
             CreateCheckboxes();
         }
@@ -45,10 +41,15 @@ namespace ShoppingListApp.src.search
             SaveFilters();
         }
 
-
+        /// <summary>
+        /// Dynamically creates a CheckBox control for each shop and adds it to the form.
+        /// </summary>
+        /// <remarks>
+        /// Each CheckBox control is positioned below the previous one and its text and checked state are
+        /// set based on the corresponding shop's name and filter status.
+        /// </remarks>
         private void CreateCheckboxes()
         {
-            // dynamically create new checkboxes for each shop
             Point lastCbxPos = INITIAL_CBX_POS;
 
             foreach (Shop shop in Shop.AllShops)
@@ -74,7 +75,9 @@ namespace ShoppingListApp.src.search
             }
         }
 
-        // save results to Shop.allShops
+        /// <summary>
+        /// Saves the filter settings for each shop based on the corresponding CheckBox control's checked state.
+        /// </summary>
         private void SaveFilters()
         {
             // for each checkbox in the group that owns a tag...

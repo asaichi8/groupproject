@@ -12,9 +12,12 @@ namespace ShoppingListApp
         public FormHomePage(Form _frmLogin, string _username)
         {
             InitializeComponent();
-            this.Icon = Properties.Resources.UFix_Logo_Icon;
-            BorderlessUtils.HookUninteractableControls(this);
 
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
+
+            BorderlessUtils.MakeFormDraggable(this);
+
+            // create minimise, maximise, close buttons
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
@@ -41,6 +44,7 @@ namespace ShoppingListApp
                 return;
             }
 
+            // show search form
             Form productPage = new FormSearch(this, searchItem);
             productPage.ShowDialog(this);
             productPage.CenterChild(this);
@@ -48,6 +52,7 @@ namespace ShoppingListApp
 
         private void btnToList_Click(object sender, EventArgs e)
         {
+            // show list form
             Form formList = new FormList(this, username);
             formList.ShowDialog(this);
             formList.CenterChild(this);
@@ -74,6 +79,9 @@ namespace ShoppingListApp
             Logout();
         }
 
+        /// <summary>
+        /// Called when logging out. Resets variables to get ready for the next user to log in.
+        /// </summary>
         void Logout()
         {
             Shop.DisableAllFilters();
