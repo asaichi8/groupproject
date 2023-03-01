@@ -142,7 +142,7 @@ namespace ShoppingListApp.src.Login
         /// </summary>
         /// <param name="c">Character to be checked.</param>
         /// <returns>TRUE if character is valid, FALSE if not.</returns>
-        public static bool isUsernameCharValid(char c)
+        public static bool IsUsernameCharValid(char c)
         {
             Regex regexValidCharacter = new(@"^[A-Za-z0-9\b]");
 
@@ -150,6 +150,45 @@ namespace ShoppingListApp.src.Login
                 return true;
 
             return regexValidCharacter.IsMatch(c.ToString());
+        }
+
+
+
+        /// <summary>
+        /// Validates a password to ensure it meets minimum strength requirements.
+        /// </summary>
+        /// <param name="password">The password to validate.</param>
+        /// <returns>TRUE if the password is strong enough, FALSE otherwise.</returns>
+        public static bool ValidatePassword(string password)
+        {
+            // minimum password length
+            const int MIN_LENGTH = 8;
+
+            // password strength regex patterns
+            const string LOWERCASE_PATTERN = @"[a-z]";
+            const string UPPERCASE_PATTERN = @"[A-Z]";
+            const string DIGIT_PATTERN = @"\d";
+            const string SPECIAL_CHAR_PATTERN = @"[^\da-zA-Z]";
+
+            // check minimum length
+            if (password.Length < MIN_LENGTH)
+                return false;
+
+            // check each regex pattern
+            if (!Regex.IsMatch(password, LOWERCASE_PATTERN)) // at least one lowercase letter
+                return false;
+
+            if (!Regex.IsMatch(password, UPPERCASE_PATTERN)) // at least one uppercase letter
+                return false;
+
+            if (!Regex.IsMatch(password, DIGIT_PATTERN)) // at least one digit
+                return false;
+
+            if (!Regex.IsMatch(password, SPECIAL_CHAR_PATTERN)) // at least one non alphanumeric character
+                return false;
+
+
+            return true;
         }
     }
 }

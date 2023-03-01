@@ -1,5 +1,6 @@
 ﻿using ShoppingListApp.src.Login;
 using ShoppingListApp.src;
+using System.Text.RegularExpressions;
 
 namespace ShoppingListApp
 {
@@ -46,7 +47,7 @@ namespace ShoppingListApp
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             // disallow any characters in the username textbox that aren't allowed in a username
-            e.Handled = !LoginUtils.isUsernameCharValid(e.KeyChar);
+            e.Handled = !LoginUtils.IsUsernameCharValid(e.KeyChar);
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
@@ -152,8 +153,6 @@ namespace ShoppingListApp
             welcomeForm.Show();
         }
 
-        // TODO: make sure passwords are secure enough, maybe based on their entropy?
-        //       https://en.wikipedia.org/wiki/Entropy_%28information_theory%29
         /// <summary>
         /// Attempts to register a new user by creating a user directory and storing a hashed password for the user.
         /// </summary>
@@ -182,6 +181,20 @@ namespace ShoppingListApp
             { 
                 string user = txtUser.Text;
 
+#if !DEBUG
+                /* passwords must contain:
+                //  - minimum 8 characters
+                //  - one uppercase character
+                //  - one lowercase character
+                //  - one number
+                //  - one special character     */
+                if (!LoginUtils.ValidatePassword(txtPassword.Text))
+                {
+                    SetStatus("Please create a more secure password.", Color.Red);
+                    return;
+                }
+#endif
+
                 // attempt to create user directory for new user
                 bool? userFolderCreationResult = LoginUtils.CreateUserFolders(user);
                 if (userFolderCreationResult is null) // creation failed
@@ -202,6 +215,7 @@ namespace ShoppingListApp
                 bool createPasswordFileResult = LoginUtils.CreatePasswordFile(user, hashedPassword);
                 if (createPasswordFileResult is false) // creation failed
                 {
+                    // TODO: fix "ghost user" bug: user is created with no password file
                     SetStatus("Failed to store password.", Color.Red);
                     return;
                 }
@@ -219,6 +233,7 @@ namespace ShoppingListApp
                 });
             }
         }
+
         /// <summary>
         /// Enables or disables login controls based on the specified flag.
         /// </summary>
