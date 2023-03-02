@@ -3,22 +3,35 @@ using ShoppingListApp.src;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using System.Configuration;
 
 namespace ShoppingListApp
 {
     public partial class FormLogin : Form
     {
+        int m_iFailedLogins = 0;
+        const int BAN_TIME = 15;
+
         public FormLogin()
         {
             InitializeComponent();
+        }
 
-            this.Icon = Properties.Resources.UFix_Logo_Icon; 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.Icon = Properties.Resources.UFix_Logo_Icon;
 
             BorderlessUtils.MakeFormDraggable(this);
 
             // create minimise, maximise, close buttons
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
+
+            // keep user banned if they were banned but closed the application
+            if (Properties.Settings.Default.BanTime > 0)
+                DisableLoginSystem();
         }
 
         private void LoginInfo_TextChanged(object sender, EventArgs e)
@@ -54,6 +67,12 @@ namespace ShoppingListApp
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            if (IsBanned())
+            {
+                SetStatus("Cannot login while banned.", Color.Red);
+                return;
+            }
+
             // asynchronously run the AttemptLogin method so the ui doesn't hang while logging in
             await Task.Run(() =>
             {
@@ -69,50 +88,72 @@ namespace ShoppingListApp
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
+            if (IsBanned())
+            {
+                SetStatus("Cannot register while banned.", Color.Red);
+                return;
+            }
+
             // asynchronously run the Register method so the ui doesn't hang while registering
             await Task.Run(() => { Register(); });
         }
 
-        static int failedLogins = 0;
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// Increments the count of failed login attempts and disables the login system
+        /// if the maximum number of allowed failed attempts is reached.
+        /// </summary>
         private void LoginFailed()
         {
             const int MAX_FAILED_LOGINS = 3;
 
-            failedLogins++;
+            m_iFailedLogins++;
 
-            if (failedLogins < MAX_FAILED_LOGINS)
+            if (m_iFailedLogins < MAX_FAILED_LOGINS)
                 return;
 
             DisableLoginSystem();
 
-            failedLogins = 0;
+            m_iFailedLogins = 0;
         }
 
-        public delegate void DisableLoginSystemHandler();
+        /// <summary>
+        /// Disables the login system by setting the BanTime property in the application's
+        /// settings and preventing further login attempts for the specified duration.
+        /// </summary>
         private async void DisableLoginSystem()
         {
-            if (InvokeRequired) // if caller is on a different thread...
-            {
-                // ...invoke same function current thread
-                Invoke(new DisableLoginSystemHandler(DisableLoginSystem), new object[] { });
-                return;
-            }
-            const int UPDATE_TIME = 1;
-            int banTime = 60;
-
             System.Windows.Forms.Application.UseWaitCursor = false;
 
-            SetLoginControlsEnabled(false);
-
-            while (banTime > 1)
+            Invoke((MethodInvoker)delegate
             {
-                banTime--;
-                SetStatus($"Too many failed attempts. Try again in {banTime} seconds.", Color.Maroon);
-                await Task.Delay(TimeSpan.FromSeconds(UPDATE_TIME));
+                SetLoginControlsEnabled(false);
+            });
+
+            if (!IsBanned())
+                Properties.Settings.Default.BanTime = BAN_TIME; // ban
+
+            Properties.Settings.Default.Save();
+
+            while (IsBanned())
+            {
+                SetStatus($"Too many failed attempts. Try again in {Properties.Settings.Default.BanTime} seconds.", Color.Maroon);
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                Properties.Settings.Default.BanTime--;
             }
 
-            SetStatus("", Color.Black);
-            SetLoginControlsEnabled(true);
+            Properties.Settings.Default.Save();
+
+            SetStatus("You may now login.", Color.Green);
+
+            Invoke((MethodInvoker)delegate
+            {
+                SetLoginControlsEnabled(true);
+            });
         }
 
         /// <summary>
@@ -187,9 +228,12 @@ namespace ShoppingListApp
         /// </remarks>
         void LoginComplete()
         {
+            m_iFailedLogins = 0;
+
             // remember me
             string user = txtUser.Text;
             Properties.Settings.Default.LastUsername = user;
+            Properties.Settings.Default.Save();
             Reset();
             txtUser.Text = Properties.Settings.Default.LastUsername; // remember last username
 
@@ -296,6 +340,15 @@ namespace ShoppingListApp
             txtUser.Enabled = enabled;
             txtPassword.Enabled = enabled;
             cbxShowPass.Enabled = enabled;
+        }
+
+        /// <summary>
+        /// Determines whether the current user is banned based on the value of the BanTime property in the application's settings.
+        /// </summary>
+        /// <returns>TRUE if user is banned, otherwise FALSE.</returns>
+        bool IsBanned()
+        {
+            return Properties.Settings.Default.BanTime > 0;
         }
 
         /// <summary>

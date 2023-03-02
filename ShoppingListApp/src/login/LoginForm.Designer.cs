@@ -216,6 +216,7 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLogin_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBrainVire)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

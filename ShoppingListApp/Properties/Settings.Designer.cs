@@ -34,5 +34,17 @@ namespace ShoppingListApp.Properties {
                 this["LastUsername"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int BanTime {
+            get {
+                return ((int)(this["BanTime"]));
+            }
+            set {
+                this["BanTime"] = value;
+            }
+        }
     }
 }
