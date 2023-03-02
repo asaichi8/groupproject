@@ -23,6 +23,8 @@ namespace ShoppingListApp
 
             frmLogin = _frmLogin;
             username = _username;
+
+            this.Text = "Welcome - " + username;
         }
 
         private void frmHomePage_Load(object sender, EventArgs e)
