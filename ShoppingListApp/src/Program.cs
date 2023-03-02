@@ -5,19 +5,25 @@ namespace ShoppingListApp
 {
     internal static class Program
     {
-        //public static object ApplicationConfiguration { get; private set; }
-
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            // disallow more than one instance of the application, making it slightly more secure
+            // https://odetocode.com/blogs/scott/archive/2004/08/20/the-misunderstood-mutex.aspx
+            using Mutex mutex = new Mutex(false, "Global\\ShoppingListApp.exe");
+
+            if (!mutex.WaitOne(0, false))
+            {
+                MessageBox.Show("Multiple instances of the software cannot be run concurrently.", "Instance already running",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             CreateShops();
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            //ApplicationConfiguration.Initialize();   // Updating to C# version 8.0 and above causes the system not to detect to it.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormLogin());
