@@ -1,6 +1,8 @@
 ﻿using ShoppingListApp.src.Login;
 using ShoppingListApp.src;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Net.Sockets;
 
 namespace ShoppingListApp
 {
@@ -60,6 +62,8 @@ namespace ShoppingListApp
             {
                 if (task.Result) // if AttemptLogin succeeded...
                     LoginComplete(); // ...run LoginComplete method
+                else if (!task.Result)
+                    LoginFailed();
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
@@ -67,6 +71,48 @@ namespace ShoppingListApp
         {
             // asynchronously run the Register method so the ui doesn't hang while registering
             await Task.Run(() => { Register(); });
+        }
+
+        static int failedLogins = 0;
+        private void LoginFailed()
+        {
+            const int MAX_FAILED_LOGINS = 3;
+
+            failedLogins++;
+
+            if (failedLogins < MAX_FAILED_LOGINS)
+                return;
+
+            DisableLoginSystem();
+
+            failedLogins = 0;
+        }
+
+        public delegate void DisableLoginSystemHandler();
+        private async void DisableLoginSystem()
+        {
+            if (InvokeRequired) // if caller is on a different thread...
+            {
+                // ...invoke same function current thread
+                Invoke(new DisableLoginSystemHandler(DisableLoginSystem), new object[] { });
+                return;
+            }
+            const int UPDATE_TIME = 1;
+            int banTime = 60;
+
+            System.Windows.Forms.Application.UseWaitCursor = false;
+
+            SetLoginControlsEnabled(false);
+
+            while (banTime > 1)
+            {
+                banTime--;
+                SetStatus($"Too many failed attempts. Try again in {banTime} seconds.", Color.Maroon);
+                await Task.Delay(TimeSpan.FromSeconds(UPDATE_TIME));
+            }
+
+            SetStatus("", Color.Black);
+            SetLoginControlsEnabled(true);
         }
 
         /// <summary>
