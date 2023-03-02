@@ -161,7 +161,7 @@ namespace ShoppingListApp
         /// </summary>
         /// <param name="user">Username of the user attempting to log in.</param>
         /// <returns>TRUE if login is successful, FALSE otherwise.</returns>
-        bool AttemptLogin(string user)
+        private bool AttemptLogin(string user)
         {
             // disable login controls on ui thread to prevent user input while logging in
             Invoke((MethodInvoker)delegate
@@ -226,7 +226,7 @@ namespace ShoppingListApp
         /// <remarks>
         /// This method is typically called after a successful login and is responsible for performing any necessary post-login tasks.
         /// </remarks>
-        void LoginComplete()
+        private void LoginComplete()
         {
             m_iFailedLogins = 0;
 
@@ -252,7 +252,7 @@ namespace ShoppingListApp
         /// <exception cref="System.Security.Cryptography.CryptographicException">
         /// Thrown when an error occurs during password hashing.
         /// </exception>
-        void Register()
+        private void Register()
         {
             // disable login controls on ui thread to prevent user input while registering
             Invoke((MethodInvoker)delegate
@@ -329,7 +329,7 @@ namespace ShoppingListApp
         /// </summary>
         /// <param name="enabled">A boolean value indicating whether controls should be enabled.</param>
         /// <param name="buttonsOnly">If true, only login and register buttons are affected.</param>
-        void SetLoginControlsEnabled(bool enabled, bool buttonsOnly = false)
+        private void SetLoginControlsEnabled(bool enabled, bool buttonsOnly = false)
         {
             btnLogin.Enabled = enabled;
             btnRegister.Enabled = enabled;
@@ -346,7 +346,7 @@ namespace ShoppingListApp
         /// Determines whether the current user is banned based on the value of the BanTime property in the application's settings.
         /// </summary>
         /// <returns>TRUE if user is banned, otherwise FALSE.</returns>
-        bool IsBanned()
+        private bool IsBanned()
         {
             return Properties.Settings.Default.BanTime > 0;
         }
