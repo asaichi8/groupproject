@@ -30,7 +30,7 @@ namespace ShoppingListApp
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
             // keep user banned if they were banned but closed the application
-            if (Properties.Settings.Default.BanTime > 0)
+            if (IsBanned())
                 DisableLoginSystem();
         }
 
@@ -100,7 +100,7 @@ namespace ShoppingListApp
 
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Save(); // ensure settings are saved when application is closed
         }
 
         /// <summary>
@@ -116,6 +116,7 @@ namespace ShoppingListApp
             if (m_iFailedLogins < MAX_FAILED_LOGINS)
                 return;
 
+            // more than MAX_FAILED_LOGINS login attempts, so ban user
             DisableLoginSystem();
 
             m_iFailedLogins = 0;
@@ -129,29 +130,34 @@ namespace ShoppingListApp
         {
             System.Windows.Forms.Application.UseWaitCursor = false;
 
+            // disable login controls on ui thread to prevent user input while banned
             Invoke((MethodInvoker)delegate
             {
                 SetLoginControlsEnabled(false);
             });
 
+            // if not currently banned, then ban
             if (!IsBanned())
-                Properties.Settings.Default.BanTime = BAN_TIME; // ban
+                Properties.Settings.Default.BanTime = BAN_TIME;
 
+            // save the time banned to file
             Properties.Settings.Default.Save();
 
-            while (IsBanned())
+            while (IsBanned()) // loop until BanTime is 0
             {
                 SetStatus($"Too many failed attempts. Try again in {Properties.Settings.Default.BanTime} seconds.", Color.Maroon);
-                await Task.Delay(TimeSpan.FromSeconds(1));
                 Properties.Settings.Default.BanTime--;
+
+                await Task.Delay(TimeSpan.FromSeconds(1));
             }
 
+            // save the time banned (should now be 0) to file, unbanning the user
             Properties.Settings.Default.Save();
 
             SetStatus("You may now login.", Color.Green);
 
-            Invoke((MethodInvoker)delegate
-            {
+            // re-enable login controls
+            Invoke((MethodInvoker)delegate {
                 SetLoginControlsEnabled(true);
             });
         }
@@ -271,13 +277,13 @@ namespace ShoppingListApp
             { 
                 string user = txtUser.Text;
 
-#if !DEBUG
                 /* passwords must contain:
                 //  - minimum 8 characters
                 //  - one uppercase character
                 //  - one lowercase character
                 //  - one number
                 //  - one special character     */
+#if !DEBUG
                 if (!LoginUtils.ValidatePassword(txtPassword.Text))
                 {
                     SetStatus("Please create a more secure password.", Color.Red);
