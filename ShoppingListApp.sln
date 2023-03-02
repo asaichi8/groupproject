@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListApp", "ShoppingListApp\ShoppingListApp.csproj", "{A377A4B6-334E-46CD-9FFF-83F6C2B4EEBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingListApp", "ShoppingListApp\ShoppingListApp.csproj", "{A377A4B6-334E-46CD-9FFF-83F6C2B4EEBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListApp.UnitTests", "ShoppingListApp.UnitTests\ShoppingListApp.UnitTests.csproj", "{E7BFA1F9-471C-474C-861E-D5F9D55B836F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A377A4B6-334E-46CD-9FFF-83F6C2B4EEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A377A4B6-334E-46CD-9FFF-83F6C2B4EEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A377A4B6-334E-46CD-9FFF-83F6C2B4EEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7BFA1F9-471C-474C-861E-D5F9D55B836F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7BFA1F9-471C-474C-861E-D5F9D55B836F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7BFA1F9-471C-474C-861E-D5F9D55B836F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7BFA1F9-471C-474C-861E-D5F9D55B836F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
