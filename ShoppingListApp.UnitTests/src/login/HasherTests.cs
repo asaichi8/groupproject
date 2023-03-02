@@ -30,7 +30,7 @@ namespace ShoppingListApp.UnitTests.src.login
         {
             // Arrange
             string password = "TestP@ssw0rd";
-            string invalidPassword = "1nv@lidp@SSWORD";
+            string invalidPassword = "Testp@ssw0rd";
 
             // Act
             byte[] hash = Hasher.Hash(password);

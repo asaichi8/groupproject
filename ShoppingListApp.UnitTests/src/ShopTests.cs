@@ -91,8 +91,8 @@ namespace ShoppingListApp.UnitTests
             Shop.DisableAllFilters();
 
             // Assert
-            Assert.IsFalse(shop1.IsFiltered);
-            Assert.IsFalse(shop2.IsFiltered);
+            foreach (Shop shop in Shop.AllShops)
+                Assert.IsFalse(shop.IsFiltered);
         }
     }
 }
