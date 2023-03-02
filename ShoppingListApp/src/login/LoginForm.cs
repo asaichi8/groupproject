@@ -9,17 +9,12 @@ namespace ShoppingListApp
 {
     public partial class FormLogin : Form
     {
-        int m_iFailedLogins = 0;
         const int BAN_TIME = 15;
+        int m_iFailedLogins = 0;
 
         public FormLogin()
         {
             InitializeComponent();
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
 
             this.Icon = Properties.Resources.UFix_Logo_Icon;
 
@@ -28,7 +23,14 @@ namespace ShoppingListApp
             // create minimise, maximise, close buttons
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
+        }
 
+        // since invoking a control requires its handle to be created, we can't run DisableLoginSystem() in the constructor,
+        // and instead must check if the user is banned after the handle has been created. we could also use the HandleCreated
+        // event, but overriding OnLoad works just fine.
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
             // keep user banned if they were banned but closed the application
             if (IsBanned())
                 DisableLoginSystem();
