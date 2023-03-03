@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="src\login\HasherTests.cs" />
     <Compile Include="src\login\LoginUtilsTests.cs" />
+    <Compile Include="src\login\LoginUtilsTests.cs" />
     <Compile Include="src\ShopTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
