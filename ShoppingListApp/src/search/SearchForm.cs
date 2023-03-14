@@ -18,6 +18,18 @@ namespace ShoppingListApp
     {
         static HttpClient tescoScraperAPI = new HttpClient();
 
+        public struct searchConditions
+        {
+            public string itemName;
+        }
+
+        public struct APIResults
+        {
+            string itemName;
+            double price;
+            string imageURL;
+        }
+
         Form prevForm;
 
         public FormSearch(Form _prevForm, string _searchItem)
