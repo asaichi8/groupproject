@@ -44,8 +44,14 @@ namespace ShoppingListApp
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
+            searchConditions conditions = new searchConditions();
+
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
+            txtTescoName.Enabled = false;
+            txtTescoPrice.Enabled = false;
+
+            conditions.itemName = _searchItem;
 
             tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
             tescoScraperAPI.DefaultRequestHeaders.Accept.Clear();

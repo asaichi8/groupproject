@@ -40,8 +40,8 @@
             this.btnAddAsda = new System.Windows.Forms.Button();
             this.btnAddTesco = new System.Windows.Forms.Button();
             this.btnAddSains = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTescoName = new System.Windows.Forms.TextBox();
+            this.txtTescoPrice = new System.Windows.Forms.TextBox();
             this.pbxTesco = new System.Windows.Forms.PictureBox();
             this.lblTescoName = new System.Windows.Forms.Label();
             this.lblTescoPrice = new System.Windows.Forms.Label();
@@ -199,22 +199,23 @@
             this.btnAddSains.Text = "Add to list";
             this.btnAddSains.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtTescoName
             // 
-            this.textBox1.Location = new System.Drawing.Point(592, 413);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 30);
-            this.textBox1.TabIndex = 16;
+            this.txtTescoName.Location = new System.Drawing.Point(592, 413);
+            this.txtTescoName.Name = "txtTescoName";
+            this.txtTescoName.Size = new System.Drawing.Size(277, 30);
+            this.txtTescoName.TabIndex = 16;
             // 
-            // textBox2
+            // txtTescoPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(592, 462);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(277, 30);
-            this.textBox2.TabIndex = 17;
+            this.txtTescoPrice.Location = new System.Drawing.Point(592, 462);
+            this.txtTescoPrice.Name = "txtTescoPrice";
+            this.txtTescoPrice.Size = new System.Drawing.Size(277, 30);
+            this.txtTescoPrice.TabIndex = 17;
             // 
             // pbxTesco
             // 
+            this.pbxTesco.InitialImage = global::ShoppingListApp.Properties.Resources.UFix_Logo;
             this.pbxTesco.Location = new System.Drawing.Point(524, 102);
             this.pbxTesco.Name = "pbxTesco";
             this.pbxTesco.Size = new System.Drawing.Size(410, 295);
@@ -250,8 +251,8 @@
             this.Controls.Add(this.lblTescoPrice);
             this.Controls.Add(this.lblTescoName);
             this.Controls.Add(this.pbxTesco);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTescoPrice);
+            this.Controls.Add(this.txtTescoName);
             this.Controls.Add(this.btnAddSains);
             this.Controls.Add(this.btnAddTesco);
             this.Controls.Add(this.btnAddAsda);
@@ -294,8 +295,8 @@
         private Button btnAddAsda;
         private Button btnAddTesco;
         private Button btnAddSains;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtTescoName;
+        private TextBox txtTescoPrice;
         private PictureBox pbxTesco;
         private Label lblTescoName;
         private Label lblTescoPrice;
