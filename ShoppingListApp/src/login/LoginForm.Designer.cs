@@ -52,7 +52,7 @@
             this.lblTitle.Location = new System.Drawing.Point(33, 18);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(77, 28);
+            this.lblTitle.Size = new System.Drawing.Size(95, 35);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Sign in";
             // 
@@ -64,7 +64,7 @@
             this.txtUser.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUser.MaxLength = 32;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(304, 18);
+            this.txtUser.Size = new System.Drawing.Size(304, 23);
             this.txtUser.TabIndex = 0;
             this.txtUser.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
             this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
@@ -77,7 +77,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPassword.MaxLength = 128;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(304, 18);
+            this.txtPassword.Size = new System.Drawing.Size(304, 23);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.LoginInfo_TextChanged);
@@ -88,7 +88,7 @@
             this.lblUsername.Location = new System.Drawing.Point(14, 172);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(80, 19);
+            this.lblUsername.Size = new System.Drawing.Size(94, 23);
             this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username:";
             // 
@@ -98,7 +98,7 @@
             this.lblPassword.Location = new System.Drawing.Point(14, 208);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(77, 19);
+            this.lblPassword.Size = new System.Drawing.Size(89, 23);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
@@ -111,7 +111,7 @@
             this.cbxShowPass.Location = new System.Drawing.Point(113, 234);
             this.cbxShowPass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxShowPass.Name = "cbxShowPass";
-            this.cbxShowPass.Size = new System.Drawing.Size(109, 19);
+            this.cbxShowPass.Size = new System.Drawing.Size(136, 24);
             this.cbxShowPass.TabIndex = 2;
             this.cbxShowPass.Text = "Show password";
             this.cbxShowPass.UseVisualStyleBackColor = true;
@@ -131,6 +131,7 @@
             this.btnTerms.TabStop = false;
             this.btnTerms.Text = "Terms of Service";
             this.btnTerms.UseVisualStyleBackColor = true;
+            this.btnTerms.Click += new System.EventHandler(this.btnTerms_Click);
             // 
             // btnLogin
             // 
@@ -193,7 +194,7 @@
             // FormLogin
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(432, 520);

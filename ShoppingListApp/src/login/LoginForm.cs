@@ -389,5 +389,13 @@ namespace ShoppingListApp
                 tmrResponseTimeout.Start();
             });
         }
+
+        private void btnTerms_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("By registering for this program, you acknowledge that:\n"
+                            + "1) Brainvire Ltd. and Ufix Ltd. do not profit from any of the results shown in this program.\n"
+                            + "2) Results from the program may not be completely accurate to the users search."
+                            ,"Terms of service", MessageBoxButtons.OK);
+        }
     }
 }
