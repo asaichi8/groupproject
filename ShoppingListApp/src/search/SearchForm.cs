@@ -48,6 +48,7 @@ namespace ShoppingListApp
             prevForm = _prevForm;
 
             tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+            tescoScraperAPI.DefaultRequestHeaders.Accept.Clear();
 
             //wbvAsda.EnsureCoreWebView2Async(default, default);
             //wbvTesco.EnsureCoreWebView2Async(default, default);

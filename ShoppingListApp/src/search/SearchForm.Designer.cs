@@ -31,7 +31,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.wbvAsda = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.wbvTesco = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.wbvSainsburys = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -41,9 +40,14 @@
             this.btnAddAsda = new System.Windows.Forms.Button();
             this.btnAddTesco = new System.Windows.Forms.Button();
             this.btnAddSains = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pbxTesco = new System.Windows.Forms.PictureBox();
+            this.lblTescoName = new System.Windows.Forms.Label();
+            this.lblTescoPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wbvTesco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTesco)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -69,7 +73,7 @@
             this.txtSearch.Location = new System.Drawing.Point(270, 16);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(694, 34);
+            this.txtSearch.Size = new System.Drawing.Size(694, 43);
             this.txtSearch.TabIndex = 4;
             // 
             // wbvAsda
@@ -86,21 +90,6 @@
             this.wbvAsda.Source = new System.Uri("https://groceries.asda.com", System.UriKind.Absolute);
             this.wbvAsda.TabIndex = 5;
             this.wbvAsda.ZoomFactor = 1D;
-            // 
-            // wbvTesco
-            // 
-            this.wbvTesco.AllowExternalDrop = true;
-            this.wbvTesco.CreationProperties = null;
-            this.wbvTesco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wbvTesco.DefaultBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
-            this.wbvTesco.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.wbvTesco.Location = new System.Drawing.Point(495, 102);
-            this.wbvTesco.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.wbvTesco.Name = "wbvTesco";
-            this.wbvTesco.Size = new System.Drawing.Size(471, 640);
-            this.wbvTesco.Source = new System.Uri("https://www.tesco.com/groceries/en-GB", System.UriKind.Absolute);
-            this.wbvTesco.TabIndex = 6;
-            this.wbvTesco.ZoomFactor = 1D;
             // 
             // wbvSainsburys
             // 
@@ -153,7 +142,7 @@
             this.lblAsda.Location = new System.Drawing.Point(10, 76);
             this.lblAsda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblAsda.Name = "lblAsda";
-            this.lblAsda.Size = new System.Drawing.Size(42, 19);
+            this.lblAsda.Size = new System.Drawing.Size(49, 23);
             this.lblAsda.TabIndex = 10;
             this.lblAsda.Text = "Asda";
             // 
@@ -163,7 +152,7 @@
             this.lblTesco.Location = new System.Drawing.Point(491, 76);
             this.lblTesco.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTesco.Name = "lblTesco";
-            this.lblTesco.Size = new System.Drawing.Size(46, 19);
+            this.lblTesco.Size = new System.Drawing.Size(52, 23);
             this.lblTesco.TabIndex = 11;
             this.lblTesco.Text = "Tesco";
             // 
@@ -173,7 +162,7 @@
             this.lblSainsburys.Location = new System.Drawing.Point(972, 76);
             this.lblSainsburys.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSainsburys.Name = "lblSainsburys";
-            this.lblSainsburys.Size = new System.Drawing.Size(81, 19);
+            this.lblSainsburys.Size = new System.Drawing.Size(96, 23);
             this.lblSainsburys.TabIndex = 12;
             this.lblSainsburys.Text = "Sainsburys";
             // 
@@ -210,14 +199,59 @@
             this.btnAddSains.Text = "Add to list";
             this.btnAddSains.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(592, 413);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(277, 30);
+            this.textBox1.TabIndex = 16;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(592, 462);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(277, 30);
+            this.textBox2.TabIndex = 17;
+            // 
+            // pbxTesco
+            // 
+            this.pbxTesco.Location = new System.Drawing.Point(524, 102);
+            this.pbxTesco.Name = "pbxTesco";
+            this.pbxTesco.Size = new System.Drawing.Size(410, 295);
+            this.pbxTesco.TabIndex = 18;
+            this.pbxTesco.TabStop = false;
+            // 
+            // lblTescoName
+            // 
+            this.lblTescoName.AutoSize = true;
+            this.lblTescoName.Location = new System.Drawing.Point(524, 416);
+            this.lblTescoName.Name = "lblTescoName";
+            this.lblTescoName.Size = new System.Drawing.Size(62, 23);
+            this.lblTescoName.TabIndex = 19;
+            this.lblTescoName.Text = "Name:";
+            // 
+            // lblTescoPrice
+            // 
+            this.lblTescoPrice.AutoSize = true;
+            this.lblTescoPrice.Location = new System.Drawing.Point(532, 465);
+            this.lblTescoPrice.Name = "lblTescoPrice";
+            this.lblTescoPrice.Size = new System.Drawing.Size(54, 23);
+            this.lblTescoPrice.TabIndex = 20;
+            this.lblTescoPrice.Text = "Price:";
+            // 
             // FormSearch
             // 
             this.AcceptButton = this.btnSearch;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(1458, 809);
+            this.Controls.Add(this.lblTescoPrice);
+            this.Controls.Add(this.lblTescoName);
+            this.Controls.Add(this.pbxTesco);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAddSains);
             this.Controls.Add(this.btnAddTesco);
             this.Controls.Add(this.btnAddAsda);
@@ -227,7 +261,6 @@
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.wbvSainsburys);
-            this.Controls.Add(this.wbvTesco);
             this.Controls.Add(this.wbvAsda);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnBack);
@@ -240,8 +273,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
             ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wbvTesco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTesco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,7 +285,6 @@
         private Button btnBack;
         private TextBox txtSearch;
         private Microsoft.Web.WebView2.WinForms.WebView2 wbvAsda;
-        private Microsoft.Web.WebView2.WinForms.WebView2 wbvTesco;
         private Microsoft.Web.WebView2.WinForms.WebView2 wbvSainsburys;
         private Button btnSearch;
         private Button btnFilter;
@@ -262,5 +294,10 @@
         private Button btnAddAsda;
         private Button btnAddTesco;
         private Button btnAddSains;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private PictureBox pbxTesco;
+        private Label lblTescoName;
+        private Label lblTescoPrice;
     }
 }
