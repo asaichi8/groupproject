@@ -9,12 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Web.WebView2.Core;
+using System.Net.Http;
 using System.Windows.Forms;
 
 namespace ShoppingListApp
 {
     public partial class FormSearch : Form
     {
+        static HttpClient tescoScraperAPI = new HttpClient();
+
         Form prevForm;
 
         public FormSearch(Form _prevForm, string _searchItem)
@@ -31,6 +34,9 @@ namespace ShoppingListApp
 
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
+
+            tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+
             //wbvAsda.EnsureCoreWebView2Async(default, default);
             //wbvTesco.EnsureCoreWebView2Async(default, default);
             //wbvSainsburys.EnsureCoreWebView2Async(default, default);
