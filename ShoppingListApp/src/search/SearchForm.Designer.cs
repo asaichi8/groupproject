@@ -30,7 +30,6 @@
         {
             this.btnBack = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.wbvAsda = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.wbvSainsburys = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -45,9 +44,14 @@
             this.pbxTesco = new System.Windows.Forms.PictureBox();
             this.lblTescoName = new System.Windows.Forms.Label();
             this.lblTescoPrice = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).BeginInit();
+            this.pbxAsdaImage = new System.Windows.Forms.PictureBox();
+            this.lblAsdaPrice = new System.Windows.Forms.Label();
+            this.lblAsdaName = new System.Windows.Forms.Label();
+            this.txtAsdaPrice = new System.Windows.Forms.TextBox();
+            this.txtAsdaName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTesco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAsdaImage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -75,21 +79,6 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(694, 43);
             this.txtSearch.TabIndex = 4;
-            // 
-            // wbvAsda
-            // 
-            this.wbvAsda.AllowExternalDrop = true;
-            this.wbvAsda.CreationProperties = null;
-            this.wbvAsda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wbvAsda.DefaultBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
-            this.wbvAsda.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.wbvAsda.Location = new System.Drawing.Point(14, 102);
-            this.wbvAsda.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.wbvAsda.Name = "wbvAsda";
-            this.wbvAsda.Size = new System.Drawing.Size(471, 640);
-            this.wbvAsda.Source = new System.Uri("https://groceries.asda.com", System.UriKind.Absolute);
-            this.wbvAsda.TabIndex = 5;
-            this.wbvAsda.ZoomFactor = 1D;
             // 
             // wbvSainsburys
             // 
@@ -240,6 +229,47 @@
             this.lblTescoPrice.TabIndex = 20;
             this.lblTescoPrice.Text = "Price:";
             // 
+            // pbxAsdaImage
+            // 
+            this.pbxAsdaImage.InitialImage = global::ShoppingListApp.Properties.Resources.UFix_Logo;
+            this.pbxAsdaImage.Location = new System.Drawing.Point(27, 102);
+            this.pbxAsdaImage.Name = "pbxAsdaImage";
+            this.pbxAsdaImage.Size = new System.Drawing.Size(410, 295);
+            this.pbxAsdaImage.TabIndex = 21;
+            this.pbxAsdaImage.TabStop = false;
+            // 
+            // lblAsdaPrice
+            // 
+            this.lblAsdaPrice.AutoSize = true;
+            this.lblAsdaPrice.Location = new System.Drawing.Point(46, 468);
+            this.lblAsdaPrice.Name = "lblAsdaPrice";
+            this.lblAsdaPrice.Size = new System.Drawing.Size(54, 23);
+            this.lblAsdaPrice.TabIndex = 25;
+            this.lblAsdaPrice.Text = "Price:";
+            // 
+            // lblAsdaName
+            // 
+            this.lblAsdaName.AutoSize = true;
+            this.lblAsdaName.Location = new System.Drawing.Point(38, 419);
+            this.lblAsdaName.Name = "lblAsdaName";
+            this.lblAsdaName.Size = new System.Drawing.Size(62, 23);
+            this.lblAsdaName.TabIndex = 24;
+            this.lblAsdaName.Text = "Name:";
+            // 
+            // txtAsdaPrice
+            // 
+            this.txtAsdaPrice.Location = new System.Drawing.Point(106, 465);
+            this.txtAsdaPrice.Name = "txtAsdaPrice";
+            this.txtAsdaPrice.Size = new System.Drawing.Size(277, 30);
+            this.txtAsdaPrice.TabIndex = 23;
+            // 
+            // txtAsdaName
+            // 
+            this.txtAsdaName.Location = new System.Drawing.Point(106, 416);
+            this.txtAsdaName.Name = "txtAsdaName";
+            this.txtAsdaName.Size = new System.Drawing.Size(277, 30);
+            this.txtAsdaName.TabIndex = 22;
+            // 
             // FormSearch
             // 
             this.AcceptButton = this.btnSearch;
@@ -248,6 +278,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(1458, 809);
+            this.Controls.Add(this.lblAsdaPrice);
+            this.Controls.Add(this.lblAsdaName);
+            this.Controls.Add(this.txtAsdaPrice);
+            this.Controls.Add(this.txtAsdaName);
+            this.Controls.Add(this.pbxAsdaImage);
             this.Controls.Add(this.lblTescoPrice);
             this.Controls.Add(this.lblTescoName);
             this.Controls.Add(this.pbxTesco);
@@ -262,7 +297,6 @@
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.wbvSainsburys);
-            this.Controls.Add(this.wbvAsda);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnBack);
             this.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -273,9 +307,9 @@
             this.Name = "FormSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
-            ((System.ComponentModel.ISupportInitialize)(this.wbvAsda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTesco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAsdaImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,7 +319,6 @@
 
         private Button btnBack;
         private TextBox txtSearch;
-        private Microsoft.Web.WebView2.WinForms.WebView2 wbvAsda;
         private Microsoft.Web.WebView2.WinForms.WebView2 wbvSainsburys;
         private Button btnSearch;
         private Button btnFilter;
@@ -300,5 +333,10 @@
         private PictureBox pbxTesco;
         private Label lblTescoName;
         private Label lblTescoPrice;
+        private PictureBox pbxAsdaImage;
+        private Label lblAsdaPrice;
+        private Label lblAsdaName;
+        private TextBox txtAsdaPrice;
+        private TextBox txtAsdaName;
     }
 }
