@@ -77,7 +77,7 @@
             this.txtSearch.Location = new System.Drawing.Point(270, 16);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(694, 43);
+            this.txtSearch.Size = new System.Drawing.Size(694, 51);
             this.txtSearch.TabIndex = 4;
             // 
             // wbvSainsburys
@@ -131,7 +131,7 @@
             this.lblAsda.Location = new System.Drawing.Point(10, 76);
             this.lblAsda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblAsda.Name = "lblAsda";
-            this.lblAsda.Size = new System.Drawing.Size(49, 23);
+            this.lblAsda.Size = new System.Drawing.Size(58, 28);
             this.lblAsda.TabIndex = 10;
             this.lblAsda.Text = "Asda";
             // 
@@ -141,7 +141,7 @@
             this.lblTesco.Location = new System.Drawing.Point(491, 76);
             this.lblTesco.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTesco.Name = "lblTesco";
-            this.lblTesco.Size = new System.Drawing.Size(52, 23);
+            this.lblTesco.Size = new System.Drawing.Size(64, 28);
             this.lblTesco.TabIndex = 11;
             this.lblTesco.Text = "Tesco";
             // 
@@ -151,7 +151,7 @@
             this.lblSainsburys.Location = new System.Drawing.Point(972, 76);
             this.lblSainsburys.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSainsburys.Name = "lblSainsburys";
-            this.lblSainsburys.Size = new System.Drawing.Size(96, 23);
+            this.lblSainsburys.Size = new System.Drawing.Size(114, 28);
             this.lblSainsburys.TabIndex = 12;
             this.lblSainsburys.Text = "Sainsburys";
             // 
@@ -192,15 +192,17 @@
             // 
             this.txtTescoName.Location = new System.Drawing.Point(592, 413);
             this.txtTescoName.Name = "txtTescoName";
-            this.txtTescoName.Size = new System.Drawing.Size(277, 30);
+            this.txtTescoName.Size = new System.Drawing.Size(277, 34);
             this.txtTescoName.TabIndex = 16;
+            this.txtTescoName.TextChanged += new System.EventHandler(this.txtTescoName_TextChanged);
             // 
             // txtTescoPrice
             // 
             this.txtTescoPrice.Location = new System.Drawing.Point(592, 462);
             this.txtTescoPrice.Name = "txtTescoPrice";
-            this.txtTescoPrice.Size = new System.Drawing.Size(277, 30);
+            this.txtTescoPrice.Size = new System.Drawing.Size(277, 34);
             this.txtTescoPrice.TabIndex = 17;
+            this.txtTescoPrice.TextChanged += new System.EventHandler(this.txtTescoPrice_TextChanged);
             // 
             // pbxTesco
             // 
@@ -210,13 +212,14 @@
             this.pbxTesco.Size = new System.Drawing.Size(410, 295);
             this.pbxTesco.TabIndex = 18;
             this.pbxTesco.TabStop = false;
+            this.pbxTesco.Click += new System.EventHandler(this.pbxTesco_Click);
             // 
             // lblTescoName
             // 
             this.lblTescoName.AutoSize = true;
             this.lblTescoName.Location = new System.Drawing.Point(524, 416);
             this.lblTescoName.Name = "lblTescoName";
-            this.lblTescoName.Size = new System.Drawing.Size(62, 23);
+            this.lblTescoName.Size = new System.Drawing.Size(73, 28);
             this.lblTescoName.TabIndex = 19;
             this.lblTescoName.Text = "Name:";
             // 
@@ -225,7 +228,7 @@
             this.lblTescoPrice.AutoSize = true;
             this.lblTescoPrice.Location = new System.Drawing.Point(532, 465);
             this.lblTescoPrice.Name = "lblTescoPrice";
-            this.lblTescoPrice.Size = new System.Drawing.Size(54, 23);
+            this.lblTescoPrice.Size = new System.Drawing.Size(64, 28);
             this.lblTescoPrice.TabIndex = 20;
             this.lblTescoPrice.Text = "Price:";
             // 
@@ -243,7 +246,7 @@
             this.lblAsdaPrice.AutoSize = true;
             this.lblAsdaPrice.Location = new System.Drawing.Point(46, 468);
             this.lblAsdaPrice.Name = "lblAsdaPrice";
-            this.lblAsdaPrice.Size = new System.Drawing.Size(54, 23);
+            this.lblAsdaPrice.Size = new System.Drawing.Size(64, 28);
             this.lblAsdaPrice.TabIndex = 25;
             this.lblAsdaPrice.Text = "Price:";
             // 
@@ -252,7 +255,7 @@
             this.lblAsdaName.AutoSize = true;
             this.lblAsdaName.Location = new System.Drawing.Point(38, 419);
             this.lblAsdaName.Name = "lblAsdaName";
-            this.lblAsdaName.Size = new System.Drawing.Size(62, 23);
+            this.lblAsdaName.Size = new System.Drawing.Size(73, 28);
             this.lblAsdaName.TabIndex = 24;
             this.lblAsdaName.Text = "Name:";
             // 
@@ -260,20 +263,20 @@
             // 
             this.txtAsdaPrice.Location = new System.Drawing.Point(106, 465);
             this.txtAsdaPrice.Name = "txtAsdaPrice";
-            this.txtAsdaPrice.Size = new System.Drawing.Size(277, 30);
+            this.txtAsdaPrice.Size = new System.Drawing.Size(277, 34);
             this.txtAsdaPrice.TabIndex = 23;
             // 
             // txtAsdaName
             // 
             this.txtAsdaName.Location = new System.Drawing.Point(106, 416);
             this.txtAsdaName.Name = "txtAsdaName";
-            this.txtAsdaName.Size = new System.Drawing.Size(277, 30);
+            this.txtAsdaName.Size = new System.Drawing.Size(277, 34);
             this.txtAsdaName.TabIndex = 22;
             // 
             // FormSearch
             // 
             this.AcceptButton = this.btnSearch;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnBack;
@@ -307,6 +310,7 @@
             this.Name = "FormSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
+            this.Load += new System.EventHandler(this.FormSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTesco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAsdaImage)).EndInit();
