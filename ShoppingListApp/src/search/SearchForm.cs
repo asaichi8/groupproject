@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.Web.WebView2.Core;
 using System.Net.Http;
@@ -17,18 +19,35 @@ namespace ShoppingListApp
     public partial class FormSearch : Form
     {
         static HttpClient tescoScraperAPI = new HttpClient();
+        static HttpClient asdaScraperAPI = new HttpClient();
 
         public struct TescoSearchConditions
         {
             public string query; // The names of the structs are the same as the expected API input.
-            int limit;
-            string sort;
+            public int page;
+            public int limit;
+            public string sort;
 
             public TescoSearchConditions(string itemName)
             {
                 query = itemName;
+                page = 1;
                 limit = 1;
                 sort = "price-ascending";
+            }
+        }
+
+        public struct AsdaSearchConditions
+        {
+            public string keywords;
+            public int limit;
+            public int page;
+
+            public AsdaSearchConditions(string itemName)
+            {
+                keywords = itemName;
+                limit = 1;
+                page = 0;
             }
         }
 
@@ -53,7 +72,9 @@ namespace ShoppingListApp
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
-            TescoSearchConditions conditions = new TescoSearchConditions(_searchItem);
+            TescoSearchConditions tescoConditions = new TescoSearchConditions(_searchItem);
+
+            AsdaSearchConditions asdaConditions = new AsdaSearchConditions(_searchItem);
 
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
@@ -64,13 +85,16 @@ namespace ShoppingListApp
             txtAsdaName.Enabled = false;
             txtAsdaPrice.Enabled = false;
 
-            conditions.query = _searchItem;
+            //string tescoResults = JsonSerializer.Serialize(tescoConditions);
 
             tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
             tescoScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            tescoScraperAPI.PostAsJsonAsync(tescoScraperAPI.BaseAddress, conditions);
+            tescoScraperAPI.PostAsJsonAsync(tescoScraperAPI.BaseAddress, tescoConditions);
 
-            
+            asdaScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+            asdaScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            asdaScraperAPI.PostAsJsonAsync(asdaScraperAPI.BaseAddress, asdaConditions);
+
             wbvSainsburys.EnsureCoreWebView2Async(default, default);
         }
 
