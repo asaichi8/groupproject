@@ -18,9 +18,18 @@ namespace ShoppingListApp
     {
         static HttpClient tescoScraperAPI = new HttpClient();
 
-        public struct searchConditions
+        public struct TescoSearchConditions
         {
-            public string itemName;
+            public string query; // The names of the structs are the same as the expected API input.
+            int limit;
+            string sort;
+
+            public TescoSearchConditions(string itemName)
+            {
+                query = itemName;
+                limit = 1;
+                sort = "price-ascending";
+            }
         }
 
         public struct APIResults
@@ -44,20 +53,24 @@ namespace ShoppingListApp
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
-            searchConditions conditions = new searchConditions();
+            TescoSearchConditions conditions = new TescoSearchConditions(_searchItem);
 
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
+
             txtTescoName.Enabled = false;
             txtTescoPrice.Enabled = false;
 
             txtAsdaName.Enabled = false;
             txtAsdaPrice.Enabled = false;
 
-            conditions.itemName = _searchItem;
+            conditions.query = _searchItem;
 
             tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
-            tescoScraperAPI.DefaultRequestHeaders.Accept.Clear();
+            tescoScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            tescoScraperAPI.PostAsJsonAsync(tescoScraperAPI.BaseAddress, conditions);
+
+            
             wbvSainsburys.EnsureCoreWebView2Async(default, default);
         }
 
