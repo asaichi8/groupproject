@@ -7,12 +7,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.Web.WebView2.Core;
 using System.Net.Http;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace ShoppingListApp
 {
@@ -84,8 +83,6 @@ namespace ShoppingListApp
 
             txtAsdaName.Enabled = false;
             txtAsdaPrice.Enabled = false;
-
-            //string tescoResults = JsonSerializer.Serialize(tescoConditions);
 
             tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
             tescoScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
