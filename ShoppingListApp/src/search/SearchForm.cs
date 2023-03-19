@@ -51,6 +51,9 @@ namespace ShoppingListApp
             txtTescoName.Enabled = false;
             txtTescoPrice.Enabled = false;
 
+            txtAsdaName.Enabled = false;
+            txtAsdaPrice.Enabled = false;
+
             conditions.itemName = _searchItem;
 
             tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
