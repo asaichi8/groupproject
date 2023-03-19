@@ -77,7 +77,7 @@
             this.txtSearch.Location = new System.Drawing.Point(270, 16);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(694, 34);
+            this.txtSearch.Size = new System.Drawing.Size(694, 51);
             this.txtSearch.TabIndex = 4;
             // 
             // wbvSainsburys
@@ -131,7 +131,7 @@
             this.lblAsda.Location = new System.Drawing.Point(10, 76);
             this.lblAsda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblAsda.Name = "lblAsda";
-            this.lblAsda.Size = new System.Drawing.Size(42, 19);
+            this.lblAsda.Size = new System.Drawing.Size(58, 28);
             this.lblAsda.TabIndex = 10;
             this.lblAsda.Text = "Asda";
             // 
@@ -141,7 +141,7 @@
             this.lblTesco.Location = new System.Drawing.Point(491, 76);
             this.lblTesco.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTesco.Name = "lblTesco";
-            this.lblTesco.Size = new System.Drawing.Size(46, 19);
+            this.lblTesco.Size = new System.Drawing.Size(64, 28);
             this.lblTesco.TabIndex = 11;
             this.lblTesco.Text = "Tesco";
             // 
@@ -151,7 +151,7 @@
             this.lblSainsburys.Location = new System.Drawing.Point(972, 76);
             this.lblSainsburys.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSainsburys.Name = "lblSainsburys";
-            this.lblSainsburys.Size = new System.Drawing.Size(81, 19);
+            this.lblSainsburys.Size = new System.Drawing.Size(114, 28);
             this.lblSainsburys.TabIndex = 12;
             this.lblSainsburys.Text = "Sainsburys";
             // 
@@ -190,23 +190,17 @@
             // 
             // txtTescoName
             // 
-            this.txtTescoName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.txtTescoName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTescoName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.txtTescoName.Location = new System.Drawing.Point(592, 413);
             this.txtTescoName.Name = "txtTescoName";
-            this.txtTescoName.Size = new System.Drawing.Size(277, 18);
+            this.txtTescoName.Size = new System.Drawing.Size(277, 34);
             this.txtTescoName.TabIndex = 16;
             this.txtTescoName.TextChanged += new System.EventHandler(this.txtTescoName_TextChanged);
             // 
             // txtTescoPrice
             // 
-            this.txtTescoPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.txtTescoPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTescoPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.txtTescoPrice.Location = new System.Drawing.Point(592, 462);
             this.txtTescoPrice.Name = "txtTescoPrice";
-            this.txtTescoPrice.Size = new System.Drawing.Size(277, 18);
+            this.txtTescoPrice.Size = new System.Drawing.Size(277, 34);
             this.txtTescoPrice.TabIndex = 17;
             this.txtTescoPrice.TextChanged += new System.EventHandler(this.txtTescoPrice_TextChanged);
             // 
@@ -223,18 +217,18 @@
             // lblTescoName
             // 
             this.lblTescoName.AutoSize = true;
-            this.lblTescoName.Location = new System.Drawing.Point(533, 413);
+            this.lblTescoName.Location = new System.Drawing.Point(524, 416);
             this.lblTescoName.Name = "lblTescoName";
-            this.lblTescoName.Size = new System.Drawing.Size(53, 19);
+            this.lblTescoName.Size = new System.Drawing.Size(73, 28);
             this.lblTescoName.TabIndex = 19;
             this.lblTescoName.Text = "Name:";
             // 
             // lblTescoPrice
             // 
             this.lblTescoPrice.AutoSize = true;
-            this.lblTescoPrice.Location = new System.Drawing.Point(539, 461);
+            this.lblTescoPrice.Location = new System.Drawing.Point(532, 465);
             this.lblTescoPrice.Name = "lblTescoPrice";
-            this.lblTescoPrice.Size = new System.Drawing.Size(47, 19);
+            this.lblTescoPrice.Size = new System.Drawing.Size(64, 28);
             this.lblTescoPrice.TabIndex = 20;
             this.lblTescoPrice.Text = "Price:";
             // 
@@ -250,45 +244,39 @@
             // lblAsdaPrice
             // 
             this.lblAsdaPrice.AutoSize = true;
-            this.lblAsdaPrice.Location = new System.Drawing.Point(53, 465);
+            this.lblAsdaPrice.Location = new System.Drawing.Point(46, 468);
             this.lblAsdaPrice.Name = "lblAsdaPrice";
-            this.lblAsdaPrice.Size = new System.Drawing.Size(47, 19);
+            this.lblAsdaPrice.Size = new System.Drawing.Size(64, 28);
             this.lblAsdaPrice.TabIndex = 25;
             this.lblAsdaPrice.Text = "Price:";
             // 
             // lblAsdaName
             // 
             this.lblAsdaName.AutoSize = true;
-            this.lblAsdaName.Location = new System.Drawing.Point(47, 416);
+            this.lblAsdaName.Location = new System.Drawing.Point(38, 419);
             this.lblAsdaName.Name = "lblAsdaName";
-            this.lblAsdaName.Size = new System.Drawing.Size(53, 19);
+            this.lblAsdaName.Size = new System.Drawing.Size(73, 28);
             this.lblAsdaName.TabIndex = 24;
             this.lblAsdaName.Text = "Name:";
             // 
             // txtAsdaPrice
             // 
-            this.txtAsdaPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.txtAsdaPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAsdaPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.txtAsdaPrice.Location = new System.Drawing.Point(106, 465);
             this.txtAsdaPrice.Name = "txtAsdaPrice";
-            this.txtAsdaPrice.Size = new System.Drawing.Size(277, 18);
+            this.txtAsdaPrice.Size = new System.Drawing.Size(277, 34);
             this.txtAsdaPrice.TabIndex = 23;
             // 
             // txtAsdaName
             // 
-            this.txtAsdaName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.txtAsdaName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAsdaName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.txtAsdaName.Location = new System.Drawing.Point(106, 416);
             this.txtAsdaName.Name = "txtAsdaName";
-            this.txtAsdaName.Size = new System.Drawing.Size(277, 18);
+            this.txtAsdaName.Size = new System.Drawing.Size(277, 34);
             this.txtAsdaName.TabIndex = 22;
             // 
             // FormSearch
             // 
             this.AcceptButton = this.btnSearch;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnBack;
