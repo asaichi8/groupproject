@@ -1,9 +1,17 @@
 ﻿using ShoppingListApp.src.Login;
 using ShoppingListApp.src;
+using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Configuration;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Security.Cryptography;
+
 
 namespace ShoppingListApp
 {

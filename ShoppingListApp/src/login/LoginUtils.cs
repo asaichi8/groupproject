@@ -154,6 +154,7 @@ namespace ShoppingListApp.src.Login
 
 
 
+
         /// <summary>
         /// Validates a password to ensure it meets minimum strength requirements.
         /// </summary>
