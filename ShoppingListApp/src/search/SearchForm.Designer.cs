@@ -212,7 +212,6 @@
             this.pbxTesco.Size = new System.Drawing.Size(410, 295);
             this.pbxTesco.TabIndex = 18;
             this.pbxTesco.TabStop = false;
-            this.pbxTesco.Click += new System.EventHandler(this.pbxTesco_Click);
             // 
             // lblTescoName
             // 
@@ -310,7 +309,6 @@
             this.Name = "FormSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
-            this.Load += new System.EventHandler(this.FormSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wbvSainsburys)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTesco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAsdaImage)).EndInit();

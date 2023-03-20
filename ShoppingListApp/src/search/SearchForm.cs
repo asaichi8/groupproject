@@ -20,6 +20,9 @@ namespace ShoppingListApp
         static HttpClient tescoScraperAPI = new HttpClient();
         static HttpClient asdaScraperAPI = new HttpClient();
 
+        static HttpClient tescoAPIResults = new HttpClient();
+        static HttpClient asdaAPIResults = new HttpClient();
+
         public struct TescoSearchConditions
         {
             public string query; // The names of the structs are the same as the expected API input.
@@ -71,28 +74,41 @@ namespace ShoppingListApp
             CornerButton cb = new CornerButton(this);
             cb.CreateTitlebarButtons(FlatStyle.Flat, Color.Goldenrod);
 
-            TescoSearchConditions tescoConditions = new TescoSearchConditions(_searchItem);
-
-            AsdaSearchConditions asdaConditions = new AsdaSearchConditions(_searchItem);
-
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
 
-            txtTescoName.Enabled = false;
-            txtTescoPrice.Enabled = false;
+            txtTescoName.ReadOnly = true;
+            txtTescoPrice.ReadOnly = true;
 
-            txtAsdaName.Enabled = false;
-            txtAsdaPrice.Enabled = false;
+            txtAsdaName.ReadOnly = true;
+            txtAsdaPrice.ReadOnly = true;
 
-            tescoScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
             tescoScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            tescoScraperAPI.PostAsJsonAsync(tescoScraperAPI.BaseAddress, tescoConditions);
 
-            asdaScraperAPI.BaseAddress = new Uri("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+            tescoAPIResults.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
             asdaScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            asdaScraperAPI.PostAsJsonAsync(asdaScraperAPI.BaseAddress, asdaConditions);
+
+            asdaAPIResults.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            callAPIs(_searchItem);
 
             wbvSainsburys.EnsureCoreWebView2Async(default, default);
+        }
+
+        private void callAPIs(string itemName)
+        {
+            TescoSearchConditions tescoConditions = new TescoSearchConditions(itemName);
+
+            AsdaSearchConditions asdaConditions = new AsdaSearchConditions(itemName);
+
+            tescoScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", tescoConditions);
+
+            tescoAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+
+            asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
+
+            asdaScraperAPI.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -102,10 +118,13 @@ namespace ShoppingListApp
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+            callAPIs(txtSearch.Text);
+
+            /*
             try
             {
                 string searchItem = txtSearch.Text;
-                var apiResults = await GetItemDataFromAPIAsync(searchItem);
+                //var apiResults = await GetItemDataFromAPIAsync(searchItem);
 
                 if (apiResults.HasValue)
                 {
@@ -156,9 +175,11 @@ namespace ShoppingListApp
             {
                 throw new Exception("Failed to retrieve data from the API.");
             }
+            */
         }
 
-        private async Task<Image> LoadImageFromUrlAsync(string url)
+
+            private async Task<Image> LoadImageFromUrlAsync(string url)
         {
             using (var httpClient = new HttpClient())
             {
@@ -177,16 +198,6 @@ namespace ShoppingListApp
             // show filter form
             Form filterForm = new FormFilter();
             filterForm.ShowDialog(this);
-        }
-
-        private void FormSearch_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbxTesco_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtTescoName_TextChanged(object sender, EventArgs e)
