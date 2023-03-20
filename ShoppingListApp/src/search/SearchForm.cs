@@ -104,11 +104,19 @@ namespace ShoppingListApp
 
             await tescoScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", tescoConditions);
 
-            var tescoJson = await tescoAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+            HttpResponseMessage tescoResponse = await tescoAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+
+            string tescoJson = await tescoResponse.Content.ReadAsStringAsync();
+
+            dynamic tescoResult = JsonConvert.DeserializeObject(tescoJson);
 
             await asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
 
-            var asdaJson = await asdaScraperAPI.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+            HttpResponseMessage asdaResponse =  await asdaAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+
+            string asdaJson = await asdaResponse.Content.ReadAsStringAsync();
+
+            dynamic asdaResult = JsonConvert.DeserializeObject(asdaJson);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
