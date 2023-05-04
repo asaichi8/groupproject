@@ -99,6 +99,9 @@ namespace ShoppingListApp
 
         private async void callAPIs(string itemName)
         {
+            pbxTesco.Image = Properties.Resources.loading;
+            pbxAsda.Image = Properties.Resources.loading;
+
             TescoSearchConditions tescoConditions = new TescoSearchConditions(itemName);
 
             AsdaSearchConditions asdaConditions = new AsdaSearchConditions(itemName);
@@ -113,6 +116,12 @@ namespace ShoppingListApp
 
             var tescoResults = parsedTescoJson[0];
 
+            txtTescoName.Text = tescoResults["title"].ToString();
+
+            txtTescoPrice.Text = tescoResults["price"].ToString();
+
+            pbxTesco.ImageLocation = tescoResults["image"].ToString();
+
             await asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
 
             HttpResponseMessage asdaResponse =  await asdaAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
@@ -122,12 +131,6 @@ namespace ShoppingListApp
             var parsedAsdaJson = JArray.Parse(asdaJson);
 
             var asdaResults = parsedAsdaJson[0];
-
-            txtTescoName.Text = tescoResults["title"].ToString();
-
-            txtTescoPrice.Text = tescoResults["price"].ToString();
-
-            pbxTesco.ImageLocation = tescoResults["image"].ToString();
 
             txtAsdaName.Text = asdaResults["item"]["picker_desc"].ToString();
 

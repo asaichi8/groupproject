@@ -234,7 +234,7 @@
             // 
             // pbxAsda
             // 
-            this.pbxAsda.InitialImage = global::ShoppingListApp.Properties.Resources.UFix_Logo;
+            this.pbxAsda.InitialImage = null;
             this.pbxAsda.Location = new System.Drawing.Point(27, 102);
             this.pbxAsda.Name = "pbxAsda";
             this.pbxAsda.Size = new System.Drawing.Size(410, 295);
