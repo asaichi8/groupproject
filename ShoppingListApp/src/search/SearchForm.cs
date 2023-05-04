@@ -103,40 +103,44 @@ namespace ShoppingListApp
             pbxAsda.Image = Properties.Resources.loading;
 
             TescoSearchConditions tescoConditions = new TescoSearchConditions(itemName);
-
             AsdaSearchConditions asdaConditions = new AsdaSearchConditions(itemName);
 
-            await tescoScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", tescoConditions);
+            // create a new thread for each shop
+            Task tescoThread = Task.Run(async () =>
+            {
+                await tescoScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", tescoConditions);
 
-            HttpResponseMessage tescoResponse = await tescoAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+                HttpResponseMessage tescoResponse = await tescoAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+                string tescoJson = await tescoResponse.Content.ReadAsStringAsync();
+                var parsedTescoJson = JArray.Parse(tescoJson);
+                var tescoResults = parsedTescoJson[0];
 
-            string tescoJson = await tescoResponse.Content.ReadAsStringAsync();
+                // controls are on a seperate thread, so we invoke to access them
+                Invoke((MethodInvoker)delegate
+                {
+                    txtTescoName.Text = tescoResults["title"].ToString();
+                    txtTescoPrice.Text = tescoResults["price"].ToString();
+                    pbxTesco.ImageLocation = tescoResults["image"].ToString();
+                });
+            });
 
-            var parsedTescoJson = JArray.Parse(tescoJson);
+            Task asdaThread = Task.Run(async () =>
+            {
+                HttpResponseMessage asdaResponse = await asdaAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
+                string asdaJson = await asdaResponse.Content.ReadAsStringAsync();
+                var parsedAsdaJson = JArray.Parse(asdaJson);
+                var asdaResults = parsedAsdaJson[0];
 
-            var tescoResults = parsedTescoJson[0];
+                Invoke((MethodInvoker)delegate
+                {
+                    txtAsdaName.Text = asdaResults["item"]["picker_desc"].ToString();
+                    txtAsdaPrice.Text = asdaResults["price"]["price_info"]["price"].ToString();
+                    pbxAsda.ImageLocation = string.Concat(asdaResults["item"]["images"]["scene7_host"].ToString(), asdaResults["item"]["images"]["scene7_id"].ToString());
+                });
+            });
 
-            txtTescoName.Text = tescoResults["title"].ToString();
-
-            txtTescoPrice.Text = tescoResults["price"].ToString();
-
-            pbxTesco.ImageLocation = tescoResults["image"].ToString();
-
-            await asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
-
-            HttpResponseMessage asdaResponse =  await asdaAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
-
-            string asdaJson = await asdaResponse.Content.ReadAsStringAsync();
-
-            var parsedAsdaJson = JArray.Parse(asdaJson);
-
-            var asdaResults = parsedAsdaJson[0];
-
-            txtAsdaName.Text = asdaResults["item"]["picker_desc"].ToString();
-
-            txtAsdaPrice.Text = asdaResults["price"]["price_info"]["price"].ToString();
-
-            pbxAsda.ImageLocation = string.Concat(asdaResults["item"]["images"]["scene7_host"].ToString(), asdaResults["item"]["images"]["scene7_id"].ToString());
+            // wait for all the tasks to be completed
+            await Task.WhenAll(tescoThread, asdaThread);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
