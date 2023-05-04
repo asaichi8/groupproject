@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 
 namespace ShoppingListApp
 {
@@ -107,15 +108,19 @@ namespace ShoppingListApp
                 HttpResponseMessage tescoResponse = await tescoAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
                 string tescoJson = await tescoResponse.Content.ReadAsStringAsync();
                 var parsedTescoJson = JArray.Parse(tescoJson);
-                var tescoResults = parsedTescoJson[0];
 
-                // controls are on a seperate thread, so we invoke to access them
-                Invoke((MethodInvoker)delegate
+                if (parsedTescoJson.Count > 0)
                 {
-                    txtTescoName.Text = tescoResults["title"].ToString();
-                    txtTescoPrice.Text = tescoResults["price"].ToString();
-                    pbxTesco.ImageLocation = tescoResults["image"].ToString();
-                });
+                    var tescoResults = parsedTescoJson[0];
+
+                    // controls are on a seperate thread, so we invoke to access them
+                    Invoke((MethodInvoker)delegate
+                    {
+                        txtTescoName.Text = tescoResults["title"].ToString();
+                        txtTescoPrice.Text = tescoResults["price"].ToString();
+                        pbxTesco.ImageLocation = tescoResults["image"].ToString();
+                    });
+                }
             });
 
             Task asdaThread = Task.Run(async () =>
@@ -123,14 +128,18 @@ namespace ShoppingListApp
                 HttpResponseMessage asdaResponse = await asdaAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
                 string asdaJson = await asdaResponse.Content.ReadAsStringAsync();
                 var parsedAsdaJson = JArray.Parse(asdaJson);
-                var asdaResults = parsedAsdaJson[0];
 
-                Invoke((MethodInvoker)delegate
+                if (parsedAsdaJson.Count > 0)
                 {
-                    txtAsdaName.Text = asdaResults["item"]["picker_desc"].ToString();
-                    txtAsdaPrice.Text = asdaResults["price"]["price_info"]["price"].ToString();
-                    pbxAsda.ImageLocation = string.Concat(asdaResults["item"]["images"]["scene7_host"].ToString(), asdaResults["item"]["images"]["scene7_id"].ToString());
-                });
+                    var asdaResults = parsedAsdaJson[0];
+
+                    Invoke((MethodInvoker)delegate
+                    {
+                        txtAsdaName.Text = asdaResults["item"]["picker_desc"].ToString();
+                        txtAsdaPrice.Text = asdaResults["price"]["price_info"]["price"].ToString();
+                        pbxAsda.ImageLocation = string.Concat(asdaResults["item"]["images"]["scene7_host"].ToString(), asdaResults["item"]["images"]["scene7_id"].ToString());
+                    });
+                }
             });
 
             // wait for all the tasks to be completed
@@ -205,7 +214,7 @@ namespace ShoppingListApp
         }
 
 
-            private async Task<Image> LoadImageFromUrlAsync(string url)
+        private async Task<Image> LoadImageFromUrlAsync(string url)
         {
             using (var httpClient = new HttpClient())
             {
