@@ -12,6 +12,7 @@ using Microsoft.Web.WebView2.Core;
 using System.Net.Http;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ShoppingListApp
 {
@@ -55,9 +56,9 @@ namespace ShoppingListApp
 
         public struct APIResults
         {
-            public string itemName;
-            public double price;
-            public string imageURL;
+            public string title;
+            public string image;
+            public string price;
         }
 
         Form prevForm;
@@ -100,7 +101,11 @@ namespace ShoppingListApp
         {
             TescoSearchConditions tescoConditions = new TescoSearchConditions(itemName);
 
+            APIResults tesco;
+
             AsdaSearchConditions asdaConditions = new AsdaSearchConditions(itemName);
+
+            APIResults asda;
 
             await tescoScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", tescoConditions);
 
@@ -108,7 +113,19 @@ namespace ShoppingListApp
 
             string tescoJson = await tescoResponse.Content.ReadAsStringAsync();
 
-            dynamic tescoResult = JsonConvert.DeserializeObject(tescoJson);
+            var parsedJson = JArray.Parse(tescoJson);
+
+            var desiredJson = parsedJson[0];
+
+            tesco.title = desiredJson["title"].ToString();
+
+            tesco.price = desiredJson["price"].ToString();
+
+            txtTescoName.Text = tesco.title;
+
+            txtTescoPrice.Text = tesco.price;
+
+            pbxTesco.ImageLocation = desiredJson["image"].ToString();
 
             await asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
 
@@ -210,26 +227,12 @@ namespace ShoppingListApp
 
         private void txtTescoName_TextChanged(object sender, EventArgs e)
         {
-            if (txtTescoName.Text == "Not found")
-            {
-                txtTescoName.Text = "Item Name: Not found";
-            }
-            else
-            {
-                txtTescoName.Text = "Item Name: " + txtTescoName.Text;
-            }
+
         }
 
         private void txtTescoPrice_TextChanged(object sender, EventArgs e)
         {
-            if (txtTescoPrice.Text == "-")
-            {
-                txtTescoPrice.Text = "Item Price: -";
-            }
-            else
-            {
-                txtTescoPrice.Text = "Item Price: " + txtTescoPrice.Text;
-            }
+
         }
     }
 
