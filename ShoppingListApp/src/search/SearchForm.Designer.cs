@@ -192,6 +192,7 @@
             // 
             this.txtTescoName.Location = new System.Drawing.Point(592, 413);
             this.txtTescoName.Name = "txtTescoName";
+            this.txtTescoName.ReadOnly = true;
             this.txtTescoName.Size = new System.Drawing.Size(277, 25);
             this.txtTescoName.TabIndex = 16;
             this.txtTescoName.TextChanged += new System.EventHandler(this.txtTescoName_TextChanged);
@@ -200,6 +201,7 @@
             // 
             this.txtTescoPrice.Location = new System.Drawing.Point(592, 462);
             this.txtTescoPrice.Name = "txtTescoPrice";
+            this.txtTescoPrice.ReadOnly = true;
             this.txtTescoPrice.Size = new System.Drawing.Size(277, 25);
             this.txtTescoPrice.TabIndex = 17;
             this.txtTescoPrice.TextChanged += new System.EventHandler(this.txtTescoPrice_TextChanged);
@@ -264,6 +266,7 @@
             // 
             this.txtAsdaPrice.Location = new System.Drawing.Point(106, 465);
             this.txtAsdaPrice.Name = "txtAsdaPrice";
+            this.txtAsdaPrice.ReadOnly = true;
             this.txtAsdaPrice.Size = new System.Drawing.Size(277, 25);
             this.txtAsdaPrice.TabIndex = 23;
             // 
@@ -271,6 +274,7 @@
             // 
             this.txtAsdaName.Location = new System.Drawing.Point(106, 416);
             this.txtAsdaName.Name = "txtAsdaName";
+            this.txtAsdaName.ReadOnly = true;
             this.txtAsdaName.Size = new System.Drawing.Size(277, 25);
             this.txtAsdaName.TabIndex = 22;
             // 

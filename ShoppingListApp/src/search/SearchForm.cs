@@ -78,12 +78,6 @@ namespace ShoppingListApp
             txtSearch.Text = _searchItem;
             prevForm = _prevForm;
 
-            txtTescoName.ReadOnly = true;
-            txtTescoPrice.ReadOnly = true;
-
-            txtAsdaName.ReadOnly = true;
-            txtAsdaPrice.ReadOnly = true;
-
             tescoScraperAPI.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             tescoAPIResults.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
