@@ -101,11 +101,7 @@ namespace ShoppingListApp
         {
             TescoSearchConditions tescoConditions = new TescoSearchConditions(itemName);
 
-            APIResults tesco;
-
             AsdaSearchConditions asdaConditions = new AsdaSearchConditions(itemName);
-
-            APIResults asda;
 
             await tescoScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~tesco-grocery/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", tescoConditions);
 
@@ -113,19 +109,9 @@ namespace ShoppingListApp
 
             string tescoJson = await tescoResponse.Content.ReadAsStringAsync();
 
-            var parsedJson = JArray.Parse(tescoJson);
+            var parsedTescoJson = JArray.Parse(tescoJson);
 
-            var desiredJson = parsedJson[0];
-
-            tesco.title = desiredJson["title"].ToString();
-
-            tesco.price = desiredJson["price"].ToString();
-
-            txtTescoName.Text = tesco.title;
-
-            txtTescoPrice.Text = tesco.price;
-
-            pbxTesco.ImageLocation = desiredJson["image"].ToString();
+            var tescoResults = parsedTescoJson[0];
 
             await asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
 
@@ -133,7 +119,21 @@ namespace ShoppingListApp
 
             string asdaJson = await asdaResponse.Content.ReadAsStringAsync();
 
-            dynamic asdaResult = JsonConvert.DeserializeObject(asdaJson);
+            var parsedAsdaJson = JArray.Parse(asdaJson);
+
+            var asdaResults = parsedAsdaJson[0];
+
+            txtTescoName.Text = tescoResults["title"].ToString();
+
+            txtTescoPrice.Text = tescoResults["price"].ToString();
+
+            pbxTesco.ImageLocation = tescoResults["image"].ToString();
+
+            txtAsdaName.Text = asdaResults["item"]["picker_desc"].ToString();
+
+            txtAsdaPrice.Text = asdaResults["price"]["price_info"]["price"].ToString();
+
+            pbxAsda.ImageLocation = string.Concat(asdaResults["item"]["images"]["scene7_host"].ToString(), asdaResults["item"]["images"]["scene7_id"].ToString());
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -235,5 +235,4 @@ namespace ShoppingListApp
 
         }
     }
-
 }
