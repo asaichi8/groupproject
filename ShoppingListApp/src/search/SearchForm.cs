@@ -117,7 +117,7 @@ namespace ShoppingListApp
                     Invoke((MethodInvoker)delegate
                     {
                         txtTescoName.Text = tescoResults["title"].ToString();
-                        txtTescoPrice.Text = tescoResults["price"].ToString();
+                        txtTescoPrice.Text = "£" + tescoResults["price"].ToString();
                         pbxTesco.ImageLocation = tescoResults["image"].ToString();
                     });
                 }
@@ -126,8 +126,7 @@ namespace ShoppingListApp
             Task asdaThread = Task.Run(async () =>
             {
                 await asdaScraperAPI.PostAsJsonAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/run-sync-get-dataset-items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG", asdaConditions);
-
-                /// TODO: asda search returns the same thing every time, pls fix
+                
                 HttpResponseMessage asdaResponse = await asdaAPIResults.GetAsync("https://api.apify.com/v2/acts/jupri~asda-scraper/runs/last/dataset/items?token=apify_api_PdfwX5PDapGYM6FV2CQI5oBeqvEnp82YBVWG");
                 string asdaJson = await asdaResponse.Content.ReadAsStringAsync();
                 var parsedAsdaJson = JArray.Parse(asdaJson);
